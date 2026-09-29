@@ -1,0 +1,90 @@
+
+# cd
+alias ..='cd ..' 
+alias ...='cd ../..'
+
+# cp
+alias cp='cp -iv'
+
+# vim
+alias vi='vim'
+
+# case
+alias lowercase="tr '[A-ZÆØÅÉ]' '[a-zæøåé]'"
+alias uppercase="tr '[a-zæøåé]' '[A-ZÆØÅÉ]'"
+
+# ls
+alias l='exa --group-directories-first'
+alias ll='exa --long --group-directories-first'
+alias lll='exa --all --long --group-directories-first'
+
+# grep
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+
+# which
+alias which='which -a' 
+# dot git etc
+alias dot='/usr/bin/git --git-dir=$HOME/.repo/dotfiles/ --work-tree=$HOME'
+alias ldot='lazygit --git-dir=$HOME/.repo/dotfiles --work-tree=$HOME'
+alias lazydot='lazygit --git-dir=$HOME/.repo/dotfiles --work-tree=$HOME'
+alias lgit='lazygit'
+# clipboard
+alias p2c='xsel -p | xsel -b' 
+
+
+#alias music-dl='yt-dlp -v --extract-audio --audio-format mp3 -o "%(title)s-%(id)s.%(ext)s"' 
+#alias mdl='yt-dlp -v --extract-audio --audio-format mp3 -o "%(title)s-%(id)s.%(ext)s"' 
+
+mdl() {
+    setopt LOCAL_OPTIONS NO_NOMATCH
+    command yt-dlp -v --extract-audio --audio-format mp3 -o "%(title)s-%(id)s.%(ext)s" "$1" "${@:2}"
+}
+# music tools
+
+alias mt='musictools'
+
+# example
+alias mamnnn='function f() { tldr "$1"; man "$1";unset -f f; }; f'
+
+# FFF
+
+alias cli='fff cli'
+alias t='fff tpl'
+alias od='fff od'
+alias oe='fff oe'
+
+alias rd='fff rd'
+alias re='fff re'
+
+alias md='fff md'
+alias me='fff me'
+
+# bat
+export BAT=batcat
+alias batt='bat -p --color=always --theme=gruvbox-white --language=markdown'
+
+
+alias which_terminal='ps -p $(ps -p $$ -o ppid=) -o args=' 
+#jj() {
+#    if [[ "$#" -ne 0 ]]; then
+#        cd $(autojump $@)
+#        return
+#    fi
+#    cd "$(autojump -s | sort -k1gr | awk '$1 ~ /[0-9]:/ && $2 ~ /^\// { for (i=2; i<=NF; i++) { print $(i) } }' |  fzf --height 40% --reverse --inline-info)" 
+#}
+
+#alias z="zoxide"
+
+#reflector mirror
+alias mirror="sudo reflector --country Denmark --latest 20 --protocol https --sort rate --verbose --save /etc/pacman.d/mirrorlist"
+
+# NNN
+export NNN_PLUG='f:finder;o:fzopen;i:imgview;p:preview-tui;j:autojump;x:x2sel;R:xdgdefault'
+export NNN_FIFO='/tmp/nnn.fifo'
+export NNN_BMS='d:~/Documents;p:~/Pictures;b:~/Desktop/'
+# export NNN_SSHFS="sshfs -o follow_symlinks"        # make sshfs follow symlinks on the remote
+#export NNN_COLORS="2136"                           # use a different color for each context
+export NNN_TRASH=1
+export PANDOC_RESOURCE_PATH=$PANDOC_RESOURCE_PATH:/home/fred/hugo/static/

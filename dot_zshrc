@@ -1,0 +1,256 @@
+#export ZDOTDIR=$HOME/.config/zsh
+
+# ============================================================================
+# COLORS & PROMPT
+# ============================================================================
+autoload -U colors && colors
+
+PS1="%B%{$fg[blue]%}%n%{$fg[blue]%}@%{$fg[blue]%}%M %{$fg[yellow]%}%~% %{$fg[green]%}$ %{$reset_color%}%b"
+
+# ============================================================================
+# HISTORY
+# ============================================================================
+export HISTSIZE=10000
+export SAVEHIST=10000
+export HISTFILE=~/.cache/zsh-history
+
+setopt appendhistory       # Append history to the history file (no overwriting)
+setopt sharehistory        # Share history across terminals
+setopt incappendhistory    # Immediately append to the history file
+setopt HIST_IGNORE_ALL_DUPS # Ignore all repetitions of commands
+setopt HIST_FIND_NO_DUPS    # Do not display the string found earlier
+setopt HIST_IGNORE_DUPS     # Ignore rows if they are duplicates
+setopt HIST_REDUCE_BLANKS   # Delete empty lines from history file
+setopt HIST_IGNORE_SPACE    # Ignore commands starting with space
+setopt HIST_SAVE_NO_DUPS    # Don't save duplicates
+
+# ============================================================================
+# GENERAL OPTIONS
+# ============================================================================
+setopt extendedglob        # Extended glob patterns
+setopt menucomplete        # Tab completion menu
+setopt NO_NOMATCH          # Don't error on glob that matches nothing
+setopt interactive_comments # Allow comments in interactive shell
+setopt autocd              # Navigate to directories without ls
+setopt CORRECT             # Typo correction
+
+# ============================================================================
+# COMPLETION SYSTEM (single initialization)
+# ============================================================================
+autoload -U compinit && compinit -C
+autoload -U +X bashcompinit && bashcompinit
+
+# Enable bash completion integration
+eval "$(/usr/bin/pandoc --completion=bash)" 2>/dev/null
+
+# Completion styling
+zstyle ':completion:*' menu select
+zstyle ':completion:*' use-cache on
+zmodload zsh/complist
+_comp_options+=(globdots)  # Include hidden files
+
+# Custom completion paths
+[ -d "$HOME/.config/zsh/completions" ] && fpath+=("$HOME/.config/zsh/completions")
+
+# ============================================================================
+# VI MODE & KEYBINDINGS
+# ============================================================================
+stty stop undef            # Disable ctrl-s to freeze terminal
+
+bindkey -v
+export KEYTIMEOUT=1
+
+# Vim keys in completion menu
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -M menuselect 'l' vi-forward-char
+bindkey -M menuselect 'j' vi-down-line-or-history
+bindkey -v '^?' backward-delete-char
+
+# Change cursor shape for different vi modes
+function zle-keymap-select {
+  if [[ ${KEYMAP} == vicmd ]] || [[ $1 = 'block' ]]; then
+    echo -ne '\e[1 q'  # Block cursor
+  elif [[ ${KEYMAP} == main ]] || [[ ${KEYMAP} == viins ]] || [[ ${KEYMAP} = '' ]] || [[ $1 = 'beam' ]]; then
+    echo -ne '\e[5 q'  # Beam cursor
+  fi
+}
+zle -N zle-keymap-select
+
+zle-line-init() {
+  zle -K viins
+  echo -ne '\e[5 q'
+}
+zle -N zle-line-init
+
+echo -ne '\e[5 q'                    # Beam cursor on startup
+preexec() { echo -ne '\e[5 q' ;}    # Beam cursor for each new prompt
+
+# Search history with arrow keys
+autoload -U up-line-or-beginning-search
+autoload -U down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey "^p" up-line-or-beginning-search
+bindkey "^n" down-line-or-beginning-search
+
+# ============================================================================
+# CUSTOM FUNCTIONS
+# ============================================================================
+
+# Source custom functions if they exist
+[ -f "$HOME/.config/zsh/zsh-functions" ] && source "$HOME/.config/zsh/zsh-functions"
+
+# Source exports if they exist
+[ -f "$HOME/.config/zsh/zsh-exports" ] && source "$HOME/.config/zsh/zsh-exports"
+
+# Extract archived files
+extract() {
+  if [ -f "$1" ]; then
+    case "$1" in
+      *.tar.bz2) tar -jxvf "$1" ;;
+      *.tar.gz)  tar -zxvf "$1" ;;
+      *.bz2)     bzip2 -d "$1" ;;
+      *.gz)      gunzip -d "$1" ;;
+      *.tar)     tar -xvf "$1" ;;
+      *.tgz)     tar -zxvf "$1" ;;
+      *.zip)     unzip "$1" ;;
+      *.Z)       uncompress "$1" ;;
+      *.rar)     unrar x "$1" ;;
+      *)         echo "'$1' Error. Unsupported file type" ;;
+    esac
+  else
+    echo "'$1' is not a valid file"
+  fi
+}
+
+# Use vifm for directory navigation
+vifmcd() {
+  local tmp
+  tmp="$(mktemp)"
+  vifm --choose-dir="$tmp" "$@"
+  if [ -f "$tmp" ]; then
+    local dir
+    dir="$(cat "$tmp")"
+    rm -f "$tmp"
+    [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
+  fi
+}
+
+# Insert last command output
+insert-last-command-output() {
+  zmodload -i zsh/parameter
+  LBUFFER+="$(eval $history[$((HISTCMD-1))])"
+}
+zle -N insert-last-command-output
+
+# Edit command line in vim
+autoload -Uz edit-command-line
+zle -N edit-command-line
+
+# ============================================================================
+# KEY BINDINGS (Custom & FZF)
+# ============================================================================
+
+# Custom key bindings
+bindkey '^x' insert-last-command-output  # ctrl+x: insert last command output
+bindkey '^e' edit-command-line           # ctrl+e: edit in vim
+bindkey -s '^D' 'edot\n'                 # ctrl+D: edot
+bindkey -s '^N' 'vifmcd\n'               # ctrl+N: vifmcd
+
+# FZF key bindings
+bindkey -r '^R'
+bindkey -M emacs '^H' fzf-history-widget   # ctrl+H: search history
+bindkey -M vicmd '^H' fzf-history-widget
+bindkey -M viins '^H' fzf-history-widget
+
+bindkey -r '^T'
+bindkey -M emacs '^F' fzf-file-widget      # ctrl+F: search files
+bindkey -M vicmd '^F' fzf-file-widget
+bindkey -M viins '^F' fzf-file-widget
+
+bindkey -r '^[c'
+bindkey -M emacs '^J' fzf-cd-widget        # ctrl+J: search directories
+bindkey -M vicmd '^J' fzf-cd-widget
+bindkey -M viins '^J' fzf-cd-widget
+
+# ============================================================================
+# PATH CONFIGURATION (consolidated)
+# ============================================================================
+
+# Add all paths
+PATH="$HOME/.yarn/bin:$PATH"
+PATH="$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+PATH="$HOME/.npm-global/bin:$PATH"
+PATH="$HOME/.google-cloud-sdk/bin:$PATH"
+
+# Remove duplicates
+typeset -U PATH
+
+export PATH
+
+# ============================================================================
+# PLUGIN & TOOL INITIALIZATION
+# ============================================================================
+
+# Load bash aliases
+[ -f "$HOME/.bash_aliases" ] && source "$HOME/.bash_aliases"
+
+# FZF initialization
+if command -v fzf &> /dev/null; then
+  [ -f "$HOME/.fzfrc" ] && source "$HOME/.fzfrc"
+  
+  # Use fzf native zsh integration if available
+  if [ -f "$HOME/.vim/plugged/fzf/shell/completion.zsh" ]; then
+    source "$HOME/.vim/plugged/fzf/shell/completion.zsh"
+  fi
+  if [ -f "$HOME/.vim/plugged/fzf/shell/key-bindings.zsh" ]; then
+    source "$HOME/.vim/plugged/fzf/shell/key-bindings.zsh"
+  fi
+  
+  # Fallback to system fzf if available
+  if command -v fzf &> /dev/null && ! [ -f "$HOME/.vim/plugged/fzf/shell/key-bindings.zsh" ]; then
+    eval "$(fzf --zsh)" 2>/dev/null
+  fi
+fi
+
+# Zoxide (modern cd alternative)
+if command -v zoxide &> /dev/null; then
+  eval "$(zoxide init zsh)"
+fi
+
+# Syntax highlighting and autosuggestions (Debian/Ubuntu)
+[ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && \
+  source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+[ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ] && \
+  source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# Syntax highlighting and autosuggestions (Arch)
+[ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && \
+  source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+[ -f /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ] && \
+  source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# Stripe CLI completion
+if [ -d "$HOME/.stripe" ]; then
+  fpath=("$HOME/.stripe" $fpath)
+fi
+
+# Pip completion
+function _pip_completion {
+  local words cword
+  read -Ac words
+  read -cn cword
+  reply=( $( COMP_WORDS="$words[*]" \
+             COMP_CWORD=$(( cword-1 )) \
+             PIP_AUTO_COMPLETE=1 $words[1] 2>/dev/null ))
+}
+compctl -K _pip_completion pip
+
+# Google Cloud SDK
+if [ -f "$HOME/.google-cloud-sdk/path.zsh.inc" ]; then
+  source "$HOME/.google-cloud-sdk/path.zsh.inc"
+fi
+if [ -f "$HOME/.google-cloud-sdk/completion.zsh.inc" ]; then
+  source "$HOME/.google-cloud-sdk/completion.zsh.inc"
+fi
