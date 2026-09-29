@@ -1,0 +1,46 @@
+
+# If not running interactively, don't do anything
+[[ $- == *i* ]] || return
+
+# ---- History ----
+export HISTCONTROL=ignoreboth   # ignore duplicate lines and lines starting with space
+export HISTSIZE=100              # commands kept in memory per session
+export HISTFILESIZE=100          # commands kept in the history file on disk
+export HISTFILE=~/.cache/sh-history
+
+shopt -s histappend              # append to history file, don't overwrite
+shopt -s checkwinsize             # update LINES/COLUMNS after each command
+shopt -s autocd                   # type a directory name to cd into it
+
+# ---- Editing mode ----
+set -o vi                         # vi-style command-line editing
+
+
+#0 – Black
+#1 – Red
+#2 – Green
+#3 – Yellow
+#4 – Blue
+#5 – Magenta
+#6 – Cyan
+#7 – White
+
+export PS1="\[$(tput setaf 2)\]\u\[$(tput setaf 2)\]@\[$(tput setaf 2)\]\h \[$(tput setaf 3)\]\w\[$(tput sgr0)\] \$ "
+
+# Cursor shape codes for \e[N q:
+
+# 0 or 1 — blinking block
+# 2 — steady block
+# 3 — blinking underline
+# 4 — steady underline
+# 5 — blinking bar
+# 6 — steady bar
+
+echo -e '\e[6 q'
+
+
+
+
+
+export PATH="$HOME/.npm-global/bin:$PATH"
+export PATH="/home/fred/.google-cloud-sdk/bin:$PATH"
