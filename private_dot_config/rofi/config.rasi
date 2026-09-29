@@ -1,0 +1,60 @@
+
+
+configuration {
+
+//cache-dir:"./.config/rofi/";
+modi: "window,run,drun,filebrowser";
+width: 40;
+lines: 20;
+//show: "window";
+cycle: false;
+//kb-ellipsize: "KP_Subtract";
+
+
+run-shell-command: "notify-send \\"shell world\\""; // je ne sais pas vraiment a quoi ca sert
+run-list-command: "echo \"cmd1 param1\ncmd2 param2\""; // ajouter 2 cmd a la liste
+//run-list-command: "cat \"/home/fred/tmp\""; // ajouter 2 cmd a la liste
+//run-command: "notify-send debug '{cmd}'";
+//run-command: "/home/fred/Dropbox/script/rofi/run.py '{cmd}'";
+
+kb-delete-entry: "Control+Shift+Delete"; //Delete entry from history.
+
+display-run: "cmd";
+display-drun: "apps";
+//drun-display-format: " {name} [<span color=\"#828A99\"> ### {generic}</span>]";
+
+show-icons: true;
+//drun-show-actions: true;
+
+disable-history: false;
+max-history-size: 2000;
+
+kb-cancel: "currency,Escape";
+kb-clear-line: "ctrl+BackSpace";
+
+kb-mode-next: "Shift+Right,Control+Tab";
+kb-mode-previous: "Shift+Left,Control+ISO_Left_Tab";
+kb-move-char-back: "Left";
+kb-move-char-forward: "Right";
+kb-move-word-back: "Alt+Left";
+kb-move-word-forward: "Alt+Right";
+kb-primary-paste: "Control+v";
+kb-remove-char-back: "BackSpace";
+kb-remove-char-forward: "Delete";
+kb-remove-word-back: "Control+Left";
+kb-remove-word-forward: "Control+Right";
+//kb-row-first: "Control+Up";
+//kb-row-last: "Control+Down";
+//kb-row-select: "Tab";
+//kb-row-tab: "";
+kb-secondary-paste: "Control+V";
+kb-toggle-case-sensitivity: "Control+i";
+kb-toggle-case-sensitivity: "plus";
+kb-toggle-sort: "Control+s";
+}
+
+@theme "~/.config/rofi/Dracula.rasi" 
+//color-window: "#222222, #222222, #b1b4b3";
+//color-normal: "#222222, #b1b4b3, #222222, #005577, #b1b4b3";
+//color-active: "#222222, #b1b4b3, #222222, #007763, #b1b4b3";
+//color-urgent: "#222222, #b1b4b3, #222222, #77003d, #b1b4b3"; 

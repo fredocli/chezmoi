@@ -1,0 +1,146 @@
+/*
+ * breeze-dracula.rasi
+ * rofi theme inspired by plasma breeze
+ * MonsieurBedard
+ * Dracula colors by Trollwut <trollwut@trollwut.org>
+
+
+ 
+configuration {
+    columns: 1;
+    font: "Noto Sans 12";
+    sidebar-mode: true;
+    show-icons: true;
+    terminal: "kitty";
+    drun-match-fields: "name,generic,exec,categories";
+    levenshtein-sort: true;
+    matching: "normal";
+}
+
+ */
+* {
+    default-background: rgba(40, 42, 54, 100%); // <- change this for transparency
+    default-foreground: rgba(248, 248, 242, 100%);
+    default-border: rgba(189, 147, 249, 100%);
+    alternative-background: rgba(40, 42, 54, 100%);
+    invisible: rgba(0, 0, 0, 0%);
+    hard-grey: rgba(16, 16, 16, 100%);
+    light-grey: rgba(48, 48, 48, 100%);
+    hard-red:  #A51D2D ;
+    light-red: #F66151;
+    hard-green: #241F31;
+    light-green: rgba(80, 250, 123, 100%);
+    purple: #DC8ADD;
+    background-color: @invisible;
+    border-color: @default-border;
+    text-color: @default-foreground;
+}
+
+#window {
+    background-color: @default-background;
+    border: 1;
+    border-radius: 3;
+    border-color: @hard-grey;
+    padding: 10;
+}
+
+#mainbox {
+    border:  0;
+    padding: 0;
+}
+
+#message {
+    border: 0;
+    border-radius: 3;
+    padding: 5;
+    background-color: #241F31;
+}
+
+#textbox {
+    background-color: @hard-grey;
+}
+
+#listview {
+    fixed-height: 0;
+    spacing: 2;
+    scrollbar: false;
+    padding: 2 0 0;
+}
+
+#element {
+    padding: 5;
+    border: 0;
+    border-radius: 3;
+    border-color: @invisible;
+}
+
+#element.normal.normal {
+    background-color: @invisible;
+}
+
+#element.normal.urgent {
+    background-color: @light-red;
+}
+
+#element.normal.active {
+    /*background-color: @light-green;*/
+    border-color:     @hard-green;
+}
+
+#element.selected.normal {
+    background-color: black;
+}
+
+#element-text.selected {
+  text-color: yellow;
+}
+#element.selected.urgent {
+    background-color: @light-red;
+    border-color:     @hard-red;
+}
+
+#element.selected.active {
+    background-color: @light-green;
+    border-color:     @hard-green;
+    color:            @alternative-background;
+}
+
+#mode-switcher {
+    spacing: 0;
+}
+
+#button {
+    border: 0 0 0 0;
+    border-color: @invisible;
+    padding: 3;
+}
+
+#button.selected {
+    border-color: @purple;
+}
+
+#inputbar {
+    spacing: 0;
+    padding: 1;
+}
+
+#case-indicator {
+    spacing: 0;
+    padding: 3px;
+    background-color: @alternative-background;
+    border: 0 0 0 0;
+    border-radius: 0 2 2 0;
+}
+
+#entry {
+    background-color: @alternative-background;
+    padding: 3px;
+    border: 0 0 0 0;
+    border-radius: 2 0 0 2;
+}
+
+#prompt {
+    padding: 3 7 3 0;
+}
+
+/* vim:ft=css

@@ -1,0 +1,19 @@
+15 setxkbmap -layout no -option ""
+9 setxkbmap -layout dk -option nodeadkeys
+6 xterm
+4 dwmblocks
+4 alacritty
+2 omegat
+2 vifm
+1 gparted
+1 setxkbmap no -options ""
+1 nm-applet
+1 dwmblocks &
+1 inkscape
+1 leafpad
+1 timeshift-gtk
+0 shutdown
+0 grub-reboot
+0 Thunar
+0 sudo gparted
+0 uxterm
