@@ -13,7 +13,7 @@
 
 
 export ZDOTDIR=$HOME
-#export DISPLAY=:0
+
 
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
@@ -36,21 +36,17 @@ fi
 
 export PATH="$HOME/.config/vifm/scripts:$PATH"
 
-#export TERM="xterm-256color"
 
 export BAT=batcat
 ### "bat" as manpager
-#export MANPAGER="sh -c 'col -bx | $BAT -l man -p'"
 export MANPAGER="sh -c '$BAT -l man -p'"
 export LANG=en_US.UTF-8
+
 # Default programs:
 export EDITOR="vim"
-#export PAGER="bat -p --paging=never  "
-#export PAGER="bat -p "
 export BROWSER="google-chrome-stable"
 export BROWSER2="google-chrome-stable --profile-directory=Profile 3"
-export TERMINAL="xterm"
-#export TERMINAL="gnome-terminal"
+export TERMINAL="alacritty"
 export READER="zathura"
 export VIDEOPLAYER="mpv"
 
