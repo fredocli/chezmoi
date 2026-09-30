@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+APP_TARGET="${1}"
+SHELL_CMD="${2}"
+
+APP_ID=$(niri msg --json windows | jq --arg app "${APP_TARGET}" '
+  [ .[] | select(.app_id | ascii_downcase == ($app | ascii_downcase)) ] [-1] | .id
+')
+
+if [ "${APP_ID}" = "null" ]; then
+    # CRITICAL: Run bash -c as separate arguments so st parses it as a shell string
+    niri msg action spawn -- st -c "${APP_TARGET}" -e bash -c "${SHELL_CMD}"
+else
+    niri msg action focus-window --id "${APP_ID}"
+fi
