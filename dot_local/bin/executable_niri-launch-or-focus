@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# Usage: niri-launch-or-focus <app_id> <executable_command>
+
+
+set -euo pipefail
+
+APP_TARGET="${1}"
+LAUNCH_CMD="${2}"
+
+# Query open windows from niri and extract the ID if the target app matches
+APP_ID=$(niri msg --json windows | jq --arg app "${APP_TARGET}" '
+  [ .[] | select(.app_id | ascii_downcase | endswith($app | ascii_downcase)) ] [-1] | .id
+')
+
+if [ "${APP_ID}" = "null" ]; then
+    # No instance found, spawn a new one
+    niri msg action spawn -- ${LAUNCH_CMD}
+else
+    # Instance found, bring it into view
+    niri msg action focus-window --id "${APP_ID}"
+fi
