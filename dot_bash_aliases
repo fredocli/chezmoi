@@ -85,11 +85,3 @@ alias mirror="sudo reflector --country Denmark --latest 20 --protocol https --so
 alias cm=chezmoi
 alias cmcd="chezmoi cd"
 
-# NNN
-export NNN_PLUG='f:finder;o:fzopen;i:imgview;p:preview-tui;j:autojump;x:x2sel;R:xdgdefault'
-export NNN_FIFO='/tmp/nnn.fifo'
-export NNN_BMS='d:~/Documents;p:~/Pictures;b:~/Desktop/'
-# export NNN_SSHFS="sshfs -o follow_symlinks"        # make sshfs follow symlinks on the remote
-#export NNN_COLORS="2136"                           # use a different color for each context
-export NNN_TRASH=1
-export PANDOC_RESOURCE_PATH=$PANDOC_RESOURCE_PATH:/home/fred/hugo/static/
