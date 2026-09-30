@@ -5,7 +5,7 @@
 # ============================================================================
 autoload -U colors && colors
 
-PS1="%B%{$fg[blue]%}%n%{$fg[blue]%}@%{$fg[blue]%}%M %{$fg[yellow]%}%~% %{$fg[green]%}$ %{$reset_color%}%b"
+PS1="%B%{$fg[blue]%}%n%{$fg[blue]%}@%{$fg[blue]%}%M %{$fg[yellow]%}%~% %{$fg[blue]%}$ %{$reset_color%}%b"
 
 # ============================================================================
 # HISTORY
@@ -40,12 +40,8 @@ setopt CORRECT             # Typo correction
 autoload -U compinit && compinit -C
 autoload -U +X bashcompinit && bashcompinit
 
-# Enable bash completion integration
-if [[ -x /usr/bin/pandoc && ! -d /usr/bin/pandoc ]]; then
-  eval "$(/usr/bin/pandoc --completion=bash)" 2>/dev/null
-fi
 
-source <(chezmoi completion zsh)
+
 
 # Completion styling
 zstyle ':completion:*' menu select
