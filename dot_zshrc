@@ -41,7 +41,9 @@ autoload -U compinit && compinit -C
 autoload -U +X bashcompinit && bashcompinit
 
 # Enable bash completion integration
+if [[ -x /usr/bin/pandoc && ! -d /usr/bin/pandoc ]]; then
 eval "$(/usr/bin/pandoc --completion=bash)" 2>/dev/null
+fi
 
 # Completion styling
 zstyle ':completion:*' menu select
