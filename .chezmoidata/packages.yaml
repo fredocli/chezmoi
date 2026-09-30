@@ -1,0 +1,9 @@
+packages:
+  pacman:
+    - gvim
+    - git
+    - zsh
+    - exa
+
+  aur:
+    - google-chrome
