@@ -1,0 +1,78 @@
+# ~/.profile: executed by the command interpreter for login shells.
+# This file is not read by bash(1), if ~/.bash_profile or ~/.bash_login
+# exists.
+# see /usr/share/doc/bash/examples/startup-files for examples.
+# the files are located in the bash-doc package.
+
+# the default umask is set in /etc/profile; for setting the umask
+# for ssh logins, install and configure the libpam-umask package.
+#umask 022
+#
+#
+# ZSH starts by reading the .zshenv file unless -f argument is specified when launching the shell session. This file should only contain the user’s environment variables.
+
+
+export ZDOTDIR=$HOME
+#export DISPLAY=:0
+
+# if running bash
+if [ -n "$BASH_VERSION" ]; then
+    # include .bashrc if it exists
+    if [ -f "$HOME/.bashrc" ]; then
+	. "$HOME/.bashrc"
+    fi
+fi
+
+# set PATH to .repo/bin if it exists
+if [ -d "$HOME/.repo/bin" ] ; then
+    PATH="$HOME/.repo/bin:$PATH"
+fi
+
+# set PATH to .local/bin if it exists
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
+
+
+export PATH="$HOME/.config/vifm/scripts:$PATH"
+
+#export TERM="xterm-256color"
+
+export BAT=batcat
+### "bat" as manpager
+#export MANPAGER="sh -c 'col -bx | $BAT -l man -p'"
+export MANPAGER="sh -c '$BAT -l man -p'"
+export LANG=en_US.UTF-8
+# Default programs:
+export EDITOR="vim"
+#export PAGER="bat -p --paging=never  "
+#export PAGER="bat -p "
+export BROWSER="google-chrome-stable"
+export BROWSER2="google-chrome-stable --profile-directory=Profile 3"
+export TERMINAL="xterm"
+#export TERMINAL="gnome-terminal"
+export READER="zathura"
+export VIDEOPLAYER="mpv"
+
+# clipmenu
+export CM_LAUNCHER="rofi"
+export CM_DIR="/tmp"
+export CM_MAX_CLIPS=1000
+export CM_HISTLENGTH=1000
+export CM_SELECTIONS="clipboard" # "primary clipboard"
+
+# tsp
+export TS_MAILTO=frederic@terrible.dk
+
+if [ -f "/usr/local/bin/st" ] 
+then
+export TERMINAL="st"
+fi
+
+if [[ "$(tty)" = "/dev/tty1" ]]
+then
+pgrep xinit || startx
+fi     
+
+
+export XDG_CONFIG_HOME="$HOME/.config"
