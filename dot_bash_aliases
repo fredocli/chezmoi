@@ -25,14 +25,15 @@ alias egrep='egrep --color=auto'
 
 # which
 alias which='which -a' 
+
 # dot git etc
 alias dot='/usr/bin/git --git-dir=$HOME/.repo/dotfiles/ --work-tree=$HOME'
 alias ldot='lazygit --git-dir=$HOME/.repo/dotfiles --work-tree=$HOME'
 alias lazydot='lazygit --git-dir=$HOME/.repo/dotfiles --work-tree=$HOME'
 alias lgit='lazygit'
+
 # clipboard
 alias p2c='xsel -p | xsel -b' 
-
 
 #alias music-dl='yt-dlp -v --extract-audio --audio-format mp3 -o "%(title)s-%(id)s.%(ext)s"' 
 #alias mdl='yt-dlp -v --extract-audio --audio-format mp3 -o "%(title)s-%(id)s.%(ext)s"' 
@@ -79,6 +80,10 @@ alias which_terminal='ps -p $(ps -p $$ -o ppid=) -o args='
 
 #reflector mirror
 alias mirror="sudo reflector --country Denmark --latest 20 --protocol https --sort rate --verbose --save /etc/pacman.d/mirrorlist"
+
+# chezmoi
+alias cm=chezmoi
+alias cmcd="chezmoi cd"
 
 # NNN
 export NNN_PLUG='f:finder;o:fzopen;i:imgview;p:preview-tui;j:autojump;x:x2sel;R:xdgdefault'
