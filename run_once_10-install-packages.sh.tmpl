@@ -6,5 +6,5 @@ sudo pacman -S --needed --noconfirm {{ range .packages.pacman }}{{ . }} {{ end }
 {{- end }}
 
 {{- if .packages.aur }}
-#paru -S --needed --noconfirm {{ range .packages.aur }}{{ . }} {{ end }}
+#sparu -S --needed --noconfirm {{ range .packages.aur }}{{ . }} {{ end }}
 {{- end }}
