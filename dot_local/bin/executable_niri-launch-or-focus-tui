@@ -9,8 +9,8 @@ APP_ID=$(niri msg --json windows | jq --arg app "${APP_TARGET}" '
 ')
 
 if [ "${APP_ID}" = "null" ]; then
-    # CRITICAL: Run bash -c as separate arguments so st parses it as a shell string
-    niri msg action spawn -- st -c "${APP_TARGET}" -e bash -c "${SHELL_CMD}"
+    # CRITICAL: Run bash -c as separate arguments so $TERM parses it as a shell string
+    niri msg action spawn -- $TERM -c "${APP_TARGET}" -e bash -c "${SHELL_CMD}"
 else
     niri msg action focus-window --id "${APP_ID}"
-fi
+fis
