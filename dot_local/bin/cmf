@@ -1,11 +1,13 @@
 #!/bin/bash
 
-cfzf () {
-  file_path=$(chezmoi managed --include=files --exclude=externals | fzf --reverse --preview="cat {} | head -n 200" --query=$1)
+# copy from
+# https://github.com/twpayne/chezmoi/discussions/2631
 
-  if [ -z "$file_path" ]; then
-    >&2 echo "No file selected"
-  else
-    chezmoi edit --apply "$HOME/$file_path"
-  fi
-}
+
+file_path=$(chezmoi managed --include=files --exclude=externals | fzf --reverse --preview="cat {} | head -n 200" --query=$1)
+
+if [ -z "$file_path" ]; then
+  >&2 echo "No file selected"
+else
+  chezmoi edit --apply "$HOME/$file_path"
+fi
