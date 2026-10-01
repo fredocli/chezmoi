@@ -1,6 +1,5 @@
 packages:
   pacman:
-    - gvim
     - git
     - zsh
     - exa
