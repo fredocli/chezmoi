@@ -5,6 +5,50 @@
 
 set -o pipefail
 
+usage() {
+  cat <<'EOF'
+Usage: clipmenuwl [OPTIONS]
+
+Pick an entry from the Wayland clipboard history using cliphist and rofi.
+
+Requirements:
+  rofi
+  cliphist
+  wl-clipboard (provides wl-copy)
+  wtype (is needed for Alt+p;)
+  foot (is the default terminal for Alt+e)
+  
+  pacman -S cliphist rofi wl-clipboard wtype foot
+
+Options:
+  -h, --help  Show this help and exit
+
+Environment:
+  CLIPMENUWL_SELECTION  Clipboard selection to update: clipboard (default) or primary
+  TERM to replace the default terminal (foot)
+
+Picker actions:
+  Alt+e  Edit this script
+  Alt+x  Delete selected entries
+  Alt+d  Clear clipboard history
+  Alt+p  Paste selected entries
+EOF
+}
+
+if [[ "$#" -gt 0 ]]; then
+  case "$1" in
+    -h|--help)
+      usage
+      exit 0
+      ;;
+    *)
+      printf 'Unknown option: %s\n' "$1" >&2
+      usage >&2
+      exit 2
+      ;;
+  esac
+fi
+
 selection_name="${CLIPMENUWL_SELECTION:-clipboard}"
 case "$selection_name" in
   clipboard|primary) ;;
@@ -26,8 +70,8 @@ exit_code=$?
 case "$exit_code" in
   10)
     : "${EDITOR:=vi}"
-    : "${TERMINAL:=foot}"
-    "$TERMINAL" -e "$EDITOR" "$0" &
+    : "${TERM:=foot}"
+    "$TERM" -e "$EDITOR" "$0" &
     exit 0
     ;;
   12)

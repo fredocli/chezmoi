@@ -1,8 +1,17 @@
 packages:
   pacman:
+    - foot
     - git
     - zsh
     - exa
+    - jq
+    - bluetui
+    - pulsemixer
+    - cliphist 
+    - wl-clipboard 
+    - wtype
+
+
 
   aur:
     - google-chrome
