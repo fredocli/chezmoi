@@ -1,0 +1,76 @@
+#!/usr/bin/env bash
+
+# Wayland clipboard history picker backed by cliphist.
+# Requires: cliphist, rofi, wl-copy; wtype is used for the paste action.
+
+set -o pipefail
+
+selection_name="${CLIPMENUWL_SELECTION:-clipboard}"
+case "$selection_name" in
+  clipboard|primary) ;;
+  *) printf 'Unsupported selection: %s (use clipboard or primary)\n' "$selection_name" >&2; exit 2 ;;
+esac
+
+chosen_lines=$(cliphist list | rofi -dmenu -show -i \
+  -p 'Clipboard' \
+  -mesg 'Alt+e: edit  Alt+x: delete selected  Alt+d: clear history  Alt+p: paste' \
+  -multi-select \
+  -kb-element-next "" \
+  -kb-accept-alt "Tab" \
+  -kb-custom-1 'Alt+e' \
+  -kb-custom-2 'Alt+x' \
+  -kb-custom-3 'Alt+d' \
+  -kb-custom-4 'Alt+p')
+exit_code=$?
+
+case "$exit_code" in
+  10)
+    : "${EDITOR:=vi}"
+    : "${TERMINAL:=foot}"
+    "$TERMINAL" -e "$EDITOR" "$0" &
+    exit 0
+    ;;
+  12)
+    cliphist list | cliphist delete
+    exit $?
+    ;;
+esac
+
+if [[ "$exit_code" -eq 11 ]]; then
+  [[ -n "$chosen_lines" ]] || exit 0
+  printf '%s\n' "$chosen_lines" | cliphist delete
+  exit $?
+fi
+
+[[ -n "$chosen_lines" ]] || exit 0
+
+# Decode each selected history row separately. This preserves the full contents
+# of every selection and joins the entries in the order rofi returned them.
+final_text=''
+while IFS= read -r chosen_line; do
+  [[ -n "$chosen_line" ]] || continue
+  decoded=$(printf '%s\n' "$chosen_line" | cliphist decode) || exit $?
+  if [[ -n "$final_text" ]]; then
+    final_text+=$'\n'
+  fi
+  final_text+="$decoded"
+done <<< "$chosen_lines"
+
+[[ -n "$final_text" ]] || exit 0
+
+# cliphist uses the selected list rows (including their IDs) as decode input.
+copy_to_selection() {
+  if [[ "$selection_name" == primary ]]; then
+    wl-copy --primary
+  else
+    wl-copy
+  fi
+}
+
+if [[ "$exit_code" -eq 13 ]]; then
+  printf '%s' "$final_text" | copy_to_selection || exit $?
+  wtype -M ctrl v -m ctrl
+  exit $?
+fi
+
+printf '%s' "$final_text" | copy_to_selection
