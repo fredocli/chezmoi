@@ -1,0 +1,72 @@
+#!/bin/bash
+#  ✳	
+APP=$(basename "$0")
+EMOJI_FILE="$HOME/.local/share/dotfiles/emoji"
+
+
+usage() {
+echo >&2 "Usage: $APP [-q query] [-h help] [-p print]"
+exit 
+}
+
+function show_emoji(){
+
+rofi  -show -dmenu -input $EMOJI_FILE \
+-filter "$QUERY" \
+-font "mono 24" \
+-multi-select \
+-mesg "Alt+edit - Alt+print" \
+-p "EMOJI" \
+-width 40 \
+-format "s" \
+-kb-element-next "" \
+-kb-accept-alt  "Tab" \
+-kb-custom-1 "Alt+p" \
+-kb-custom-2 "Alt+e" 
+}
+
+QUERY=""
+PRINT=0
+CLIPBOARD=0
+
+while getopts "q:ph" option
+do
+	case "$option" in
+	  h )	usage ;;
+	  p )	PRINT=1 ;;
+	  q )	QUERY="$OPTARG" ;;
+	  ? )    usage ;;
+  esac
+done
+
+shift $(($OPTIND - 1))
+
+
+value="$(show_emoji)"
+key="$?"
+
+if [ "$key" -eq "11" ] 
+then
+leafpad "$EMOJI_FILE" & 
+exit
+fi
+
+
+
+if [ -n "$value" ]
+then   
+
+    value=$(echo  "$value" |awk 'BEGIN{ORS=""; OFS="\t"} {print $1}'  ) 
+    echo  "value: $value    key: $key"
+
+    if [ "$key" -eq "10" ] || [ "$PRINT" -eq 1 ]
+    then
+	echo -n "$value" | xsel -b
+	sleep 0.5
+	notify-send "'$value'" &
+	xdotool type  --clearmodifiers --delay 48 "$value"
+    else
+	echo -n "$value" | xsel -b
+	notify-send "'$value' cliped!" &
+    fi    
+fi
