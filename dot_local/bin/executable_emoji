@@ -1,13 +1,26 @@
 #!/bin/bash
-#  ✳
 
 APP=$(basename "$0")
 EMOJI_FILE="$HOME/.config/emoji/emoji.txt"
 
 
 usage() {
-echo >&2 "Usage: $APP [-q query] [-h help] [-p print]"
-exit 
+if [[ -n "${WAYLAND_DISPLAY:-}" || "${XDG_SESSION_TYPE:-}" == "wayland" ]]; then
+	command -v wtype >/dev/null || { echo "wtype is required for typing in Wayland" >&2; return 1; } 
+	command -v wl-copy >/dev/null || { echo "wl-copy is required for Wayland clipboard access" >&2; return 1; }
+else
+	command -v xdotool >/dev/null || { echo "xdotool is required for typing in Xorg" >&2; return 1; }
+	command -v xsel >/dev/null || { echo "xsel is required for Xorg clipboard access" >&2; return 1; }
+fi
+cat >&2 <<EOF
+Usage: $APP [-q query] [-p] [-h]
+
+Requirements:
+	Common: rofi, notify-send, and $EMOJI_FILE
+	Wayland: wl-copy and wtype
+	Xorg:    xsel and xdotool		
+EOF
+exit 0
 }
 
 function show_emoji(){
@@ -24,6 +37,23 @@ rofi  -show -dmenu -input $EMOJI_FILE \
 -kb-accept-alt  "Tab" \
 -kb-custom-1 "Alt+p" \
 -kb-custom-2 "Alt+e" 
+}
+
+copy_emoji() {
+	if [[ -n "${WAYLAND_DISPLAY:-}" || "${XDG_SESSION_TYPE:-}" == "wayland" ]]; then
+		printf '%s' "$1" | wl-copy
+	else
+		printf '%s' "$1" | xsel -b
+	fi
+}
+
+type_emoji() {
+	if [[ -n "${WAYLAND_DISPLAY:-}" || "${XDG_SESSION_TYPE:-}" == "wayland" ]]; then
+	
+		wtype -d 48 "$1"
+	else
+		xdotool type --clearmodifiers --delay 48 "$1"
+	fi
 }
 
 QUERY=""
@@ -53,7 +83,6 @@ exit
 fi
 
 
-
 if [ -n "$value" ] 
 then   
 
@@ -62,12 +91,12 @@ then
 
     if [ "$key" -eq "10" ] || [ "$PRINT" -eq 1 ]
     then
-	echo -n "$value" | xsel -b
+	copy_emoji "$value" || exit 1
 	sleep 0.5
 	notify-send "'$value'" &
-	xdotool type  --clearmodifiers --delay 48 "$value"
+	type_emoji "$value" || exit 1
     else
-	echo -n "$value" | xsel -b
+	copy_emoji "$value" || exit 1
 	notify-send "'$value' cliped!" &
     fi    
 fi
