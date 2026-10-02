@@ -1,0 +1,545 @@
+🇬🇧	en flag english england drapeau anglais
+🇩🇰	dk flag danish danemark drapeau danmark denmark danois
+🇫🇷	fr flag french france francais drapeau
+🎂🥳🎉🎁	anniversaire
+😘😘😘	bisous
+❤❤❤	amour
+🎆🎉🎊🍾🥂	new year nouvel an celebration party fete fireworks champagne toast
+🎄🎅🎁🦌🌟❄️☃️🔔	christmas noel xmas santa tree gift reindeer star snowflake snowman bell
+🐇🐰🐣🥚🍫🌷	easter pâques bunny rabbit chick egg chocolate spring printemps
+	devicon
+	file text devicon
+	file text devicon
+📦	package boite paquet
+⚠️	attention warning
+✔️	coche check
+⌨️	clavier keyboard ordinateur computer
+🌈	arc ciel rainbow color couleur
+📁	dossier folder map directory
+🎞️	video screenshot film
+📅	calendrier calendar agenda
+🃏	carte joker jeu
+🌀	cyclone tourbillon
+🌂	parapluie umbrella
+🌄	soleil levant sunrise mountains
+🌅	soleil levant sunrise
+🌇	coucher soleil sunset
+🌉	pont nuit bridge at night
+🌊	mer ocean vague water wave
+🌋	eruption volcano
+🌚	lune nouvelle lune visage new moon face
+🌭	hot dog saucisse francfort hot dog
+🌮	mexicain taco
+🌰	chataigne plante chestnut
+🌲	arbre conifere evergreen tree
+🌳	arbre feuilles caduques feuilles caduques feuillu deciduous tree
+🌴	arbre palmier palm tree
+🌵	cactus plante cactus
+🌷	fleur tulipe tulip
+🌸	fleur cerisier cherry blossom
+🌹	fleur rose
+🌺	fleur hibiscus
+🌻	fleur tournesol sunflower
+🌼	bourgeon fleur blossom
+🌽	epi mais ear corn
+🌿	feuille plante herb
+🍀	chance trefle quatre feuilles four leaf clover
+🍁	feuille erable maple leaf
+🍂	feuille morte fallen leaf
+🍄	champignon plante mushroom
+🍅	legume plante tomate tomato
+🍆	aubergine legume eggplant
+🍇	fruit raisin grapes
+🍈	fruit melon
+🍉	fruit pasteque watermelon
+🍊	fruit mandarine orange tangerine
+🍋	citron fruit lemon
+🍌	banane fruit banana
+🍍	ananas fruit pineapple
+🍎	fruit pomme rouge red apple
+🍏	fruit pomme verte green apple
+🍐	fruit poire pear
+🍑	fruit peche peach
+🍒	cerises fruit cherries
+🍓	fraise fruit strawberry
+🍔	burger hamburger
+🍕	fromage part pizza
+🍖	viande os meat bone
+🍗	cuisse poulet poultry leg
+🍞	miche pain bread
+🍟	frites potatoes french fries
+🍣	japonais poisson sushi
+🍦	glace italienne soft ice cream
+🍨	creme dessert glace sucre ice cream
+🍫	barre chocolatee chocolat dessert sucre chocolate bar
+🍬	bonbon dessert sucre candy
+🍭	dessert sucette sucrerie lollipop
+🍰	dessert gateau sable patisserie sucre shortcake
+🍳	friture oeuf plat poele cooking
+🍴	couteau fourchette couteau restaurant fork and knife
+🍵	tasse teacup without handle
+🍷	verre vin wine glass
+🍸	cocktail verre cocktail glass
+🍹	cocktail tropical verre tropical drink
+🍺	biere chope beer mug
+🍻	biere chopes biere trinquer clinking beer mugs
+🍼	bebe biberon boisson lait baby bottle
+🍾	boisson bouchon bouteille champagne pop bottle popping cork
+🍿	pop corn popcorn
+🎀	fete ruban ribbon
+🎁	anniversaire cadeau fete wrapped gift
+🎂	anniversaire gateau anniversaire birthday cake
+🎃	citrouille lanterne halloween
+🎄	arbre fete noel sapin noel Christmas tree
+🎅	noel pere noel Santa Claus
+🎆	artifice feu artifice fireworks
+🎇	cierge magique etincelle fete feu artifice sparkler
+🎈	ballon gonflable fete balloon
+🎉	cotillons fete party popper
+🎊	confettis fete confetti ball
+🎍	bambou decoratif fete japonais plante pine decoration
+🎏	carpe fete koinobori carp streamer
+🎐	carillon eolien clochette fete vent wind chime
+🎑	ceremonie lune moon viewing ceremony
+🎓	chapeau toque universitaire vetements graduation cap
+🎠	cheval manege carousel horse
+🎡	grande roue ferris wheel
+🎢	montagnes russes roller coaster
+🎣	peche ligne fishing pole
+🎨	art musee peinture palette peinture artist palette
+🎩	chapeau haut forme vetements top hat
+🎫	billet spectacle ticket
+🎬	clap film clapper board
+🎭	art masque spectacle vivant theatre performing arts
+🎯	cible mille direct hit
+🎱	billard boule billard jeu pool 8 ball
+🎲	des jeu game die
+🎳	boule bowling jeu partie bowling
+🎵	musique note musique musical note
+🎶	musique notes musique musical notes
+🎷	instrument musique saxophone
+🎸	guitare instrument musique guitar
+🎺	instrument musique trompette trumpet
+🎻	instrument musique violon violin
+🎾	balle sport tennis
+🎿	ski sport skis
+🏅	medaille sportive sports medal
+🏆	prix trophee trophy
+🏉	ballon rugby sport rugby football
+🏠	batiment maison pavillon house
+🏢	immeuble bureaux office building
+🏥	batiment hopital hospital
+🏦	banque batiment bank
+🏨	batiment hotel
+🏫	batiment ecole school
+🏭	batiment usine factory
+🏰	batiment chateau europeen castle
+🏹	arc fleche bow arrow
+🎪	chapiteau cirque circus tent
+🐀	animal rat
+🐁	animal souris mouse
+🐂	animal boeuf ox
+🐃	animal buffle water buffalo
+🐄	animal vache cow
+🐇	animal lapin rabbit
+🐈	animal chat cat
+🐊	animal crocodile reptile crocodile
+🐌	animal escargot snail
+🐍	animal reptile serpent snake
+🐏	animal belier ram
+🐐	animal chevre goat
+🐑	animal mouton ewe
+🐒	animal singe monkey
+🐓	animal coq oiseau rooster
+🐔	animal oiseau poule chicken
+🐖	animal cochon pig
+🐗	animal sanglier boar
+🐘	animal elephant
+🐙	animal mollusque pieuvre octopus
+🐚	coquille spirale spiral shell
+🐛	animal chenille insecte bug
+🐜	animal fourmi insecte ant
+🐝	abeille animal insecte honeybee
+🐞	animal coccinelle insecte lady beetle
+🐟	animal poissons zodiaque fish
+🐠	animal poisson tropical fish
+🐡	animal poisson lune blowfish
+🐢	animal reptile tortue turtle
+🐣	animal oiseau poussin eclot hatching chick
+🐤	animal oiseau poussin baby chick
+🐥	animal oiseau poussin face baby chick
+🐦	animal oiseau bird
+🐧	animal oiseau pingouin penguin
+🐧	animal oiseau pingouin linux
+🐨	animal koala
+🐩	animal caniche chien poodle
+🐪	animal dromadaire camel
+🐫	animal chameau camel
+🐬	animal dauphin dolphin
+🐭	animal souris tete souris mouse face
+🐮	animal tete vache cow face
+🐯	animal tete tigre tiger face
+🐰	animal lapin tete lapin rabbit face
+🐱	animal chat tete chat cat face
+🐳	animal baleine soufflant par son event spouting whale
+🐴	animal cheval tete cheval horse face
+🐵	animal singe tete singe monkey face
+🐶	animal chien tete chien dog face
+🐷	animal cochon tete cochon pig face
+🐸	animal grenouille tete frog
+🐹	animal hamster tete hamster
+🐺	animal loup tete wolf
+🐻	animal ours tete bear
+🐼	animal panda tete panda
+🐽	animal cochon groin pig nose
+🐾	empreintes animaux pattes paw prints
+👀	corps oeil visage yeux eyes
+👄	bouche corps levres mouth
+👅	corps langue tongue
+👊	coup poing main poing face oncoming fist
+👌	geste main ok OK hand
+👍	main pouce vers haut super thumbs up
+👎	main nul pouce vers bas thumbs down
+👏	applaudissements bravo mains clapping hands
+👐	mains ouvertes ouvert open hands
+👑	couronne reine roi vetements crown
+👒	chapeau femme vetements woman’s hat
+👓	lunettes vue oeil vetements glasses
+👣	pied traces pas footprints
+👮	flic officier police officer
+👶	bebe baby
+👷	batiment casque ouvrier personnel du batiment construction worker
+👸	fantastique princesse princess
+👻	creature fantastique fantome monstre visage ghost
+👽	alien creature extraterrestre ovni visage alien
+💀	corps crane fantastique mort visage skull
+💂	garde guard
+💄	maquillage rouge levres lipstick
+💅	maquillage vernis ongles nail polish
+💈	barbier coiffure enseigne barbier barber pole
+💉	aiguille docteur malade medecine seringue syringe
+💊	docteur malade medecine pilule pill
+💋	baiser levres rouge trace rouge levres kiss mark
+💌	amour lettre amour love letter
+💍	amour bague diamant ring
+💎	bijou diamant joyau pierre precieuse gem stone
+💐	bouquet fleur plante bouquet
+💓	coeur battant beating heart
+💔	coeur brise broken heart
+💕	amour coeurs deux coeurs two hearts
+💖	coeur etincelant sparkling heart
+💗	coeur grandissant growing heart
+💘	coeur fleche cupidon fleche heart arrow
+💙	coeur bleu blue heart
+💚	coeur vert green heart
+💛	coeur jaune yellow heart
+💜	coeur violet purple heart
+💝	coeur ruban saint valentin heart ribbon
+💞	coeurs tournent revolving hearts
+💣	bombe dessin bomb
+💤	dormir endormi ronfler zzz
+💥	collision explosion collision
+💧	goutte eau droplet
+💩	caca crotte dessin tas crotte visage pile poo
+💮	fleur blanche white flower
+💰	argent dollar sac money bag
+💻	ordinateur portable laptop
+📃	page enroulee page curl
+📄	document page facing up
+📋	clipboard
+📌	fournitures punaise pushpin
+📍	epingle fournitures round pushpin
+📎	fournitures trombone paperclip
+📏	fournitures regle straight ruler
+📐	equerre fournitures triangular ruler
+📑	marqueur onglets signets bookmark tabs
+📒	carnet compte grand livre ledger
+📙	livre orange book
+📗	livre vert green book
+📘	livre bleu blue book
+📓	carnet notebook
+📔	carnet couverture notebook decorative cover
+📕	livre ferme closed book
+📖	livre ouvert open book
+✏️	pencil crayon open write edit
+📜	papier parchemin scroll
+📞	combine telephonique telephone receiver
+📢	haut parleur son loudspeaker
+📣	manifestation megaphone porte voix megaphone
+📯	cor postal facteur postal horn
+📰	actualites journal newspaper
+📱	telephone portable mobile phone
+📷	appareil photo camera
+📸	appareil photo camera flash+
+📹	camera camescope video camera
+	video file test
+📺	televiseur television tv television
+💪	biceps contracte corps muscle flexed biceps
+🔇	muet silence son muted speaker
+🔈	son volume enceintes faible speaker low volume
+🔉	son volume enceintes moyen speaker medium volume
+🔊	son volume enceintes eleve speaker high volume
+🔋	pile battery
+🔌	cable fiche electrique prise electric plug
+🔍	loupe orientee gauche recherche magnifying glass tilted left
+🔏	cadenas ferme stylo verrouille locked pen
+🔐	cadenas ferme cle securise locked key
+🔑	cle mot passe serrure key
+🔒	cadenas ferme verrouille locked
+🔓	cadenas ouvert unlocked
+🔔	cloche bell
+🔕	alarme desactivee barree cloche silence bell slash
+🔖	marque page marqueur bookmark
+🔗	chainons maillons link
+🔥	feu flamme fire
+🔧	cle molette outil wrench
+🔨	marteau outil hammer
+🔩	ecrou outil vis ecrou nut and bolt
+🔪	arme couteau cuisine outil kitchen knife
+🔫	arme feu pistolet eau revolver pistol
+🔬	microscope outil science microscope
+🔮	boule cristal crystal ball
+🕺	danseur homme man dancing
+🖕	doigt honneur main majeur middle finger
+🖤	coeur noir black heart
+😀	sourire visage rieur grinning face
+😇	ange visage souriant aureole smiling face halo
+😉	clin oeil visage faisant clin oeil winking face
+😊	oeil rougir sourire visage souriant yeux rieurs smiling face smiling eyes
+😋	langue miam face savoring food
+😍	amour coeur oeil visage souriant yeux forme coeur smiling face heart eyes
+😎	lunettes soleil visage lunettes soleil smiling face sunglasses
+😔	decu pensif visage pensive face
+😕	confus visage confused face
+😘	bisou coeur visage envoyant bisou face blowing kiss
+😜	clin oeil langue oeil visage tire langue fait clin oeil winking face tongue
+😟	inquiet visage worried face
+😭	larme pleurs triste visage pleure chaudes larmes loudly crying face
+😱	cri effraye peur visage hurle peur face screaming fear
+😲	choc stupefait visage astonished face
+😴	sommeil visage somnolent zzz sleeping face
+😷	masque visage masque face medical mask
+😸	chat sourit yeux rieurs sourire visage yeux rieurs grinning cat smiling eyes
+😹	chat pleure joie pleurer rire sourire visage cat tears joy
+😺	chat sourit sourire visage grinning cat
+😻	amoureux chat souriant aux yeux coeurs coeur sourire visage yeux smiling cat heart eyes
+😼	chat sourire coin ironique narquois sourire coin visage cat wry smile
+😽	bisou chat fait bisou embrasser visage kissing cat
+😾	bouder chat boude colere desaccord ennui visage pouting cat
+😿	chat pleure larme pleurer triste visage crying cat
+🙀	chat fatigue inquiet oh surpris visage weary cat
+🙁	mecontent visage legerement mecontent slightly frowning face
+🙂	mecontent visage legerement mecontent slightly smiling face
+🙄	mecontent visage legerement mecontent face rolling eyes
+🙌	air mains levees raising hands
+🙏	mains priere folded hands
+🚀	espace fusee rocket
+🚁	helicoptere vehicule helicopter
+🚂	locomotive train locomotive
+🚆	chemin fer train
+🚇	metro
+🚑	ambulance vehicule ambulance
+🚒	camion pompier fire engine
+🚓	police voiture police car
+🚕	taxi vehicule taxi
+🚗	automobile voiture automobile
+🚚	camion livraison delivery truck
+🚜	tracteur vehicule tractor
+🚢	bateau navire ship
+🚦	feu tricolore vertical tricolore vertical traffic light
+🚧	barriere travaux construction
+🚨	gyrophare lumiere police voiture police car light
+🚲	velo bicycle
+🚽	toilettes toilet
+🚿	douche eau shower
+🛀	baignoire bain personne prenant bain person taking bath
+🛁	baignoire bain bathtub
+🛌	lit personne lit person bed
+🛒	chariot panier shopping cart
+🛖	case hutte maison yourte hut
+🛫	avion decollage airplane departure
+🛬	avion atterrissage airplane arrival
+🛴	trottinette kick scooter
+🛵	scooter motor scooter
+🛶	bateau canoe
+🛷	luge traineau sled
+🛸	ovni soucoupe volante flying saucer
+🛹	glisse longboard planche roulettes skateboard
+🛻	pick up pickup vehicule pickup truck
+🛼	patin roulettes roller roulette roller skate
+🚪	porte door
+🤌	argumentation bout doigts joints doigts geste main parler mains pinched fingers
+🤍	blanc coeur blanc white heart
+🤎	brun coeur marron brown heart
+🤏	petite quantite petite somme peu pouce index rapproches peu pinching hand
+🤐	petite quantite petite somme peu pouce index rapproches peu zipper mouth face
+🤒	indispose malade thermometre visage thermometre face thermometer
+🤓	geek lunettes visage geek nerd face
+🤔	geek lunettes visage geek thinking face
+ 🤕	bandage tete visage bandage autour tete face head bandage
+🤘	cornes doigts main sign horns
+🤙	appel main signe appel telephonique doigts telephone call me hand
+🤚	dos main levee main raised back hand
+🤛	gauche main poing gauche left facing fist
+🤜	droite main poing droite right facing fist
+🤝	mains poignee main presentation rencontre handshake
+🤞	croises doigts main crossed fingers
+🤟	amour main signe je aime love you gesture
+🤠	chapeau cowboy visage chapeau cowboy hat face
+🤡	clown visage clown face
+🤢	ecoeure nausee visage nauseeux nauseated face
+🤣	ecoeure nausee visage nauseeux rolling floor laughing
+🤥	baver visage bave lying face
+🤧	atchoum eternuement eternuer rhume visage eternue sneezing face
+🤮	malade vomiting
+🤲	mains paume contre paume doigts vers haut priere palms up together
+🤳	appareil photo selfie telephone selfie
+🤴	prince
+🤿	apnee masque plongee plonger snorkeling tuba diving mask
+🥀	fanee fleur wilted flower
+🥁	baguettes batterie musique tambour drum
+🥂	celebrer feter trinquer verre clinking glasses
+🥄	couvert cuillere spoon
+🥐	croissant pain viennoiserie croissant
+🥑	avocat fruit avocado
+🥒	concombre legume cucumber
+🥓	bacon lard viande bacon
+🥔	legume patate pomme terre potato
+🥕	carotte legume carrot
+🥖	baguette pain baguette bread
+🥚	oeuf egg
+🥛	boisson lait verre lait glass milk
+🥜	arachide cacahuetes noisette peanuts
+🥝	fruit kiwi fruit
+🥞	crepe pancakes
+🥣	bol cuillere cereales congee dejeuner bowl spoon
+🥤	gobelet paille jus fruits soda cup straw
+🥥	fruit noix coco palmier pina colada coconut
+🥦	brocoli chou sauvage legume broccoli
+🥧	decoration garniture gateau patisserie tarte pie
+🥨	bretzel torsade pretzel
+🥩	cotelette agneau cotelette porc morceau viande steak cut meat
+🥪	pain sandwich
+🥫	aliments conserve canned food
+🥬	chou chinois chou frise chou pomme laitue legume feuilles vertes leafy green
+🥭	fruit mangue tropical mango
+🥯	bagel boulangerie petit dejeuner schmear bagel
+🥳	celebration chapeau fete sifflet visage festif partying face
+🥵	chaud coup chaleur fievre transpiration visage rouge chaud hot face
+🥶	froid gelure glacial glacon visage bleu froid cold face
+🥷	furtif guerrier masque ninja
+🥸	deguisement faux nez incognito lunettes postiche visage deguise disguised face
+🦀	animal crabe crab
+🦁	animal lion tete lion zodiaque lion
+🦂	animal scorpion
+🦃	animal dindon oiseau turkey
+🦄	animal licorne tete unicorn
+🦅	aigle animal oiseau rapace eagle
+🦆	animal canard oiseau duck
+🦇	animal chauve souris vampire bat
+🦈	animal poisson requin shark
+🦉	animal chouette oiseau owl
+🦊	animal renard tete fox
+🦋	insecte mignon papillon butterfly
+🦌	animal cerf deer
+🦎	animal lezard reptile lizard
+🦏	animal rhinoceros
+🦐	crevette crustace shrimp
+🦑	calamar mollusque squid
+🦒	animal girafe taches giraffe
+🦓	animal rayure zebre zebrure zebra
+🦔	animal epineux herisson hedgehog
+🦕	animal brachiosaure brontosaure diplodocus sauropode sauropod
+🦖	trex tyrannosaure tyrannosaurus rex
+🦗	animal criquet insecte sauterelle cricket
+🦘	australie joey kangourou marsupial saut kangaroo
+🦙	alpaga guanaco laine lama vigogne llama
+🦚	animal fier oiseau paonne pretentieux peacock
+🦛	animal hippopotame hippopotamus
+🦜	animal oiseau parle perroquet pirate parrot
+🦝	animal curieux raton laveur sournois raccoon
+🦞	bisque fruits mer homard pinces lobster
+🦟	fievre insecte maladie malaria moustique virus mosquito
+🦠	amibe bacterie microbe virus microbe
+🦡	animal blaireau ratel badger
+🦢	animal cygne jeune cygne oiseau vilain petit canard swan
+🦣	defenses extinction grand laineux mammouth mammoth
+🦥	ai animal endormi lent paresseux sloth
+🦦	animal joueur loutre pecheur otter
+🦨	animal mouffette odeur puer putois skunk
+🦩	animal flamant oiseau rose tropical flamingo
+🦫	barrage castor beaver
+🦬	bison buffle cornes herbivore troupeau bison
+🦭	lion mer otarie phoque seal
+🦯	accessibilite aveugle canne blanche deficient visuel malvoyant white cane
+🦴	os squelette bone
+🦷	dentiste tooth
+🦸	bien heroine heros super heros super pouvoir superhero
+🦺	fluo gilet securite gilet jaune securite surete visibilite safety vest
+🧀	fromage part fromage cheese wedge
+🧁	cupcake patisserie sucrerie cupcake
+🧂	condiment saliere sel salt
+🧄	ail assaisonnement condiment legume garlic
+🧅	assaisonnement condiment legume oignon onion
+🧇	gaufre gourmandise moule patisserie petit dejeuner waffle
+🧈	beurre gras produit laitier butter
+🧗	alpiniste grimpeur personne grimpe person climbing
+🧙	ensorceleur mage magicien sorciere mage
+🧚	oberon personnage feerique puck titania fairy
+🧛	dracula mort vivant vampire
+🧜	creature aquatique sirene triton merperson
+🧝	elfe magique elf
+🧞	djinn genie
+🧟	mort vivant zombie
+🧠	cerveau intelligent brain
+🧡	coeur orange heart
+🧢	casquette americaine casquette baseball vetements billed cap
+🧨	dynamite explosif feu artifice petard firecracker
+🧩	assemblage indice piece puzzle piece
+🧪	chimie chimiste experience labo sciences tube essai test tube
+🧫	bacterie biologie biologiste boite petri culture labo petri dish
+🧬	adn biologiste evolution genetique vie dna
+🧭	boussole magnetique navigation orientation compass
+🧯	eteindre extincteur feu incendie fire extinguisher
+🧰	boite outils coffre mecanique outil toolbox
+🧲	aimant attraction fer cheval magnetique magnet
+🧳	bagage valise voyage luggage
+🧵	aiguille bobine fil couture ficelle thread
+🧶	boule crochet fil pelote tricot yarn
+🧷	couche epingle surete lange punk rock safety pin
+🧸	jeu jouet ours peluche teddy bear
+🧹	balai balayage nettoyage sorciere broom
+🧺	agriculture linge panier pique nique basket
+🧻	essuie tout papier hygienique papier toilette rouleau papier roll paper
+🦪	coquille huitre mollusque perle oyster
+🩲	maillot bain slip sous vetement briefs
+🩸	goutte sang drop blood
+🩺	coeur docteur medecine poumons stethoscope
+🪁	cerf volant planer voler kite
+🪂	parachute ascensionnel parapente parachute
+🪄	baguette magique magicien magie sorciere magic wand
+🪑	assis chaise siege chair
+🪖	armee casque guerrier militaire soldat military helmet
+🪗	accordeon bandoneon concertina piano bretelles accordion
+🪘	battement conga djembe rythme tambour long drum
+🪚	bois outil scie egoine carpentry saw
+🪛	outil tournevis vis screwdriver
+🪜	barreau echelle echelon escabeau monter ladder
+🪝	accrocher appater attraper crochet ferrer hameconner hook
+🪰	asticot maladie mouche nuisible putrefaction fly
+🪱	annelide lombric parasite ver terre worm
+🪲	insecte scarabee beetle
+🪳	blatte cafard insecte nuisible cockroach
+🪴	decoration ennuyeux interieur plante pot pousser prendre soin potted plant
+🫁	expiration inspiration organe poumons respiration souffle lungs
+🫐	baies bleuets myrtilles violet blueberries
+🫑	legume piment poivron bell pepper
+🫒	aliment apero nourriture olive
+🫓	arepa galette lavash naan pita flatbread
+🫕	bourguignonne chocolat fondue fromage poelon savoyarde suisse fondue
+🫖	boisson theiere teapot
+🪡	aiguille coudre broderie couture points suture tailleur sewing needle
+🪢	attacher corde entrelacer noeud noue tordre knot
+🪣	conteneur seau bucket
+🪥	brosse à dents dentaire dents hygiene laver salle bain toothbrush
+🧠	brain cerveau

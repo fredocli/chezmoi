@@ -1,3 +1,4 @@
+
 # ~/.profile: executed by the command interpreter for login shells.
 # This file is not read by bash(1), if ~/.bash_profile or ~/.bash_login
 # exists.
@@ -43,12 +44,20 @@ export MANPAGER="sh -c '$BAT -l man -p'"
 export LANG=en_US.UTF-8
 
 # Default programs:
-export EDITOR="vim"
+export EDIT="vim"
+export EDITOR="code"
+
 export BROWSER="google-chrome-stable"
 export BROWSER2="google-chrome-stable --profile-directory=Profile 3"
+
 export TERMINAL="alacritty"
 export READER="zathura"
 export VIDEOPLAYER="mpv"
+
+
+
+
+
 
 # clipmenu
 export CM_LAUNCHER="rofi"

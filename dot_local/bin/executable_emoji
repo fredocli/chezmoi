@@ -2,7 +2,7 @@
 #  ✳
 
 APP=$(basename "$0")
-EMOJI_FILE="$HOME/.local/share/dotfiles/emoji"
+EMOJI_FILE="$HOME/.config/emoji/emoji.txt"
 
 
 usage() {
@@ -48,13 +48,13 @@ key="$?"
 
 if [ "$key" -eq "11" ] 
 then
-leafpad "$EMOJI_FILE" & 
+$EDIT "$EMOJI_FILE" & 
 exit
 fi
 
 
 
-if [ -n "$value" ]
+if [ -n "$value" ] 
 then   
 
     value=$(echo  "$value" |awk 'BEGIN{ORS=""; OFS="\t"} {print $1}'  ) 
