@@ -1,0 +1,152 @@
+// Place your key bindings in this file to override the defaultsauto[]
+[
+  {
+    "key": "alt+j",
+    "command": "editor.action.joinLines"
+  },
+  {
+    "key": "ctrl+g ctrl+p",
+    "command": "git.push"
+  },
+  {
+    "key": "ctrl+k ctrl+f",
+    "command": "editor.action.formatDocument",
+    "when": "editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly && !inCompositeEditor"
+  },
+  // format selection not working
+  {
+  "key": "ctrl+f ctrl+s",
+  "command": "editor.action.formatSelection",
+  "when": "editorHasDocumentFormattingProvider && editorHasDocumentSelectionFormattingProvider && editorTextFocus && !editorReadonly"
+  },
+  
+  {
+    "key": "ctrl+d ctrl+e",
+    "command": "workbench.action.tasks.runTask",
+    "args": "Firebase deploy"
+  },
+  {
+    "key": "ctrl+r ctrl+r",
+    "command": "workbench.action.tasks.reRunTask"
+  },
+  {
+    "key": "ctrl+t ctrl+t",
+    "command": "workbench.action.terminal.focus"
+  },
+  {
+    "key": "alt+v alt+i",
+    "command": "open-in-vim.open"
+  },
+  {
+    "key": "insert",
+    "command": "markdown.extension.editing.paste",
+    "when": "editorHasSelection && editorTextFocus && editorLangId == 'markdown'"
+  },
+  {
+    "key": "ctrl+v",
+    "command": "-markdown.extension.editing.paste",
+    "when": "editorHasSelection && editorTextFocus && editorLangId == 'markdown'"
+  },
+  {
+    "key": "ctrl+alt+c ctrl+alt+t",
+    "command": "extension.table.formatCurrent",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+alt+t c",
+    "command": "-extension.table.formatCurrent",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+alt+a ctrl+alt+t",
+    "command": "extension.table.formatAll",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+alt+t a",
+    "command": "-extension.table.formatAll",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+shift+t ctrl+shift+t",
+    "command": "workbench.action.toggleMaximizedPanel"
+  },
+  {
+    "key": "ctrl+g ctrl+t",
+    "command": "workbench.action.gotoLine"
+  },
+  {
+    "key": "ctrl+g",
+    "command": "-workbench.action.gotoLine"
+  },
+  {
+    "key": "ctrl+m ctrl+r",
+    "command": "pandoc.render",
+    "when": "editorTextFocus && editorLangId == 'markdown'"
+  },
+  {
+    "key": "ctrl+k p",
+    "command": "-pandoc.render",
+    "when": "editorTextFocus && editorLangId == 'markdown'"
+  },
+  {
+    "key": "ctrl+o ctrl+r",
+    "command": "workbench.action.openRecent"
+  },
+  {
+    "key": "ctrl+r",
+    "command": "-workbench.action.openRecent"
+  },
+  {
+    "key": "ctrl+f ctrl+s",
+    "command": "editor.action.formatSelection",
+    "when": "editorHasDocumentSelectionFormattingProvider && editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "ctrl+k ctrl+f",
+    "command": "-editor.action.formatSelection",
+    "when": "editorHasDocumentSelectionFormattingProvider && editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "ctrl+f",
+    "command": "actions.find",
+    "when": "editorFocus || editorIsOpen"
+  },
+  {
+    "key": "ctrl+f",
+    "command": "-actions.find",
+    "when": "editorFocus || editorIsOpen"
+  },
+  {
+    "key": "ctrl+f12",
+    "command": "geminicodeassist.subscriptionRequired"
+  },
+  {
+    "key": "ctrl+shift+b",
+    "command": "workbench.action.toggleAuxiliaryBar"
+  },
+  {
+    "key": "ctrl+alt+b",
+    "command": "-workbench.action.toggleAuxiliaryBar"
+  },
+  {
+    "key": "ctrl+k ctrl+a",
+    "command": "editor.foldAll",
+    "when": "editorTextFocus && foldingEnabled"
+  },
+  {
+    "key": "ctrl+k ctrl+0",
+    "command": "-editor.foldAll",
+    "when": "editorTextFocus && foldingEnabled"
+  },
+  {
+    "key": "ctrl+alt+d",
+    "command": "bookmarks.toggle",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+alt+k",
+    "command": "-bookmarks.toggle",
+    "when": "editorTextFocus"
+  }
+]

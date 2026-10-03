@@ -1,0 +1,105 @@
+{
+  "prettier.vueIndentScriptAndStyle": true,
+  "editor.renderControlCharacters": true,
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "terminal.integrated.tabs.enabled": true,
+  "[vue]": {
+    "editor.defaultFormatter": "octref.vetur"
+  },
+  "workbench.iconTheme": "vscode-icons",
+  "increment-selection.topToBottom": true,
+  "files.autoSave": "onFocusChange",
+"workbench.startupEditor": "none",
+  "diffEditor.ignoreTrimWhitespace": true,
+  "git.autofetch": "all",
+  "git.enableSmartCommit": true,
+  "git.confirmSync": false,
+  "liveServer.settings.donotShowInfoMsg": true,
+  "files.associations": {
+    "*.json": "jsonc",
+    "*.tpl": "html",
+    "*.kdl": "jsonc"
+  },
+  "css.enabledLanguages": ["html", "vue"],
+  "css.styleSheets": [
+    "css"
+  ],
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "jake.autoDetect": "on",
+  "bracketPairColorizer.depreciation-notice": false,
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "editor.multiCursorModifier": "ctrlCmd",
+  "task.problemMatchers.neverPrompt": {
+    "shell": true
+  },
+  "open-in-vim.restoreCursorAfterVim": true,
+  "open-in-vim.openMethod": "linux.gnome-terminal",
+  "open-in-vim.linux.gnome-terminal.args": "--hide-menubar ",
+  "git.autofetchPeriod": 60,
+  "pandoc.pdfOptString": "-f markdown+pipe_tables+grid_tables --wrap=preserve  --columns=72  --quiet  --pdf-engine weasyprint  --css \"${HOME}/.pandoc/recette.css\" ",
+  "pandoc.executable": "",
+  "pandocMarkdownPreview.extraPandocArguments": "--css \"$HOME/.pandoc/recette.css\" ",
+  "markdown.styles": [
+    ""
+  ],
+  "markdown.extension.print.includeVscodeStylesheets": false,
+  "[markdown]": {
+    "editor.defaultFormatter": "yzhang.markdown-all-in-one",
+    "diffEditor.ignoreTrimWhitespace": false
+  },
+  "pandoc.htmlOptString": " -f markdown+pipe_tables  --quiet   --css \"${HOME}/.pandoc/recette.css\" -s --css \"$HOME/.pandoc/recette.css\" -t html5 ",
+  "pandocMarkdownPreview.minimumWaitInterval": 500,
+  "editor.fontSize": 12,
+  "editor.tabCompletion": "on",
+  "editor.renderWhitespace": "all",
+  "editor.unicodeHighlight.nonBasicASCII": false,
+  "[css]": {
+    "editor.defaultFormatter": "vscode.css-language-features"
+  },
+  "git.ignoreRebaseWarning": true,
+  "editor.minimap.enabled": false,
+  "window.zoomLevel": 1,
+  "editor.wordWrap": "wordWrapColumn",
+  "markdown.extension.completion.respectVscodeSearchExclude": false,
+  "[python]": {
+    "editor.formatOnType": true
+  },
+  "remote.SSH.connectTimeout": 30,
+  "editor.wordWrapColumn": 160,
+  "editor.minimap.maxColumn": 160,
+  "diffEditor.experimental.showMoves": true,
+  "workbench.editorAssociations": {
+    "*.pdf": "default"
+  },
+  "terminal.external.linuxExec": "st",
+  "terminal.explorerKind": "external",
+  "geminicodeassist.project": "vscode-500216",
+  "diffEditor.codeLens": true,
+  "geminicodeassist.codeGenerationPaneViewEnabled": true,
+  "diffEditor.renderSideBySide": false,
+  "chat.commandCenter.enabled": false,
+  "geminicodeassist.customCommands": {
+    "zsh-completion": "create zsh completion for this script",
+    "test": "test"
+  },
+  "mdb.mcp.server": "prompt",
+  "editor.overtypeCursorStyle": "line",
+  "php.validate.executablePath": "",
+  "java.import.gradle.java.home": "/usr/lib/jvm/java-17-openjdk",
+  "geminicodeassist.contextExclusionGitignore": false,
+  "geminicodeassist.enableTelemetry": false,
+  "geminicodeassist.chat.enableStreaming": false,
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": true,
+    "scminput": false
+  },
+  "chat.viewSessions.orientation": "stacked"
+}
