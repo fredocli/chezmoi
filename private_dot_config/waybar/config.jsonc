@@ -9,7 +9,7 @@
     "niri/workspaces"
   ],
   "modules-center": [
-    "clock"
+    ""
   ],
   "modules-right": [
     "mpd",
@@ -18,7 +18,8 @@
     "bluetooth",
     "network",
     "cpu",
-    "battery"
+    "battery",
+     "clock"
   ],
   "custom/menu": {
     "format": "\uf303", // arch linux logo
@@ -50,16 +51,14 @@
   },
   "clock": {    
     "format": "{:%H:%M : %a %b %d %Y}",
-    "format-alt": "{:%I:%M %Z   : %a %b %d %Y}",
-    "tooltip": true,
+   // "format-alt": "{:%I:%M %Z   : %a %b %d %Y}",
+    "tooltip": false,
     "tooltip-format": "<tt>{calendar}</tt>",
     "timezones": [
       "",
       "UTC"
     ],
-    "on-click-right": "xdg-open https://calendar.google.com",
-    "on-click-middle": "dfr-tz-set --geo",
-    "on-click-backward": "xdg-open https://www.worldtimebuddy.com",
+    //"on-click-right": "xdg-open https://calendar.google.com",
     "actions": {
       "on-scroll-up": "tz_up",
       "on-scroll-down": "tz_down"
@@ -114,9 +113,9 @@
   },
   "pulseaudio": {
     "format": "{icon}{volume}% ",
-    "on-click": "export BLOCK_BUTTON=1; sb-volume",
-    "on-click-middle": "export BLOCK_BUTTON=2; sb-volume",
-    "on-click-right": "export BLOCK_BUTTON=3; sb-volume",
+    "on-click": "niri-launch-or-focus-tui pulsemixer pulsemixer",
+    "on-click-middle": "pamixer -t",
+    "on-click-right": "pavucontrol",
     "tooltip-format": "Playback volume: {volume}%",
     "scroll-step": 5,
     "format-muted": "󰝟",
@@ -138,7 +137,7 @@
     "format-disabled": "󰂲",
     "format-connected": "",
     "tooltip-format": "Devices connected: {num_connections}",
-    "on-click": "setsid -f niri-launch-or-focus-tui bluetui bluetui",
+    "on-click": "niri-launch-or-focus-tui bluetui bluetui",
     "on-click-right": "niri-launch-or-focus blueman-manager blueman-manager"
   },
   "network": {
@@ -157,9 +156,9 @@
     "tooltip-format-ethernet": "⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}\n\n{ipaddr}",
     "tooltip-format-disconnected": "Disconnected",
     "interval": 10,
-    "on-click": "export BLOCK_BUTTON=1; sb-network",
-    "on-click-middle": "export BLOCK_BUTTON=2; sb-network",
-    "on-click-right": "export BLOCK_BUTTON=3; sb-network"
+    "on-click": "niri-launch-or-focus-tui nmtui-connect nmtui-connect",
+    "on-click-middle": "if [ \"$(nmcli radio wifi)\" = \"enabled\" ]; then nmcli radio wifi off; notify-send \"Wi-Fi\" \"Disabled\"; else nmcli radio wifi on; notify-send \"Wi-Fi\" \"Enabled\"; fi",
+    "on-click-right": "niri-launch-or-focus-tui nmtui nmtui"
   },
   "cpu": {
     "interval": 5,
