@@ -1,0 +1,4 @@
+#!/bin/sh
+
+. "$HOME/.profile"
+exec /usr/bin/niri-session
