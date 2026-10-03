@@ -30,7 +30,7 @@ fi
 
 cp "$FILE" "$BACKUP"
 
-sed -i "s|^Exec=.*|Exec=sh -lc '\''source \"\$HOME/.profile\"; exec niri'\''|" "$FILE"
+sed -i "s|^Exec=.*|Exec=$HOME/.local/bin//niri-session|" "$FILE"
 
 echo "Updated $FILE"
 '
