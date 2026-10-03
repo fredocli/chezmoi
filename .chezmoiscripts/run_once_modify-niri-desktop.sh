@@ -30,7 +30,7 @@ fi
 
 cp "$FILE" "$BACKUP"
 
-sed -i "s|^Exec=.*|Exec=$HOME/.local/bin//niri-session|" "$FILE"
+sed -i "s|^Exec=.*|Exec=/home/fred/.local/bin/niri-session|" "$FILE"
 
 echo "Updated $FILE"
 '
