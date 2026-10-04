@@ -1,0 +1,87 @@
+#!/usr/bin/env bash
+
+shopt -s nullglob globstar
+APP="$(basename "$0")";
+APPDIR=$(dirname "$(readlink -f "$0")")
+
+typeit=0
+if [[ $1 == "--type" ]]; then
+	typeit=1
+	shift
+fi
+
+if [[ $1 == "--help" ]]; then
+	cat <<EOF
+Usage: $APP [--type] [menu options...]
+
+Choose a password entry from the password store.
+
+Options:
+  --type      Type the first line of the selected password into the focused
+              window. On Wayland this uses wtype; on Xorg it uses xdotool.
+  --help      Show this help and exit.
+
+Without --type, the first line is copied to the clipboard. On Wayland, wl-copy
+clears it after the first paste. On Xorg, pass handles clipboard copying.
+
+Picker:
+  Wayland    rofi -dmenu
+  Xorg       dmenu
+  DMENU      Override the picker command (for example: DMENU='wofi --dmenu')
+
+Requirements:
+  All sessions: pass and a graphical session (WAYLAND_DISPLAY or DISPLAY)
+  Wayland:      rofi (unless DMENU is set), wl-clipboard; wtype for --type
+  Xorg:         dmenu (unless DMENU is set), xclip; xdotool for --type
+
+Password store: PASSWORD_STORE_DIR, or ~/.password-store by default.
+Script path:    $APPDIR/$APP
+EOF
+	exit 0
+fi
+
+
+
+prefix=${PASSWORD_STORE_DIR-~/.password-store}
+password_files=( "$prefix"/**/*.gpg )
+password_files=( "${password_files[@]#"$prefix"/}" )
+password_files=( "${password_files[@]%.gpg}" )
+
+if [[ -n ${WAYLAND_DISPLAY:-} ]]; then
+	backend=wayland
+elif [[ -n ${DISPLAY:-} ]]; then
+	backend=xorg
+else
+	printf 'passmenu: cannot detect a graphical session (DISPLAY/WAYLAND_DISPLAY are unset)\n' >&2
+	exit 1
+fi
+
+if [[ -n ${DMENU:-} ]]; then
+	read -r -a menu_command <<< "$DMENU"
+elif [[ $backend == wayland ]]; then
+	menu_command=(rofi -dmenu  -theme Dmenu.rasi -p "pass:" )
+	#menu_command=(rofi -dmenu)
+else
+	menu_command=(dmenu)
+fi
+
+password=$(printf '%s\n' "${password_files[@]}" | "${menu_command[@]}" "$@")
+
+[[ -n $password ]] || exit
+
+if [[ $typeit -eq 1 ]]; then
+	IFS= read -r pass < <(pass show "$password") || exit 1
+	if [[ $backend == wayland ]]; then
+		command -v wtype >/dev/null 2>&1 || { echo 'passmenu: wtype is required for typing on Wayland' >&2; exit 1; }
+		wtype -- "$pass"
+	else
+		command -v xdotool >/dev/null 2>&1 || { echo 'passmenu: xdotool is required for typing on Xorg' >&2; exit 1; }
+		xdotool type --clearmodifiers --delay 24 -- "$pass"
+	fi
+# 	
+elif [[ $backend == wayland ]]; then
+	command -v wl-copy >/dev/null 2>&1 || { echo 'passmenu: wl-copy is required for clipboard on Wayland' >&2; exit 1; }
+	pass show "$password" | { IFS= read -r pass; printf '%s' "$pass"; } | wl-copy --paste-once
+else
+	pass show -c "$password" 2>/dev/null
+fi

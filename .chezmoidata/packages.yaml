@@ -12,6 +12,7 @@ packages:
     - wl-clipboard 
     - wtype
     - zathura
+    - libnotify
 
 
 
