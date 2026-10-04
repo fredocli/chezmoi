@@ -21,10 +21,10 @@ APP_ID=$(niri msg --json windows | jq --arg app "${APP_TARGET}" '
 ')
 
 
+    notify-send "niri-launch-or-focus" "App ID:${APP_ID} - ${APP_TARGET} - ${LAUNCH_CMD}"
 
 
 if [ "${APP_ID}" = "null" ]; then
-#    notify-send "niri-launch-or-focus" "App ID: ${APP_TARGET} ${LAUNCH_CMD}"
     # No instance found, spawn a new one
     niri msg action spawn -- "${LAUNCH_CMD}"
 else
