@@ -24,7 +24,7 @@ input {
              layout "dk"
         }
         //numlock
-        repeat-delay 200
+        repeat-delay 400
         repeat-rate 40 
     }
 
@@ -133,30 +133,15 @@ hotkey-overlay {
 prefer-no-csd //  omit client-side decorations if possible.
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png" // screenshot-path null
 
-
-
-
-
-
-
+// ----------------------------------------------------------------------------
+// window-rule
+// ----------------------------------------------------------------------------
 
 window-rule {
     open-maximized true
 }
 
-// Then, for Alacritty, set open-maximized back to false.
-window-rule {
-    match app-id="Alacritty"
-    open-maximized false
-}
-window-rule {
-    // This app-id regular expression will work for both:
-    // - host Firefox (app-id is "firefox")
-    // - Flatpak Firefox (app-id is "org.mozilla.firefox")
-    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
-    open-floating true
-}
-window-rule {
+window-rule { // ???
     // This regular expression is intentionally made as specific as possible,
     // since this is the default config, and we want no false positives.
     // You can get away with just app-id="wezterm" if you want.
@@ -164,12 +149,12 @@ window-rule {
     default-column-width {}
 }
 
-// Example: block out two password managers from screen capture.
-// (This example rule is commented out with a "/-" in front.)
-/-window-rule {
+
+/-window-rule { // ???
+    // Example: block out two password managers from screen capture.
+    // (This example rule is commented out with a "/-" in front.)
     match app-id=r#"^org\.keepassxc\.KeePassXC$"#
     match app-id=r#"^org\.gnome\.World\.Secrets$"#
-
     block-out-from "screen-capture"
 
     // Use this instead if you want them visible on third-party screenshot tools.
@@ -181,13 +166,6 @@ window-rule {
 window-rule {
     geometry-corner-radius 4
     clip-to-geometry true
-}
-
-window-rule {
-    match app-id="fastfetch"
-    open-floating true
-    default-column-width { fixed 700; }
-    default-window-height { fixed 450; }
 }
 
 
@@ -212,7 +190,7 @@ binds {
     Super+N hotkey-overlay-title="Run an Application: nautilus"{ spawn "nautilus"; }
 
     // browser
-    Super+W  { spawn "niri-launch-or-focus" "google-chrome" "google-chrome-stable"; }
+    Super+W  { spawn "niri-launch-or-focus" "$BROWSER" "$BROWSER"; }
 
     // rofi / fuzzel
     Mod+E{ spawn "emoji"; }
