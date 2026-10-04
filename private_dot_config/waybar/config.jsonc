@@ -163,7 +163,7 @@
   "cpu": {
     "interval": 5,
     "format": "󰍛",
-    "on-clicks": "niri-launch-or-focus-tui htop htop"
+    "on-click": "niri-launch-or-focus-tui htop htop"
   },
   "battery": {
     "format": "{capacity}% {icon}",
