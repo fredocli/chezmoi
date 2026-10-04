@@ -13,9 +13,6 @@
 # ZSH starts by reading the .zshenv file unless -f argument is specified when launching the shell session. This file should only contain the user’s environment variables.
 
 
-export ZDOTDIR=$HOME
-
-
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
     # include .bashrc if it exists
@@ -34,27 +31,32 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-
+export ZDOTDIR=$HOME
 export PATH="$HOME/.config/vifm/scripts:$PATH"
+#export LANG=en_US.UTF-8
+#export XDG_CONFIG_HOME="$HOME/.config"
 
-
-export BAT=batcat
-### "bat" as manpager
-export MANPAGER="sh -c '$BAT -l man -p'"
-export LANG=en_US.UTF-8
-
-# Default programs:
+# EDITOR
 export EDIT="vim"
 export EDITOR="code"
 
+# BROWSER
+
+
+if [ -f "/usr/bin/google-chrome-stable" ] 
+then
 export BROWSER="google-chrome-stable"
-export BROWSER2="google-chrome-stable --profile-directory=Profile 3"
+else
+export BROWSER="chromium"
+fi
 
 
-export READER="zathura"
-
-export VIDEOPLAYER="mpv"
-
+# TERMINAL
+export TERMINAL="alacritty"
+if [ -f "/usr/local/bin/st" ] 
+then
+export TERM="st"
+fi
 
 # clipmenu
 export CM_LAUNCHER="rofi"
@@ -66,16 +68,8 @@ export CM_SELECTIONS="clipboard" # "primary clipboard"
 # tsp
 export TS_MAILTO=frederic@terrible.dk
 
-export TERMINAL="alacritty"
-if [ -f "/usr/local/bin/st" ] 
-then
-export TERM="st"
-fi
 
 if [[ "$(tty)" = "/dev/tty1" ]]
 then
 pgrep xinit || startx
-fi     
-
-
-export XDG_CONFIG_HOME="$HOME/.config"
+fi
