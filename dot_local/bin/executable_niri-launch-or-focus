@@ -7,6 +7,10 @@ set -euo pipefail
 APP_TARGET="${1}"
 LAUNCH_CMD="${2}"
 
+if [[ "${APP_TARGET}" == '$'* ]]; then
+    eval "APP_TARGET=${APP_TARGET}"
+fi
+
 if [[ "${LAUNCH_CMD}" == '$'* ]]; then
     eval "LAUNCH_CMD=${LAUNCH_CMD}"
 fi
