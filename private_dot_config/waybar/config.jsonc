@@ -163,8 +163,7 @@
   "cpu": {
     "interval": 5,
     "format": "󰍛",
-    "on-click": "niri-launch-or-focus-tui fastfetch \"fastfetch ;read -p \\\"Press enter to exit...\\\"\"",
-    "on-click-right": "niri-launch-or-focus-tui htop htop"
+    "on-clicks": "niri-launch-or-focus-tui htop htop"
   },
   "battery": {
     "format": "{capacity}% {icon}",
