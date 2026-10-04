@@ -8,14 +8,14 @@ APP_ID=$(niri msg --json windows | jq --arg app "${APP_TARGET}" '
   [ .[] | select(.app_id | ascii_downcase == ($app | ascii_downcase)) ] [-1] | .id
 ')
 
-echo "APP_ID: $APP_ID"
+
 
 if [ "${APP_ID}" = "null" ]; then
     echo "TERMINAL: $TERMINAL"
     echo "APP_TARGET: $APP_TARGET"
     echo "SHELL_CMD: $SHELL_CMD"
-
-    niri msg action spawn -- foot -c "${APP_TARGET}" -e  "${SHELL_CMD}"
+    niri msg action spawn -- alacritty --class "${APP_TARGET}" --command  "${SHELL_CMD}"
 else
+    echo "APP_ID: $APP_ID"
     niri msg action focus-window --id "${APP_ID}"
 fi
