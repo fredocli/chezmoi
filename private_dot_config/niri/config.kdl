@@ -190,7 +190,7 @@ binds {
     Super+N hotkey-overlay-title="Run an Application: nautilus"{ spawn "nautilus"; }
 
     // browser
-    Super+W  { spawn "niri-launch-or-focus" "$BROWSER" "$BROWSER"; }
+    Super+W  { spawn "niri-launch-or-focus" "$BROWSER_CLASS" "$BROWSER"; }
 
     // rofi / fuzzel
     Mod+E{ spawn "emoji"; }
