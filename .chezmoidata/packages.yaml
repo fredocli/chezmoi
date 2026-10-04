@@ -4,6 +4,7 @@ packages:
     - git
     - zsh
     - exa
+    - bat
     - jq
     - bluetui
     - pulsemixer

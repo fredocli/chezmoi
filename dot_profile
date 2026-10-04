@@ -50,13 +50,10 @@ export EDITOR="code"
 export BROWSER="google-chrome-stable"
 export BROWSER2="google-chrome-stable --profile-directory=Profile 3"
 
-export TERMINAL="alacritty"
+
 export READER="zathura"
+
 export VIDEOPLAYER="mpv"
-
-
-
-
 
 
 # clipmenu
@@ -69,9 +66,10 @@ export CM_SELECTIONS="clipboard" # "primary clipboard"
 # tsp
 export TS_MAILTO=frederic@terrible.dk
 
+export TERMINAL="alacritty"
 if [ -f "/usr/local/bin/st" ] 
 then
-export TERMINAL="st"
+export TERM="st"
 fi
 
 if [[ "$(tty)" = "/dev/tty1" ]]
