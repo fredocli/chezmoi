@@ -46,8 +46,10 @@ export EDITOR="code"
 if [ -f "/usr/bin/google-chrome-stable" ] 
 then
 export BROWSER="google-chrome-stable"
+export BROWSER_CLASS="google-chrome"
 else
 export BROWSER="chromium"
+export BROWSER_CLASS="chromium"
 fi
 
 
