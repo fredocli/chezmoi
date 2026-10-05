@@ -2,7 +2,7 @@
   color: olive;
 
   font-family: monospace;
-  font-size: 14px;
+  font-size: 18px;
 
   border: none;
   border-radius: 0;
@@ -69,5 +69,5 @@ window#waybar {
 
 tooltip * {
   padding: 2px;
-  background-color: @tooltip;
+  background-color: rgba(0, 0, 0, 0.75);
 }

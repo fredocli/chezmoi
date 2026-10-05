@@ -2,18 +2,20 @@
   "reload_style_on_change": true,
   "layer": "top",
   "position": "top",
-  "spacing": 0,
-  "height": 24,
+  "spacing": 4,
+  "height": 36,
   "modules-left": [
     "custom/menu",
     "niri/workspaces"
   ],
   "modules-center": [
-    ""
+      "custom/browser",
+      "custom/code"
   ],
   "modules-right": [
+    
+   // "group/tray-expander",
     "mpd",
-    "group/tray-expander",
     "pulseaudio",
     "bluetooth",
     "network",
@@ -92,24 +94,35 @@
     "on-click-forward": "playerctl position 10+"
   
   },
-  "group/tray-expander": {
-    "orientation": "horizontal",
-    "drawer": {
-      "transition-duration": 300,
-      "children-class": "tray-group-item"
-    },
-    "modules": [
-      "custom/expand-icon"
-      //"tray"
-    ]
-  },
-  "custom/expand-icon": { 
+  // "group/tray-expander": {
+  //   "orientation": "horizontal",
+  //   "drawer": {
+  //     "transition-duration": 300,
+  //     "children-class": "tray-group-item"
+  //   },
+  //   "modules": [
+  //     ""
+  //    // "custom/expand-icon"
+  //     //"tray"
+  //   ]
+  // },
+  "custom/code": { 
     "format": "\uf121",
-    "on-click": "code",
-    "on-click-right": "code ~/.repo/bin",
-   // "on-click-right": "xdg-open https://aur.archlinux.org/packages",
-    "on-click-middle": "xdg-open https://www.nerdfonts.com/cheat-sheet",
-    "tooltip": false
+    "exec": "echo $EDITOR",
+    "on-click": "niri-launch-or-focus $EDITOR_CLASS $EDITOR",
+    "tooltip-format": "Editor: {}"
+  },
+    "custom/browser": { 
+    "format": "\udb81\udd9f",
+    "exec": "echo $BROWSER",
+    "on-click": "niri-launch-or-focus $BROWSER_CLASS $BROWSER ",
+    "tooltip-format": "Browser: {}"
+  },
+     "custom/filemanager": { 
+    "format": "\uf015",
+    "exec": "echo $FILEMANAGER",
+    "on-click": "niri-launch-or-focus $FILEMANAGER_CLASS $FILEMANAGER ",
+    "tooltip-format": "File Manager: {}"
   },
   "pulseaudio": {
     "format": "{icon}{volume}% ",
