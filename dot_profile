@@ -39,10 +39,9 @@ export PATH="$HOME/.config/vifm/scripts:$PATH"
 # EDITOR
 export EDIT="vim"
 export EDITOR="code"
+export EDITOR_CLASS="com.microsoft.vscode"
 
 # BROWSER
-
-
 if [ -f "/usr/bin/google-chrome-stable" ] 
 then
 export BROWSER="google-chrome-stable"
@@ -52,13 +51,19 @@ export BROWSER="chromium"
 export BROWSER_CLASS="chromium"
 fi
 
-
 # TERMINAL
 export TERMINAL="alacritty"
+export TERMINAL_CLASS="alacritty"
+
 if [ -f "/usr/local/bin/st" ] 
 then
 export TERM="st"
 fi
+
+# FILEMANAGER
+export FILEMANAGER="nautilus"
+export FILEMANAGER_CLASS="org.gnome.nautilus"
+
 
 # clipmenu
 export CM_LAUNCHER="rofi"
