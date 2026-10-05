@@ -10,7 +10,9 @@
   ],
   "modules-center": [
       "custom/browser",
-      "custom/code"
+      "custom/code",
+      "custom/filemanager",
+      "custom/terminal"
   ],
   "modules-right": [
     
@@ -110,19 +112,25 @@
     "format": "\uf121",
     "exec": "echo $EDITOR",
     "on-click": "niri-launch-or-focus $EDITOR_CLASS $EDITOR",
-    "tooltip-format": "Editor: {}"
+    "tooltip-format": "Editor: {} [SUPER + C]"
   },
     "custom/browser": { 
     "format": "\udb81\udd9f",
     "exec": "echo $BROWSER",
     "on-click": "niri-launch-or-focus $BROWSER_CLASS $BROWSER ",
-    "tooltip-format": "Browser: {}"
+    "tooltip-format": "Browser: {} [SUPER + W]"
   },
-     "custom/filemanager": { 
-    "format": "\uf015",
+    "custom/filemanager": { 
+    "format": "\ue5ff",
     "exec": "echo $FILEMANAGER",
     "on-click": "niri-launch-or-focus $FILEMANAGER_CLASS $FILEMANAGER ",
-    "tooltip-format": "File Manager: {}"
+    "tooltip-format": "File Manager: {} [SUPER + N]"
+  },
+    "custom/terminal": { 
+    "format": "\uf120",
+    "exec": "echo $TERMINAL",
+    "on-click": "niri-launch-or-focus $TERMINAL_CLASS $TERMINAL ",
+    "tooltip-format": "Terminal: {} [SUPER + ENTER]"
   },
   "pulseaudio": {
     "format": "{icon}{volume}% ",
