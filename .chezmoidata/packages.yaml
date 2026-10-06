@@ -18,6 +18,8 @@ packages:
     - seahorse
     - qt6ct
     - pcmanfm-qt
+    - mate-icon-theme 
+    - mate-themes
 
   aur:
     - google-chrome
