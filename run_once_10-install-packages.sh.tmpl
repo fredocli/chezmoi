@@ -32,10 +32,11 @@ success "Official repository packages installed"
 {{- if .packages.aur }}
 if ! command -v paru >/dev/null 2>&1; then
     fail "paru is required to install AUR packages, but it is not installed"
-fi
+else
 info "Installing AUR packages"
 paru -S --needed --noconfirm {{ range .packages.aur }}{{ . }} {{ end }}
 success "AUR packages installed"
+fi
 {{- end }}
 
 {{- if .packages.npm }}
