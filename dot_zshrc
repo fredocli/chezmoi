@@ -153,28 +153,20 @@ extract() {
     echo "'$1' is not a valid file"
   fi
 }
+# ============================================================================
+# CUSTOM FUNCTIONS FOR KEY BINDINGS
+# ============================================================================
 
-# Use vifm for directory navigation
-vifmcd() {
-  local tmp
-  tmp="$(mktemp)"
-  vifm --choose-dir="$tmp" "$@"
-  if [ -f "$tmp" ]; then
-    local dir
-    dir="$(cat "$tmp")"
-    rm -f "$tmp"
-    [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
-  fi
-}
+# Insert last command output ctrl+x
 
-# Insert last command output
 insert-last-command-output() {
   zmodload -i zsh/parameter
   LBUFFER+="$(eval $history[$((HISTCMD-1))])"
 }
 zle -N insert-last-command-output
 
-# Edit command line in vim
+# Edit command line in vim ctrl+e
+
 autoload -Uz edit-command-line
 _edit-command-line-vim() {
   local EDITOR=vim
@@ -186,27 +178,30 @@ zle -N edit-command-line _edit-command-line-vim
 # KEY BINDINGS (Custom & FZF)
 # ============================================================================
 
-# Custom key bindings
+# CUSTOM KEY BINDINGS
 bindkey '^x' insert-last-command-output  # ctrl+x: insert last command output
 bindkey '^e' edit-command-line           # ctrl+e: edit in vim
-bindkey -s '^D' 'edot\n'                 # ctrl+D: edot
-bindkey -s '^N' 'vifmcd\n'               # ctrl+N: vifmcd
 
-# FZF key bindings
+
+# FZF KEY BINDINGS
+
+# ctrl+H: search history
 bindkey -r '^R'
-bindkey -M emacs '^H' fzf-history-widget   # ctrl+H: search history
+bindkey -M emacs '^H' fzf-history-widget   
 bindkey -M vicmd '^H' fzf-history-widget
 bindkey -M viins '^H' fzf-history-widget
 
+ # ctrl+F: search files
 bindkey -r '^T'
-bindkey -M emacs '^F' fzf-file-widget      # ctrl+F: search files
+bindkey -M emacs '^F' fzf-file-widget     
 bindkey -M vicmd '^F' fzf-file-widget
 bindkey -M viins '^F' fzf-file-widget
 
+ # ctrl+Z: search directories
 bindkey -r '^[c'
-bindkey -M emacs '^J' fzf-cd-widget        # ctrl+J: search directories
-bindkey -M vicmd '^J' fzf-cd-widget
-bindkey -M viins '^J' fzf-cd-widget
+bindkey -M emacs '^Z' fzf-cd-widget        
+bindkey -M vicmd '^Z' fzf-cd-widget
+bindkey -M viins '^Z' fzf-cd-widget
 
 # ============================================================================
 # PATH CONFIGURATION (consolidated)
@@ -232,25 +227,6 @@ export PATH
 # load FZF configuration if it exists
 [ -f "$HOME/.fzfrc" ] && source "$HOME/.fzfrc"
   
-
-
-
-
-# Syntax highlighting and autosuggestions (Debian/Ubuntu)
-[ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && \
-  source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-[ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ] && \
-  source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-
-# Syntax highlighting and autosuggestions (Arch)
-[ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && \
-  source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-[ -f /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ] && \
-  source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-
-
-
-
 # ============================================================================
 # google-cloud-sdk initialization
 # ============================================================================
