@@ -3,7 +3,7 @@
 
 include "/home/fred/.gtkrc-2.0.mine"
 gtk-theme-name="BlackMATE"
-gtk-icon-theme-name="menta"
+gtk-icon-theme-name="mate"
 gtk-font-name="Cantarell 11"
 gtk-cursor-theme-name="mate-black"
 gtk-cursor-theme-size=0
