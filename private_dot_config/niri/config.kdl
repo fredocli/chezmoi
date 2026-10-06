@@ -187,7 +187,7 @@ binds {
     
 
     // file manager
-    Super+N hotkey-overlay-title="Run an Application: nautilus"{ spawn "nautilus"; }
+    Super+N { spawn "niri-launch-or-focus" "$FILEMANAGER_CLASS" "$FILEMANAGER"; }
 
     // browser
     Super+W  { spawn "niri-launch-or-focus" "$BROWSER_CLASS" "$BROWSER"; }
