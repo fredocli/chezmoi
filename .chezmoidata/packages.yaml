@@ -15,6 +15,8 @@ packages:
     - nodejs
     - qtpass
     - seahorse
+    - qt6ct
+    - pcmanfm-qt
 
   aur:
     - google-chrome
