@@ -1,6 +1,5 @@
 packages:
   pacman:
-    - foot
     - git
     - zsh
     - exa
