@@ -61,8 +61,8 @@ export TERM="st"
 fi
 
 # FILEMANAGER
-export FILEMANAGER="pcmanfm" #nautilus
-export FILEMANAGER_CLASS="pcmanfm" #org.gnome.nautilus
+export FILEMANAGER="pcmanfm-qt" #nautilus
+export FILEMANAGER_CLASS="pcmanfm-qt" #org.gnome.nautilus
 
 
 # clipmenu
