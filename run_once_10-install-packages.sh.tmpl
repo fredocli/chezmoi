@@ -42,6 +42,7 @@ fi
 {{- if .packages.npm }}
 info "Installing global npm packages"
 mkdir -p ~/.npm-global
+npm config set prefix ~/.npm-global
 npm install -g {{ range .packages.npm }}{{ . }} {{ end }}
 success "Global npm packages installed"
 {{- end }}
