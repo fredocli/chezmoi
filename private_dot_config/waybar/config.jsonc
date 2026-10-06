@@ -3,35 +3,66 @@
   "layer": "top",
   "position": "top",
   "spacing": 4,
-  "height": 36,
+  "height": 32,
   "modules-left": [
     "custom/menu",
-    "niri/workspaces"
+    "niri/workspaces",
+     "niri/window"
   ],
   "modules-center": [
       "custom/browser",
       "custom/code",
       "custom/filemanager",
       "custom/terminal"
+     
   ],
   "modules-right": [
     
    // "group/tray-expander",
+    "tray",
     "mpd",
     "pulseaudio",
+
     "bluetooth",
     "network",
     "cpu",
+    "disk",
     "battery",
      "clock"
   ],
   "custom/menu": {
     "format": "\uf303", // arch linux logo
-    "on-click": "dfr-menu",
-    "on-click-right": "walker --height 980 --width 980 --provider menus:keybinds",
-    "on-click-middle": "walker --height 980 --width 800 --provider menus:waybar",
-    "tooltip-format": "System menu"
+    "on-click": "rofi -show drun",
+    "on-click-right": "fuzzel",
+    "tooltip-format": "System menu [SUPER + R]"
   },
+
+  "niri/window": {
+    "format": "{}",
+    "rewrite": {
+          "(.*) - Mozilla Firefox": "🌎 $1",
+          "(.*) - Google Chrome": "\udb81\udd9f $1",
+          "(.*) - zsh": "> [$1]"
+    }
+  },
+  "disk": {
+      "interval": 60,
+       "format": "\uf0c7 {specific_free:0.0f}G",
+       "tooltip-format":"{specific_free:0.1f}G free on {path}",
+       "unit": "GB"     // 1434.25 GB out of 2000.00 GB available. Alternatively 1.4TiB out of 1.9TiB available.
+  },
+"mpris": {
+	"format": "{player_icon} {dynamic}",
+	"format-paused": "{status_icon} <i>{dynamic}</i>",
+	"player-icons": {
+		"default": "▶",
+		"mpv": "🎵"
+	},
+	"status-icons": {
+		"paused": "⏸"
+	},
+	// "ignored-players": ["firefox"]
+},
 
 
   "niri/workspaces": {
@@ -54,48 +85,68 @@
     }
   },
   "clock": {    
-    "format": "{:%H:%M : %a %b %d %Y}",
+    "format": "{:%H:%M}",
    // "format-alt": "{:%I:%M %Z   : %a %b %d %Y}",
-    "tooltip": false,
-    "tooltip-format": "<tt>{calendar}</tt>",
-    "timezones": [
-      "",
-      "UTC"
-    ],
-    //"on-click-right": "xdg-open https://calendar.google.com",
-    "actions": {
-      "on-scroll-up": "tz_up",
-      "on-scroll-down": "tz_down"
-    },
+    //"tooltip": false,
+    //"tooltip-format": "<tt>{calendar}</tt>",
+    "tooltip-format": "{:%A %d %B}\n\n<tt>{calendar}</tt>" ,
+    // "timezones": [
+    //   "",
+    //   "UTC"
+    // ],
+    // //"on-click-right": "xdg-open https://calendar.google.com",
+     "actions": {
+        "on-click-middle": "shift_up",
+       // "on-scroll-up": "shift_up",
+        "on-click-right": "shift_down"
+     },
     "calendar": {
-      "mode": "year",
+      "mode": "month",
       "mode-mon-col": 3,
       "weeks-pos": "right",
       "on-scroll": 1,
       "format": {
-        "months": "<span color='#ffead3'><b>{}</b></span>",
-        "days": "<span color='#ecc6d9'><b>{}</b></span>",
-        "weeks": "<span color='#99ffdd'><b>W{:%V}</b></span>",
+        "months": "<span color='olive'><b>{}</b></span>\n",
+        "days": "<span color='olive'><b>{}</b></span>",
+        "weeks": "<span color='olive'><b>W{:%V}</b></span>",
         "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
-        "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+        "today": "<span color='#ffcc66'><b><u>{}</u></b></span>"
       }
     }
   },
-  "mpd": {
-    "format": "{stateIcon} {uri}",
-    "format-stopped": "#",
-    "tooltip-format": "{title} by {artist} (Album: {album})",
+"mpd": {
+    "server": "localhost",
+    "port": 6600,
+    "interval": 2,          // Retries connection every X seconds if lost
+    "timeout": 30,
+
+    "format": "{stateIcon}{consumeIcon}{randomIcon}{repeatIcon}{singleIcon} {artist} - {title}",
+    "format-disconnected": "⚠",
+    "format-stopped": "\udb81\udf5b",
+    "tooltip-format": "MPD (connected)",
+    "tooltip-format-disconnected": "MPD (disconnected)",
+    "max-length": 50,
+
     "state-icons": {
       "playing": "▶",
       "paused": "⏸"
     },
-    "on-click": "playerctl play-pause",
-    "on-click-right": "playerctl play-pause",
-    "on-click-middle": "niri-launch-or-focus-tui ncmpcpp ncmpcpp",
-    "on-click-backward": "playerctl position 10-",
-    "on-click-forward": "playerctl position 10+"
-  
-  },
+
+    "consume-icons": { "on": " " },
+    "random-icons":  { "on": " " },
+    "repeat-icons":  { "on": " " },
+    "single-icons":  { "on": "1 " },
+
+    "on-click": "niri-launch-or-focus-tui ncmpcpp ncmpcpp", 
+    "on-click-middle": "mpc toggle",
+    "on-click-right": "playerctl stop"
+},
+
+
+
+
+
+
   // "group/tray-expander": {
   //   "orientation": "horizontal",
   //   "drawer": {
@@ -184,7 +235,8 @@
   "cpu": {
     "interval": 5,
     "format": "󰍛",
-    "on-click": "niri-launch-or-focus-tui htop htop"
+    "on-click": "niri-launch-or-focus-tui htop htop",
+    "on-click-right": "alacritty --hold --class fastfetch  --title fastfetch --command fastfetch"
   },
   "battery": {
     "format": "{capacity}% {icon}",
