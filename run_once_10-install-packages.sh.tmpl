@@ -1,18 +1,47 @@
 #!/bin/bash
 set -euo pipefail
 
+if [[ -t 1 && -z "${NO_COLOR:-}" ]]; then
+    RESET=$'\033[0m'
+    BOLD=$'\033[1m'
+    BLUE=$'\033[34m'
+    GREEN=$'\033[32m'
+    YELLOW=$'\033[33m'
+    RED=$'\033[31m'
+else
+    RESET=''
+    BOLD=''
+    BLUE=''
+    GREEN=''
+    YELLOW=''
+    RED=''
+fi
+
+info() { printf '%s\n' "${BLUE}ℹ${RESET}  $*"; }
+success() { printf '%s\n' "${GREEN}✓${RESET}  $*"; }
+warn() { printf '%s\n' "${YELLOW}⚠${RESET}  $*" >&2; }
+fail() { printf '%s\n' "${RED}✗${RESET}  $*" >&2; }
+
+printf '\n%s\n' "${BOLD}${BLUE}📦 Installing packages${RESET}"
 {{- if .packages.pacman }}
+info "Installing official repository packages"
 sudo pacman -S --needed --noconfirm {{ range .packages.pacman }}{{ . }} {{ end }}
+success "Official repository packages installed"
 {{- end }}
 
 {{- if .packages.aur }}
 if ! command -v paru >/dev/null 2>&1; then
-    echo "paru is required to install AUR packages but is not installed" >&2
-    exit 1
+    fail "paru is required to install AUR packages, but it is not installed"
 fi
+info "Installing AUR packages"
 paru -S --needed --noconfirm {{ range .packages.aur }}{{ . }} {{ end }}
+success "AUR packages installed"
 {{- end }}
 
 {{- if .packages.npm }}
+info "Installing global npm packages"
 npm install -g {{ range .packages.npm }}{{ . }} {{ end }}
+success "Global npm packages installed"
 {{- end }}
+
+printf '\n%s\n\n' "${BOLD}${GREEN}✨ Done installing packages${RESET}"
