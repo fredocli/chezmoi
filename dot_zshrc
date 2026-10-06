@@ -37,11 +37,10 @@ setopt CORRECT             # Typo correction
 # ============================================================================
 # COMPLETION SYSTEM (single initialization)
 # ============================================================================
-autoload -U compinit && compinit -C
+#autoload -U compinit && compinit -C
+autoload -Uz compinit && compinit
+
 autoload -U +X bashcompinit && bashcompinit
-
-
-
 
 # Completion styling
 zstyle ':completion:*' menu select
@@ -49,8 +48,29 @@ zstyle ':completion:*' use-cache on
 zmodload zsh/complist
 _comp_options+=(globdots)  # Include hidden files
 
-# Custom completion paths
-[ -d "$HOME/.config/zsh/completions" ] && fpath+=("$HOME/.config/zsh/completions")
+
+# CUSTOM COMPLETION PATHS
+if [ -d "$HOME/.config/zsh/completions" ];then
+ fpath+=("$HOME/.config/zsh/completions")
+fi
+
+# STRIPE CLI COMPLETION
+if [ -d "$HOME/.stripe" ]; then
+  fpath+=("$HOME/.stripe" $fpath)
+fi
+
+# PIP COMPLETION
+function _pip_completion {
+  local words cword
+  read -Ac words
+  read -cn cword
+  reply=( $( COMP_WORDS="$words[*]" \
+             COMP_CWORD=$(( cword-1 )) \
+             PIP_AUTO_COMPLETE=1 $words[1] 2>/dev/null ))
+}
+compctl -K _pip_completion pip
+
+
 
 # ============================================================================
 # VI MODE & KEYBINDINGS
@@ -231,21 +251,12 @@ fi
 [ -f /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ] && \
   source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-# Stripe CLI completion
-if [ -d "$HOME/.stripe" ]; then
-  fpath=("$HOME/.stripe" $fpath)
-fi
 
-# Pip completion
-function _pip_completion {
-  local words cword
-  read -Ac words
-  read -cn cword
-  reply=( $( COMP_WORDS="$words[*]" \
-             COMP_CWORD=$(( cword-1 )) \
-             PIP_AUTO_COMPLETE=1 $words[1] 2>/dev/null ))
-}
-compctl -K _pip_completion pip
+
+
+# ============================================================================
+# google-cloud-sdk initialization
+# ============================================================================
 
 # Google Cloud SDK
 if [ -f "$HOME/.google-cloud-sdk/path.zsh.inc" ]; then
