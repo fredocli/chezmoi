@@ -13,6 +13,7 @@ packages:
     - zathura
     - libnotify
     - nodejs
+    - npm
     - qtpass
     - seahorse
     - qt6ct
