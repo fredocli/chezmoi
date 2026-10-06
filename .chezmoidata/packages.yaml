@@ -13,8 +13,13 @@ packages:
     - wtype
     - zathura
     - libnotify
-
-
+    - nodejs
+    - qtpass
+    - seahorse
 
   aur:
     - google-chrome
+
+  npm:
+    - "@google/clasp"
+

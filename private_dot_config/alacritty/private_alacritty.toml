@@ -129,41 +129,15 @@ y = 2
 
 [keyboard]
 
-# [[keyboard.bindings]]
-# action = "ResetFontSize"
-# key = "Equals"
-# mods = "Control"
 
-# [[keyboard.bindings]]
-# action = "IncreaseFontSize"
-# key = "Plus"
-# mods = "Control"
 
-# [[keyboard.bindings]]
-# action = "DecreaseFontSize"
-# key = "Minus"
-# mods = "Control"
+[[keyboard.bindings]]
+action = "ToggleViMode"
+key = "Insert"
 
-# [[keyboard.bindings]]
-# action = "ToggleViMode"
-# key = "Insert"
 
-# [[keyboard.bindings]]
-# action = "Paste"
-# key = "P"
-# mode = "Vi"
-# mods = "Control"
 
-# [[keyboard.bindings]]
-# action = "Copy"
-# key = "C"
-# mode = "vi"
-# mods = "Control"
 
-# [[keyboard.bindings]]
-# action = "Copy"
-# key = "Y"
-# mode = "Vi"
 
 # [[keyboard.bindings]]
 # action = "ScrollToBottom"
