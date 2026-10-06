@@ -39,8 +39,11 @@ setopt CORRECT             # Typo correction
 # ============================================================================
 #autoload -U compinit && compinit -C
 autoload -Uz compinit && compinit
-
 autoload -U +X bashcompinit && bashcompinit
+
+if command -v fzf &> /dev/null; then
+  source <(fzf --zsh)
+fi
 
 # Completion styling
 zstyle ':completion:*' menu select
@@ -59,7 +62,14 @@ if [ -d "$HOME/.stripe" ]; then
   fpath+=("$HOME/.stripe" $fpath)
 fi
 
-# PIP COMPLETION
+# ZOXIDE COMPLETION
+if command -v zoxide &> /dev/null; then
+  eval "$(zoxide init zsh)"
+fi
+
+# PIP COMPLETION 
+# TOVERIFY: This is a custom completion function for pip. It reads the current command line words and the cursor position, then invokes pip's auto-completion feature to generate suggestions based on the current input. The results are stored in the `reply` array, which is used by Zsh to display the completion options to the user.
+
 function _pip_completion {
   local words cword
   read -Ac words
@@ -206,7 +216,6 @@ PATH="$HOME/.google-cloud-sdk/bin:$PATH"
 
 # Remove duplicates
 typeset -U PATH
-
 export PATH
 
 # ============================================================================
@@ -216,28 +225,12 @@ export PATH
 # Load bash aliases
 [ -f "$HOME/.bash_aliases" ] && source "$HOME/.bash_aliases"
 
-# FZF initialization
-if command -v fzf &> /dev/null; then
-  [ -f "$HOME/.fzfrc" ] && source "$HOME/.fzfrc"
+# load FZF configuration if it exists
+[ -f "$HOME/.fzfrc" ] && source "$HOME/.fzfrc"
   
-  # Use fzf native zsh integration if available
-  if [ -f "$HOME/.vim/plugged/fzf/shell/completion.zsh" ]; then
-    source "$HOME/.vim/plugged/fzf/shell/completion.zsh"
-  fi
-  if [ -f "$HOME/.vim/plugged/fzf/shell/key-bindings.zsh" ]; then
-    source "$HOME/.vim/plugged/fzf/shell/key-bindings.zsh"
-  fi
-  
-  # Fallback to system fzf if available
-  if command -v fzf &> /dev/null && ! [ -f "$HOME/.vim/plugged/fzf/shell/key-bindings.zsh" ]; then
-    eval "$(fzf --zsh)" 2>/dev/null
-  fi
-fi
 
-# Zoxide (modern cd alternative)
-if command -v zoxide &> /dev/null; then
-  eval "$(zoxide init zsh)"
-fi
+
+
 
 # Syntax highlighting and autosuggestions (Debian/Ubuntu)
 [ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && \
