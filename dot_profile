@@ -61,8 +61,8 @@ export TERM="st"
 fi
 
 # FILEMANAGER
-export FILEMANAGER="nautilus"
-export FILEMANAGER_CLASS="org.gnome.nautilus"
+export FILEMANAGER="pcmanfm" #nautilus
+export FILEMANAGER_CLASS="pcmanfm" #org.gnome.nautilus
 
 
 # clipmenu
@@ -74,6 +74,10 @@ export CM_SELECTIONS="clipboard" # "primary clipboard"
 
 # tsp
 export TS_MAILTO=frederic@terrible.dk
+
+# qt 
+# https://share.google/aimode/8n8KgNyXja765MQrP
+export QT_QPA_PLATFORMTHEME=qt6ct
 
 
 if [[ "$(tty)" = "/dev/tty1" ]]
