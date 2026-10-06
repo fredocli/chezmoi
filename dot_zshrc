@@ -176,7 +176,11 @@ zle -N insert-last-command-output
 
 # Edit command line in vim
 autoload -Uz edit-command-line
-zle -N edit-command-line editor='vim'
+_edit-command-line-vim() {
+  local EDITOR=vim
+  edit-command-line
+}
+zle -N edit-command-line _edit-command-line-vim
 
 # ============================================================================
 # KEY BINDINGS (Custom & FZF)
