@@ -15,7 +15,7 @@ packages:
     - nodejs
     - npm
     - qtpass
-    - seahorse
+   # - seahorse
     - qt6ct
     - pcmanfm-qt
     - mate-icon-theme 

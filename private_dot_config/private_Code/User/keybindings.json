@@ -148,5 +148,9 @@
     "key": "ctrl+alt+k",
     "command": "-bookmarks.toggle",
     "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+i ctrl+s",
+    "command": "github.copilot.chat.completions.toggle"
   }
 ]

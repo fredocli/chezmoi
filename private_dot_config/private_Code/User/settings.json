@@ -96,9 +96,9 @@
   "geminicodeassist.enableTelemetry": false,
   "geminicodeassist.chat.enableStreaming": false,
   "github.copilot.enable": {
-    "*": true,
+    "*": false,
     "plaintext": false,
-    "markdown": true,
+    "markdown": false,
     "scminput": false
   },
   "chat.viewSessions.orientation": "stacked"
