@@ -2,6 +2,7 @@
 // Launch at startup
 // ----------------------------------------------------------------------------
 
+
 spawn-at-startup "waybar"
 spawn-at-startup "mpd"
 spawn-sh-at-startup "sleep 1; exec mpd-mpris"
@@ -405,6 +406,13 @@ binds {
     Print { screenshot; }
     Ctrl+Print { screenshot-screen; } 
     Alt+Print { screenshot-window; }
+
+    // Toggle touchpad on/off. This is useful for laptops with a touchpad that gets in the way when typing.
+    "Mod+Shift+T" {
+        spawn "sh" "-c" "gsettings set org.gnome.desktop.peripherals.touchpad touchpad-enabled $(gsettings get org.gnome.desktop.peripherals.touchpad touchpad-enabled | grep -q true && echo false || echo true)";
+    }
+
+
 
     // Applications such as remote-desktop clients and software KVM switches may
     // request that niri stops processing the keyboard shortcuts defined here
