@@ -47,4 +47,21 @@ npm install -g {{ range .packages.npm }}{{ . }} {{ end }}
 success "Global npm packages installed"
 {{- end }}
 
+{{- if .packages.git }}
+info "Cloning repositories into ~/.repo"
+mkdir -p "$HOME/.repo"
+{{ range .packages.git -}}
+repo_url={{ . | quote }}
+repo_name=${repo_url##*/}
+repo_name=${repo_name%.git}
+repo_dir="$HOME/.repo/$repo_name"
+if [[ -d "$repo_dir/.git" ]]; then
+    info "Repository already exists: $repo_name"
+else
+    git clone "$repo_url" "$repo_dir"
+    success "Cloned $repo_name"
+fi
+{{ end }}
+{{- end }}
+
 printf '\n%s\n\n' "${BOLD}${GREEN}✨ Done installing packages${RESET}"

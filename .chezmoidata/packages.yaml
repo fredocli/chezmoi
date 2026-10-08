@@ -27,4 +27,7 @@ packages:
 
   npm:
     - "@google/clasp"
+  git:
+    - "git@github.com:fredocli/bin.git"
+    - "git@github.com:fredocli/snip.git"
 
