@@ -409,7 +409,7 @@ binds {
 
     // Toggle touchpad on/off. This is useful for laptops with a touchpad that gets in the way when typing.
     "Mod+F11" {
-        spawn "sh" "-c" "gsettings set org.gnome.desktop.peripherals.touchpad touchpad-enabled $(gsettings get org.gnome.desktop.peripherals.touchpad touchpad-enabled | grep -q true && echo false || echo true)";
+        spawn "toggle-touchpad";
     }
 
 

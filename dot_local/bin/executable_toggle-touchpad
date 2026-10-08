@@ -1,0 +1,25 @@
+#!/bin/sh
+
+pw=$(zenity --password --title="Authentication Required") || exit 1
+
+for d in /sys/class/input/input*; do
+    grep -qE 'Synaptics TouchPad' "$d/name" 2>/dev/null || continue
+    f="$d/inhibited"
+    if [ "$(cat "$f")" = 1 ]; then
+        new=0; msg=enabled
+    else
+        new=1; msg=disabled
+    fi
+    if printf '%s\n' "$pw" | sudo -S -p '' sh -c 'echo "$1" > "$2"' sh "$new" "$f" 2>/dev/null; then
+        echo "touchpad $msg"
+        notify-send -t 1500 touchpad "$msg"
+        exit 0
+    else
+        echo "auth/write failed"
+        notify-send -t 1500 touchpad "failed"
+        exit 1
+    fi
+done
+
+echo "device not found"
+exit 1
