@@ -15,6 +15,7 @@ packages:
     - nodejs
     - npm
     - qtpass
+    - grc # for pinentry-gnome3
    # - seahorse
     - qt6ct
     - pcmanfm-qt
