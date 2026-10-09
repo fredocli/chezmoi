@@ -428,7 +428,7 @@ binds {
     // The quit action will show a confirmation dialog to avoid accidental exits.
     Super+Delete { quit; }
     super+Delete { 
-        spawn "rofi -show menu -modi 'menu:rofi-power-menu --choices=suspend/shutdown/reboot/logout/lockscreen --confirm=' -theme-str 'window \{width: 16em;\} listview \{lines: 6;\}' "
+        spawn "rofi -show menu -modi 'menu:rofi-power-menu --choices=suspend/shutdown/reboot/logout/lockscreen --confirm=' -theme-str 'window {width: 16em;} listview {lines: 6;}' "
     }
     //Mod+Shift+P { power-off-monitors; }
 }
