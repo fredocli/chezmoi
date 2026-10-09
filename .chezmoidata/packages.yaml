@@ -16,7 +16,8 @@ packages:
     - npm
     - qtpass
     - grc # for pinentry-gnome3
-   # - seahorse
+    - seahorse
+    - gnome-keyring
     - qt6ct
     - pcmanfm-qt
     - mate-icon-theme 
