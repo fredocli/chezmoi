@@ -59,8 +59,8 @@ fi
 if [[ -n ${DMENU:-} ]]; then
 	read -r -a menu_command <<< "$DMENU"
 elif [[ $backend == wayland ]]; then
-	#menu_command=(rofi -dmenu  -theme Dmenu.rasi -p "pass:" )
-	menu_command=(rofi -dmenu -p "pass:")
+	menu_command=(rofi -dmenu  -theme Dmenu.rasi -p "pass:" )
+	#menu_command=(rofi -dmenu -p "pass:")
 else
 	menu_command=(dmenu)
 fi
