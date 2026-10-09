@@ -429,7 +429,7 @@ binds {
     
     //Super+Delete { quit; }
     Super+Delete { 
-        spawn "rofi -show menu -modi 'menu:rofi-power-menu --choices=suspend/shutdown/reboot/logout/lockscreen --confirm=' -theme-str 'window {width: 16em;} listview {lines: 6;}'";
+        spawn-sh "rofi -show menu -modi 'menu:rofi-power-menu --choices=suspend/shutdown/reboot/logout/lockscreen --confirm=' -theme-str 'window {width: 16em;} listview {lines: 6;}'";
     }
 
     //Mod+Shift+P { power-off-monitors; }
