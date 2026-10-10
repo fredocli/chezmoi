@@ -9,6 +9,9 @@ alias cp='cp -iv'
 
 # vim
 alias vi='vim'
+alias vin='nvim'
+
+
 
 # case
 alias lowercase="tr '[A-ZÆØÅÉ]' '[a-zæøåé]'"
