@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Rofi SSH
+Comment=Launch SSH connections using Rofi
+Exec=rofi -show ssh
+Icon=network-server
+Terminal=false
+Categories=System;Utility;
