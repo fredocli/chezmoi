@@ -1,0 +1,679 @@
+colors monokai
+let &term="xterm-256color" " xterm 256 color
+set mouse=a                " enable mousse 
+"set scrolloff=999          " Keep your cursor centered vertically on the screen 
+set scrolloff=4		" The number of screen lines to keep above and below the cursor.
+
+let mapleader=","
+let &t_SI = "\e[6 q" " cursor normal mode
+let &t_EI = "\e[2 q" " cursor insert mode 
+
+set autoread
+"set updatetime=4000
+"au CursorHold * checktime | call feedkeys("lh") 
+"au FocusLost,WinLeave * :silent! noautocmd w
+
+au FileChangedShell * :echom "Warning: File changed on disk" 
+"au FileChangedShell *  :checktime 
+"au FocusLost,WinLeave * : echom "leave win"
+"au FocusGained,BufEnter * : echom "focus on"
+"au CursorHold * : echom "cursor Hold"  
+"au CursorMoved * :echom "cursor moved"
+
+
+set tw=0
+set number		      " Number
+set relativenumber	" Relativenumber
+set showcmd         " show command in bottom bar
+set cursorline      " highlight current line
+set showmatch       " highlight matching [{()}]
+set shiftwidth=4	  " Number of auto-indent spaces
+set termguicolors   " termguicolors
+set smarttab		    " Enable smart-tabs
+set softtabstop=4	  " Number of spaces per Tab
+" ================ Search ===========================
+set incsearch		    " search as characters are entered
+set hlsearch        " highlight matches
+set ignorecase      " Ignore case when searching...
+set smartcase       " unless we type a capital
+set nocompatible	  " Limit search to your project
+set path+=**		    " Search all subdirectories and recursively
+set wildmenu		    " Shows multiple matches on one line
+set wildmode=longest,list,full 
+
+"set smartindent		" Enable smart-indent
+"set autoindent		  " Auto-indent new lines
+
+hi CursorLine ctermbg=236 guibg=#444444
+
+" clipboard
+set clipboard=unnamedplus "unnamed "* 
+noremap <Leader>y "*y
+noremap <Leader>p "*p
+noremap <Leader>Y "+y
+noremap <Leader>P "+p
+
+" ================ Plug  ===========================
+call plug#begin('~/.vim/plugged')
+Plug 'tpope/vim-surround'
+Plug 'itchyny/lightline.vim'
+Plug 'ap/vim-css-color'
+"Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+"Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'vim-scripts/AutoComplPop' 
+Plug 'mhinz/vim-grepper'
+Plug 'unblevable/quick-scope'
+Plug 'mhinz/vim-startify'
+Plug 'romainl/vim-qf'
+Plug 'AndrewRadev/Linediff.vim'
+Plug 'chrisbra/colorizer'
+Plug 'vifm/vifm.vim'
+Plug 'dhruvasagar/vim-table-mode'
+"Plug 'fcpg/vim-waikiki'
+"Plug 'vimwiki/vimwiki'
+Plug 'voldikss/vim-floaterm'
+Plug 'preservim/vim-markdown'
+call plug#end()
+
+" =============================================
+" Plug 'preservim/vim-markdown'
+"
+" https://github.com/preservim/vim-markdown?tab=readme-ov-file#commands
+" =============================================
+
+
+let g:vim_markdown_follow_anchor = 1
+let g:vim_markdown_frontmatter = 1
+let g:vim_markdown_no_extensions_in_markdown=0
+let g:vim_markdown_toc_autofit = 1
+let g:vim_markdown_edit_url_in = 'tab'
+"
+" launch toc on a sidebar
+noremap <Leader>toc :Toc<CR>\|:windo wincmd H<CR>\|:vertical resize 40<CR>
+
+"================  quick mouvements ===========================
+inoremap II <Esc>I
+inoremap AA <Esc>A
+inoremap OO <Esc>O
+
+" II      just before the first non-blank text of the line
+" AA      inoremap aa <esc>a  " the end of the line
+" OO      start editing on a new line above the current line
+
+inoremap CC <Esc>C
+inoremap SS <Esc>S
+inoremap DD <Esc>dd
+inoremap UU <Esc>u
+
+" CC      change what is on the right of the CursorLine
+" SS      change the whole line
+" DD      change the whole line
+" UU      undo
+
+"================  mySpellGood ===========================           
+
+nnoremap sss :let @l=gleanLine()<CR>:spellgood <C-R>l
+function! CleanLine() 
+let s:temp=substitute(getline('.'), '^- ', '', '')
+let s:temp=substitute(s:temp, '|', '\\\|', 'g')
+return  s:temp
+endfunction    
+
+"================  test menu ===========================           
+
+nmenu &Fred.&Dico :sil! exec '!$BROWSER2 "https://ordnet.dk/ddo/ordbog?query="<cword>'<CR>
+nmenu Fred.&Dico2 :sil! exec '!$BROWSER2 "https://ordnet.dk/ddo/ordbog?query="<cword>'<CR>
+
+"================  makdown ===========================           
+
+" folding
+let g:markdown_folding=1
+set foldlevel=3
+
+" heading
+function! MarkdownHeading(level)
+    let s:firstChar = getline('.')[0] 
+      if a:level == 1
+	  if s:firstChar == "#"
+	    normal! 0cw#
+	  else
+	    normal! I# 
+	  endif		
+	  normal! gUU
+      elseif a:level == 2
+	  if s:firstChar == "#"
+	    normal! 0cw##
+	  else
+	    normal! I## 
+	  endif		
+	  normal! gUU
+      elseif a:level == 3 
+	  if s:firstChar == "#"
+	    normal! 0cw###
+	  else
+	    normal! I### 
+	  endif		
+	  normal! guu
+      else
+	  if s:firstChar == "#"
+	    normal! 0cw####
+	  else
+	    normal! I#### 
+	  endif		
+	  normal! guu
+      endif
+endfunction
+
+nnoremap <F1> :call MarkdownHeading(1)<CR>;
+nnoremap <F2> :call MarkdownHeading(2)<CR>;
+nnoremap <F3> :call MarkdownHeading(3)<CR>; 
+nnoremap <F4> :call MarkdownHeading(4)<CR>; 
+
+nnoremap <leader>1 :/^# <CR>
+nnoremap <leader>2 :/^## <CR>
+
+"================ source ===========================
+
+nnoremap <leader>sop :w\|source %<CR> 
+
+" ================ FTsurround ===========================
+" inspired by : 
+" https://github.com/aldantas/vim-custom-surround
+
+function! SurroundSelection(before_str, ...) range
+    let [lnum1, col1] = getpos("'<")[1:2]
+    let [lnum2, col2] = getpos("'>")[1:2]
+    cal cursor(lnum2, col2)
+    try
+        exe 'normal! a'.a:1
+    catch
+        exe 'normal! a'.a:before_str
+    endtry
+    cal cursor(lnum1, col1)
+    exe 'normal! i'.a:before_str
+endfunction
+
+function! SurroundWord(before_str, ...)
+    let s:cursorpos = getcurpos()[1:2]
+    let s:formatoptions = &formatoptions
+    set formatoptions=
+    if s:cursorpos[1] == 1
+        if len(expand('<cword>')) == 1
+            let l:insert_after = 'normal! a'
+        else
+            let l:insert_after = 'normal! ea'
+        endif
+    else
+        let l:insert_after = 'normal! hea'
+    endif
+    try
+        exe l:insert_after.a:1
+    catch
+        exe l:insert_after.a:before_str
+    endtry
+    cal cursor(s:cursorpos)
+    exe 'normal! lbi'.a:before_str
+    let &formatoptions=s:formatoptions
+    if match(tolower(synIDattr(synID(line('.'),col('.')-1,1),'name')), 'comment') != -1
+        if match(s:formatoptions, 'c') != -1
+            exe 'normal! gqq'
+        endif
+    elseif match(s:formatoptions, 't') != -1
+        exe 'normal! gqq'
+    endif
+endfunction
+
+com! -nargs=+ -range -complete=command SurroundSelection call SurroundSelection(<f-args>)
+com! -nargs=+ -complete=command SurroundWord call SurroundWord(<f-args>)
+
+function! FTsurround(word)
+    let @s='```'.a:word."\n"
+    let @e="\n".'```'
+	normal! 0"sPj$"ep
+endfunction
+
+function! FTvsurround(word)
+call SurroundSelection("```".a:word."\n","\n```" )     
+endfunction
+
+command! -nargs=* FTsurround call FTsurround(<q-args>)
+
+nnoremap ss. :FTsurround  
+nnoremap ssv :FTsurround vim<CR> 
+nnoremap ssb :FTsurround bash<CR>
+nnoremap sst :FTsurround text<CR>
+nnoremap ssj :FTsurround js<CR>
+nnoremap ssp  :FTsurround php<CR>
+
+vnoremap ss. :FTvsurround
+vnoremap ssv :<C-U>call FTvsurround("vim")<CR>
+vnoremap ssb :<C-U>call FTvsurround("bas/pdfh")<CR>
+vnoremap sst :<C-U>call FTvsurround("text")<CR>
+vnoremap ssj :<C-U>call FTvsurround("js")<CR>
+vnoremap ssp :<C-U>call FTvsurround("php")<CR>
+
+
+
+" ================ Test ===========================
+map  <leader>test1  :!notify-send <c-r>%<CR>
+map  <leader>test2 :call system('notify-send "'.getline('.').'"')<CR> 
+
+" ================ Autocomplete ===========================
+set complete+=kspell 
+set completeopt=menuone,longest
+"set shortmess=c
+
+au BufNewFile,BufFilePre,BufRead *_da.*  setlocal spell spelllang=da | setf markdown  | source ~/.vim/abbr/da | set thesaurus+=~/.vim/thesaurus/admin_da.txt
+au BufNewFile,BufFilePre,BufRead *_en.*  setlocal spell spelllang=en | setf markdown  | source ~/.vim/abbr/en | set thesaurus+=~/.vim/thesaurus/admin_en.txt     
+au BufNewFile,BufFilePre,BufRead *_da.*,*_en.* call GetTrans()  
+au FileType * execute 'setlocal dict+=~/.vim/words/'.&spelllang.'.txt'
+
+function! GetTrans()
+let s:transFile='~/.vim/trans/trans_'.&spelllang.'.json'
+if filereadable(s:transFile)
+    let b:TRANS =json_decode(join(readfile(glob(s:transFile), ''),''))
+endif 
+endfunction
+
+inoremap <expr> <Down> pumvisible() ? "<C-n>" :"<Down>"
+inoremap <expr> <Up> pumvisible() ? "<C-p>" : "<Up>"
+
+" Select the Autocomplete menu item.
+inoremap <expr> <Right> pumvisible() ? "<C-y>" : "<Right>"
+inoremap <expr> <CR> pumvisible() ? "<C-y>" :"<CR>"
+
+" Cancel the Autocomplete menu item.
+inoremap <expr> <Left> pumvisible() ? "<C-e>" : "<Left>"
+
+
+
+" ================ DiffColors ===========================
+
+function! DiffColors()
+color delek
+hi DiffAdd	cterm=NONE ctermfg=NONE ctermbg=lightGreen gui=NONE guifg=NONE guibg=lightGreen
+hi DiffText	cterm=NONE ctermfg=NONE ctermbg=Cyan  gui=NONE guifg=NONE guibg=Cyan
+hi DiffChange	cterm=NONE ctermfg=NONE ctermbg=lightCyan gui=NONE guifg=NONE guibg=lightCyan
+hi DiffDelete	cterm=NONE ctermfg=NONE ctermbg=lightRed gui=NONE guifg=NONE guibg=lightRed
+hi CursorLine	cterm=NONE ctermfg=NONE ctermbg=NONE guibg=NONE guifg=NONE guibg=NONE
+endfunction
+
+command! -nargs=* -bang DiffColors call DiffColors()
+
+" ================ CLEAN ===========================
+
+function! CLEAN()
+    " Remove multiple spaces
+    execute ':%s/^\s\+//gc'
+    " Reduce multiple line breaks to 2 lines
+    execute ':%s/\n\{3,\}/\r\r/gc'
+endfunction
+command! -nargs=* -bang CLEAN call CLEAN()
+
+function! CLEANN()
+   " Add 1 ligne under and over H1-H6 
+   execute ':%s/^#\{1,6} \(.*\)/\r\0\r/g'
+    " Replace tab by 2 Spaces
+    execute ':%s/\t/ /g'
+    " Remove multiple spaces 
+    execute ':%s/^\s\+//g'
+    execute ':%s/\s\{2,\}/ /g'
+    " Reduce multiple line breaks to 2 lines 
+    execute ':%s/\n\{3,\}/\r\r/g'
+    " Replace text
+    execute ':%s/\<ca\./>/cirka/gc'
+    execute ':%s/\<evt\./>/eventuelt/gc'
+    execute ':%s/º/°/g'
+    " remove useless space  
+    execute ':%s/\. $/./g'
+    execute ':%s/^---\s\{1,}$/---/g'
+    " format ingredients list
+    execute ':%s/^\([0-9.,]\{1,4} \)/- \1/gc'
+    execute ':%s/ $//g'
+    " Remove empty lines at the end of the document
+    execute ':%s/\($\n\s*\)\+\%$//'
+    " Remove empty lines at the beginning  of the document
+    execute ':%s/\%^\s*\n//gc'
+
+endfunction
+command! -nargs=* -bang CLEANN call CLEANN()
+command! -nargs=* -bang CLEAN  call CLEAN()
+" ================ REtemplate ===========================
+
+function! REtemplate()
+    let save_cursor = getpos(".")
+    let s:lang=&spelllang
+    let s:file=expand('%:p')
+    echom s:file 
+    execute ':w'
+    normal! ggVGd
+    call system('retemplate -i '.s:file.' -l '.s:lang) 
+    execute ':0r /tmp/retemplate'
+    silent! %s#\($\n\s*\)\+\%$##
+    call setpos('.', save_cursor)
+endfunction
+
+command! -nargs=* -bang REtemplate call REtemplate()
+
+" ================ replace ===========================
+nnoremap <Leader>r :%s///gc<Left><Left><Left>
+xnoremap <Leader>r :s///gc<Left><Left><Left>
+
+" Type a replacement term and press . to repeat the replacement again. Useful for replacing a few instances of the term (comparable to multiple cursors).
+nnoremap <silent> s* :let @/='\<'.expand('<cword>').'\>'<CR>cgn
+xnoremap <silent> s* "sy:let @/=@s<CR>cgn
+
+" makes * and # work on visual mode too.
+function! s:VSetSearch(cmdtype)
+  let temp = @s
+  norm! gv"sy
+  let @/ = '\V' . substitute(escape(@s, a:cmdtype.'\'), '\n', '\\n', 'g')
+  let @s = temp
+endfunction
+
+xnoremap * :<C-u>call <SID>VSetSearch('/')<CR>/<C-R>=@/<CR><CR>
+xnoremap # :<C-u>call <SID>VSetSearch('?')<CR>?<C-R>=@/<CR><CR>
+
+" recursively vimgrep for word under cursor or selection if you hit leader-star
+if maparg('<leader>*', 'n') == ''
+  nmap <leader>* :execute 'noautocmd vimgrep /\V' . substitute(escape(expand("<cword>"), '\'), '\n', '\\n', 'g') . '/ **'<CR>
+endif
+if maparg('<leader>*', 'v') == ''
+  vmap <leader>* :<C-u>call <SID>VSetSearch()<CR>:execute 'noautocmd vimgrep /' . @/ . '/ **'<CR>
+endif
+
+" ================  keys  ===========================
+"select all
+nnoremap <leader>a <esc>ggVG<CR>
+" insert a space 
+nnoremap <space> i<space><esc>
+" clear search highlights
+map <Leader><Space> :let @/=''<CR>
+" title case
+nnoremap gut :s#\v(\w)(\S*)#\u\1\L\2#g<cr> :let @/=''<CR>"
+
+" move lines up an down
+nnoremap o o<Esc>
+nnoremap O O<Esc>
+nnoremap <leader>md :m .+1<CR>==
+nnoremap <leader>mu :m .-2<CR>==
+vnoremap <leader>md :m '>+1<cr>gv=gv
+vnoremap <leader>mu :m '<-2<cr>gv=gv
+inoremap <leader>md  <Esc>:m .+1<CR>==gi
+inoremap <leader>mu <Esc>:m .-2<CR>==gi
+
+"..............................................................................
+"  Plug 'dhruvasagar/vim-table-mode'
+"..............................................................................
+
+function! s:isAtStartOfLine(mapping)
+  let text_before_cursor = getline('.')[0 : col('.')-1]
+  let mapping_pattern = '\V' . escape(a:mapping, '\')
+  let comment_pattern = '\V' . escape(substitute(&l:commentstring, '%s.*$', '', ''), '\')
+  return (text_before_cursor =~? '^' . ('\v(' . comment_pattern . '\v)?') . '\s*\v' . mapping_pattern . '\v$')
+endfunction
+
+inoreabbrev <expr> <bar><bar>
+          \ <SID>isAtStartOfLine('\|\|') ?
+          \ '<c-o>:TableModeEnable<cr><bar><space><bar><left><left>' : '<bar><bar>'
+inoreabbrev <expr> __
+          \ <SID>isAtStartOfLine('__') ?
+          \ '<c-o>:silent! TableModeDisable<cr>' : '__'
+
+
+" .............................................................................
+"  Plug 'fcpg/vim-waikiki'
+" .............................................................................:
+" let g:waikiki_roots = ['~/.repo/wikicli/']
+" let maplocalleader = "½"
+" let g:waikiki_default_maps = 1
+
+" nmap  <buffer>  <LocalLeader>n        <Plug>(waikikiNextLink)
+" nmap  <buffer>  <LocalLeader>p        <Plug>(waikikiPrevLink)
+" nmap  <buffer>  <LocalLeader>u        <Plug>(waikikiGoUp)
+" nmap  <buffer>  <LocalLeader><cr>     <Plug>(waikikiFollowLinkVSplit)
+" nmap  <buffer>  <LocalLeader>t        <Plug>(waikikiTags)
+" nmap  <buffer>  <LocalLeader>l	      <Plug>(waikikiToggleListItem)
+
+" .............................................................................
+" Plug 'vimwiki/vimwiki'
+" .............................................................................
+
+" autocmd BufEnter *.md setlocal syntax=markdown
+
+" let g:vimwiki_list = [{'name':'cli', 'path': '~/.repo/wikicli//','syntax': 'markdown', 'ext': 'md' , 'auto_toc': 1}]
+" "let g:vimwiki_ext2syntax = {}
+" "let g:vimwiki_ext2syntax = {'.md': 'markdown',   '.mkd': 'markdown',  '.wiki': 'media'} 
+
+
+
+ augroup templates
+   au!
+    autocmd BufNewFile $HOME/.repo/wikicli/*.* silent! execute '0r $HOME/.vim/templates/wikicli.md'.expand("<afile>:e")
+"   " parse special text in the templates after the read
+"   "autocmd BufNewFile * %substitute#\[:VIM_EVAL:\]\(.\{-\}\)\[:END_EVAL:\]#\=eval(submatch(1))#ge
+ augroup END
+
+" .............................................................................
+" romainl/vim-q (quickFix)  
+" .............................................................................
+
+nmap cf <Plug>(qf_qf_switch)
+nmap cp <Plug>(qf_qf_previous)
+nmap cn <Plug>(qf_qf_next)
+
+" .............................................................................
+" Vim-startify 
+" .............................................................................
+
+let g:startify_session_dir = '~/.vim/sessions'
+let g:startify_files_number = 10
+let g:startify_custom_header = [
+	    \' __ _  __ _   ',
+	    \' |_ |_)|_ | \ ',
+	    \' |  | \|__|_/ ',
+	    \]
+let g:startify_lists = [
+          \ { 'type': 'sessions',  'header': ['   Sessions']       },
+          \ { 'type': 'files',     'header': ['   Files']            },
+          \ { 'type': 'dir',       'header': ['   Current Directory '. getcwd()] },
+          \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
+          \ ]
+let g:startify_bookmarks = [
+            \ { 'i': '~/.vimrc' },
+            \ { 'r': '~/.repo/traductions/recettes/source/' },
+            \ { 'c': '~/.repo/wikicli/' },
+            \ ]
+" .............................................................................
+" unblevable/quick-scope
+" .............................................................................
+
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+
+" .............................................................................
+" itchyny/lightline.vim
+" .............................................................................
+
+ set laststatus=2
+ let g:lightline = {
+	\ 'colorscheme': 'powerline',
+	\ 'active': {
+	\   'left': [ [ 'mode', 'paste' ], [ 'gitbranch', 'readonly', 'filename', 'modified','spelltext','spelllang' ]]
+	\ },'component':{ 'spelltext' : ''}, 
+	\ 'component_function': {
+	\   'filename': 'LightlineFilename',
+	\   'gitbranch': 'FugitiveHead',
+	\   'spelllang': 'Spelllang'
+	\ }}
+
+function! Spelllang()
+    return &spelllang
+endfunction
+
+function! LightlineFilename()
+    return &filetype ==# 'vimfiler' ? vimfiler#get_status_string() :
+             \ &filetype ==# 'unite' ? unite#get_status_string() :
+             \ &filetype ==# 'vimshell' ? vimshell#get_status_string() :
+             \ expand('%:t') !=# '' ? expand('%:t') : '[No Name]'
+endfunction
+
+   let g:unite_force_overwrite_statusline = 0
+   let g:vimfiler_force_overwrite_statusline = 0
+   let g:vimshell_force_overwrite_statusline = 0
+" .............................................................................
+" mhinz/vim-grepper
+" .............................................................................
+
+let g:grepper={}
+let g:grepper.tools=["rg"]
+
+xmap gr <plug>(GrepperOperator)
+
+" After searching for text, press this mapping to do a project wide find and
+" replace. It's similar to <leader>r except this one applies to all matches
+" across all files instead of just the current file.
+nnoremap <Leader>R
+  \ :let @s='\<'.expand('<cword>').'\>'<CR>
+  \ :Grepper -cword -noprompt<CR>
+  \ :cfdo %s/<C-r>s//g \| update
+  \<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
+
+" The same as above but with a visual selection.
+xmap <Leader>R
+    \gvgr
+    \:cfdo %s/<C-r>s//g \| update
+    \<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
+
+
+" ================ md ===========================
+
+au BufNewFile,BufFilePre,BufRead *.md,README set filetype=markdown
+nnoremap  pdf  :w % \|!md2pdf -a pdf "%" &>/dev/null &<cr><cr>
+nnoremap  htm  :w % \|!md2pdf -a html "%" &>/dev/null &<cr><cr>
+"nnoremap  htm  :MarkdownPreview<cr>
+
+" table of contents
+nnoremap toc  :r !toc % 1 2<cr>
+nnoremap TOC  :let dir=expand('%:p:h') \|r !tagfinder -L -D dir \| sed 's/\x1b\[[0-9;]*m//g' \|sed 's/^\.\///'<CR> 
+
+" ================ spell ===========================
+
+hi SpellCap cterm=underline ctermfg=141 ctermbg=Black gui=underline guifg=#ae81ff guibg=Black
+hi SpellBad cterm=NONE ctermfg=Yellow guifg=Yellow 
+hi SpellRare cterm=underline ctermfg=Green ctermbg=Black  gui=underline guifg=Green guibg=Black  
+
+function! FixLastSpellingError()
+    normal! mm[s1z=`m"
+endfunction
+
+nnoremap spp :call FixLastSpellingError()<cr>
+nnoremap spn:setlocal nospell<CR> 
+nnoremap spf :setlocal spell spelllang=fr<CR>  
+nnoremap spd :setlocal spell spelllang=da<CR>  
+nnoremap spe :setlocal spell spelllang=en<CR>  
+nnoremap spo :setlocal spell spelllang=od<CR>  
+nnoremap sppp :call  FZFspell()<CR>
+nnoremap sæ [s
+nnoremap sø ]s
+nnoremap sg zg
+
+" ================ netrw ===========================
+ let g:netrw_banner=0
+ let g:netrw_liststyle= 3    " show the tree listing
+ let g:netrw_browse_split=4 " 
+ let g:netrw_winsize = 20         "   set default window size to be always
+ let g:netrw_preview = 1       " open splits to the right
+ let g:NetrwIsOpen=0
+
+function! ToggleNetrw()
+    if g:NetrwIsOpen
+        let i = bufnr("$")
+        while (i >= 1)
+            if (getbufvar(i, "&filetype") == "netrw")
+                silent exe "bwipeout " . i 
+            endif
+            let i-=1
+        endwhile
+        let g:NetrwIsOpen=0
+    else
+        let g:NetrwIsOpen=1
+        silent Lexplore
+    endif
+endfunction
+
+" Add toogle netrw window
+noremap  <leader>n :call ToggleNetrw()<CR>
+
+" .............................................................................
+" junegunn/fzf.vim
+" .............................................................................
+
+let $FZF_DEFAULT_OPTS = '--bind ctrl-a:select-all'
+let g:fzf_action = {
+  \ 'enter': 'tabedit' ,
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit',
+  \ 'ctrl-y': {lines -> setreg('*', join(lines, "\n"))}}
+
+
+nnoremap <silent> <leader>fi :FZF -m<CR>
+nnoremap <silent> <Leader>bu :Buffers<CR>
+nnoremap <silent> <Leader>li :Lines<CR>
+nnoremap <silent> <leader>hi :History<CR>
+
+command! -bar -bang Mapn call fzf#vim#maps("n", <bang>0)',
+command! -bar -bang Mapi call fzf#vim#maps("i", <bang>0)',
+command! -bar -bang Mapx call fzf#vim#maps("x", <bang>0)',
+
+" ================ Ripgrep ===========================
+
+function! RipgrepFzf(query)
+    let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case -- %s || true'
+    let initial_command = printf(command_fmt, shellescape(a:query))
+    let reload_command = printf(command_fmt, '{q}')
+    let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
+    echom  initial_command
+    call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview({'options': ['--layout=reverse', '--info=inline', '--preview-window=top:40%', '--prompt=>' ]}), 1)
+endfunction
+
+command! -nargs=* -bang RG call RipgrepFzf(<q-args>)
+
+command! -bang -nargs=* Rg call fzf#vim#grep('rg --column --line-number --no-heading --color=always --smart-case ' . <q-args>, 1, fzf#vim#with_preview(), <bang>0)
+"
+" ================ BuffersGrep ===========================
+" Search in all currently opened buffers
+" =======================================================
+
+function! ClearQuickfixList()
+  call setqflist([])
+endfunction
+function! BuffersGrep(pattern)
+  call ClearQuickfixList()
+  exe 'bufdo vimgrepadd ' . a:pattern . ' %'
+  cnext
+endfunction
+command! -nargs=1 Vim call BufferGrep(<f-args>)
+command! -nargs=1 BuffersGrep call BuffersGrep(<f-args>)
+
+" ================ QuickScope color ===========================
+
+highlight QuickScopePrimary guifg='#ff7f00' gui=underline ctermfg=30 cterm=underline
+highlight QuickScopeSecondary guifg='#5fffff' gui=underline ctermfg=81 cterm=underline
+
+" ================ vifm ===========================
+
+nnoremap <silent> <leader>nn :TabVifm<CR>
+
+" ================ FloatermNew ===========================
+
+" lazygit
+command! G FloatermNew --width=0.99 --height=0.99 lazygit
+
+" ================ load files  ===========================
+
+runtime! ft.vim	
+runtime! fzf.vim	
+runtime! lab.vim	
