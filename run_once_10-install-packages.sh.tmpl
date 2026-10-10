@@ -25,6 +25,7 @@ fail() { printf '%s\n' "${RED}✗${RESET}  $*" >&2; }
 printf '\n%s\n' "${BOLD}${BLUE}📦 Installing packages${RESET}"
 {{- if .packages.pacman }}
 info "Installing official repository packages"
+sudo pacman -Suy
 sudo pacman -S --needed --noconfirm {{ range .packages.pacman }}{{ . }} {{ end }}
 success "Official repository packages installed"
 {{- end }}

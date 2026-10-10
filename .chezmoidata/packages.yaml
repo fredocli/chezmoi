@@ -23,6 +23,7 @@ packages:
     - mate-icon-theme 
     - mate-themes
     - zenity
+    - nvim
 
 
   aur:
