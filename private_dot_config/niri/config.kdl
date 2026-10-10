@@ -202,8 +202,9 @@ binds {
     Mod+E{ spawn "emoji"; }
     Mod+S{ spawn "sni"; }
     Mod+Shift+S{ spawn "snip"; }
-    Mod+R { spawn "rofi" "-show" "drun"; }
-    Mod+shift+R  { spawn "fuzzel"; }
+    
+    Mod+R  { spawn "fuzzel"; }
+    Mod+Shift+R { spawn "rofi" "-show" "drun"; }
 
     // HOTKEYS
     Mod+Shift+plus{ show-hotkey-overlay; } // question
