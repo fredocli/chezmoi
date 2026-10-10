@@ -4,8 +4,8 @@
 
 # ---- History ----
 export HISTCONTROL=ignoreboth   # ignore duplicate lines and lines starting with space
-export HISTSIZE=100              # commands kept in memory per session
-export HISTFILESIZE=100          # commands kept in the history file on disk
+export HISTSIZE=10000              # commands kept in memory per session
+export HISTFILESIZE=10000          # commands kept in the history file on disk
 export HISTFILE=~/.cache/sh-history
 
 shopt -s histappend              # append to history file, don't overwrite
