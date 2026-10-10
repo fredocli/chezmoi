@@ -35,52 +35,57 @@ setopt autocd              # Navigate to directories without ls
 setopt CORRECT             # Typo correction
 
 # ============================================================================
-# COMPLETION SYSTEM (single initialization)
+# COMPLETION SYSTEM
 # ============================================================================
-#autoload -U compinit && compinit -C
-autoload -Uz compinit && compinit
-autoload -U +X bashcompinit && bashcompinit
 
-if command -v fzf &> /dev/null; then
-  source <(fzf --zsh)
+# fpath must be set BEFORE compinit
+[[ -d "$HOME/.config/zsh/completions" ]] && fpath=("$HOME/.config/zsh/completions" $fpath)
+[[ -d "$HOME/.stripe" ]]                 && fpath=("$HOME/.stripe" $fpath)
+
+autoload -Uz compinit
+# rebuild dump once a day, otherwise trust cache
+if [[ -n ${ZDOTDIR:-$HOME}/.zcompdump(#qN.mh+24) ]]; then
+  compinit
+else
+  compinit -C
 fi
 
-# Completion styling
+autoload -Uz bashcompinit && bashcompinit
+
+# styling
+zmodload zsh/complist
 zstyle ':completion:*' menu select
 zstyle ':completion:*' use-cache on
-zmodload zsh/complist
-_comp_options+=(globdots)  # Include hidden files
+zstyle ':completion:*' cache-path "${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zcompcache"
+_comp_options+=(globdots)
 
+# fzf (after compinit)
+command -v fzf &>/dev/null && source <(fzf --zsh)
 
-# CUSTOM COMPLETION PATHS
-if [ -d "$HOME/.config/zsh/completions" ];then
- fpath+=("$HOME/.config/zsh/completions")
+# zoxide (after compinit, so its completion registers)
+command -v zoxide &>/dev/null && eval "$(zoxide init zsh)"
+
+# pip: native completion instead of compctl
+if command -v pip &>/dev/null; then
+  eval "$(pip completion --zsh 2>/dev/null)"
 fi
+# ============================================================================
+# AUTOSUGGESTIONS
+# ============================================================================
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8,underline'
 
-# STRIPE CLI COMPLETION
-if [ -d "$HOME/.stripe" ]; then
-  fpath+=("$HOME/.stripe" $fpath)
-fi
+for f in \
+  "$HOME/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh" \
+  /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh \
+  /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh; do
+  [[ -r $f ]] && { source "$f"; break; }
+done
+unset f
 
-# ZOXIDE COMPLETION
-if command -v zoxide &> /dev/null; then
-  eval "$(zoxide init zsh)"
-fi
-
-# PIP COMPLETION 
-# TOVERIFY: This is a custom completion function for pip. It reads the current command line words and the cursor position, then invokes pip's auto-completion feature to generate suggestions based on the current input. The results are stored in the `reply` array, which is used by Zsh to display the completion options to the user.
-
-function _pip_completion {
-  local words cword
-  read -Ac words
-  read -cn cword
-  reply=( $( COMP_WORDS="$words[*]" \
-             COMP_CWORD=$(( cword-1 )) \
-             PIP_AUTO_COMPLETE=1 $words[1] 2>/dev/null ))
-}
-compctl -K _pip_completion pip
-
-
+# accept keys: your ^E and ^F are rebound, so add one
+bindkey -M viins '^ ' autosuggest-accept   # ctrl+space
+bindkey -M viins '^y' autosuggest-accept   # ctrl+y
 
 # ============================================================================
 # VI MODE & KEYBINDINGS
