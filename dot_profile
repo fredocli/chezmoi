@@ -52,6 +52,10 @@ export BROWSER_CLASS="chromium"
 fi
 
 # TERMINAL
+
+export TERM="alacritty"
+export TERM_CLASS="alacritty"
+
 export TERMINAL="alacritty"
 export TERMINAL_CLASS="alacritty"
 

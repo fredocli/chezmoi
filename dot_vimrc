@@ -1,5 +1,5 @@
 colors monokai
-let &term="xterm-256color" " xterm 256 color
+" Let Alacritty or the current terminal set $TERM; do not force a terminal type here.
 set mouse=a                " enable mousse 
 "set scrolloff=999          " Keep your cursor centered vertically on the screen 
 set scrolloff=4		" The number of screen lines to keep above and below the cursor.
