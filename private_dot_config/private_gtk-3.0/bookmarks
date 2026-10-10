@@ -1,0 +1,13 @@
+file:///home/fred/Documents Documents
+file:///home/fred/Downloads Downloads
+file:///home/fred/Music Music
+file:///home/fred/Pictures Pictures
+file:///home/fred/Videos Videos
+sftp://pis/home/fred/Music Music (pis)
+sftp://pis/home/fred/www/lab.terrible.dk lab.terrible.dk (pis)
+sftp://motofred:8022/data/data/com.termux/files/home/storage/downloads downloads (motofred)
+sftp://oracle.terrible.dk/home/ubuntu home (oracle)
+sftp://terrible.dk@ssh.terrible.dk/customers/7/2/2/terrible.dk/httpd.private (one)
+file:///run/media/fred/canon/AndroidProjects/piserverconect piserverconect
+file:///home/fred/.repo/skills skills
+file:///home/fred/.config .config(tests)
