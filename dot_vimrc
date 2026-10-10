@@ -1,4 +1,3 @@
-colors monokai
 " Let Alacritty or the current terminal set $TERM; do not force a terminal type here.
 set mouse=a                " enable mousse 
 "set scrolloff=999          " Keep your cursor centered vertically on the screen 
@@ -55,6 +54,7 @@ noremap <Leader>P "+p
 
 " ================ Plug  ===========================
 call plug#begin('~/.vim/plugged')
+Plug 'sickill/vim-monokai'
 Plug 'tpope/vim-surround'
 Plug 'itchyny/lightline.vim'
 Plug 'ap/vim-css-color'
@@ -76,6 +76,8 @@ Plug 'dhruvasagar/vim-table-mode'
 Plug 'voldikss/vim-floaterm'
 Plug 'preservim/vim-markdown'
 call plug#end()
+
+colorscheme monokai
 
 " =============================================
 " Plug 'preservim/vim-markdown'
