@@ -54,7 +54,7 @@ noremap <Leader>P "+p
 
 " ================ Plug  ===========================
 call plug#begin('~/.vim/plugged')
-Plug 'sickill/vim-monokai'
+"Plug 'sickill/vim-monokai'
 Plug 'tpope/vim-surround'
 Plug 'itchyny/lightline.vim'
 Plug 'ap/vim-css-color'
@@ -77,8 +77,9 @@ Plug 'voldikss/vim-floaterm'
 Plug 'preservim/vim-markdown'
 call plug#end()
 
-colorscheme monokai
-
+syntax enable
+colorscheme molokai
+    
 " =============================================
 " Plug 'preservim/vim-markdown'
 "
