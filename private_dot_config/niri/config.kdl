@@ -178,6 +178,8 @@ window-rule {
 
 
 binds {
+    
+    Mod+onehalf {spawn-sh "voxtype record toggle";}
 
     // CLOSE WINDOW
     Mod+Q repeat=false { close-window; }
