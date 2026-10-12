@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- The icon can be used freely in both personal and commercial projects with no attribution required, but always appreciated. 
+You may NOT sub-license, resell, rent, redistribute or otherwise transfer the icon without express written permission from iconmonstr.com -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   x="0px"
+   y="0px"
+   width="111"
+   height="74"
+   viewBox="0 0 111 74"
+   enable-background="new 0 0 512 512"
+   xml:space="preserve"
+   id="svg3405"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="instagram-fb.svg"
+   inkscape:export-filename="/home/fred/Desktop/instagram-fb.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90"><metadata
+     id="metadata3412"><rdf:RDF><cc:Work
+         rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
+     id="defs3410" /><sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="640"
+     inkscape:window-height="480"
+     id="namedview3408"
+     showgrid="false"
+     inkscape:zoom="0.63671875"
+     inkscape:cx="61.251534"
+     inkscape:cy="256"
+     inkscape:current-layer="svg3405"
+     showguides="false"><sodipodi:guide
+       position="-1013.0061,980.02454"
+       orientation="0,1"
+       id="guide3433" /></sodipodi:namedview><path
+     id="instagram-icon"
+     d="m 69.149339,27.57146 19.179247,0 0,29.442882 c 0,7.171891 -5.813769,12.985657 -12.985657,12.985657 l -39.685697,0 c -7.171732,0 -12.985658,-5.813926 -12.985658,-12.985657 l 0,-29.442882 19.093379,0 c -1.954368,2.745888 -3.107605,6.101315 -3.107605,9.728429 0,9.278285 7.521595,16.79988 16.80004,16.79988 9.278284,0 16.799881,-7.521595 16.799881,-16.79988 -1.6e-4,-3.627275 -1.153557,-6.982702 -3.10793,-9.728429 z m 19.179247,-10.585789 0,8.528576 -20.902614,0 c -3.047213,-3.09415 -7.283227,-5.014397 -11.968745,-5.014397 -4.685838,0 -8.921692,1.920086 -11.968744,5.014397 l -20.817069,0 0,-8.528576 c 0,-4.376825 2.167747,-8.2450335 5.485848,-10.5974838 l 0,13.9831868 2.662427,0 0,-15.4363084 c 0.603932,-0.2428545 1.230131,-0.4408545 1.874912,-0.591276 l 0,16.0277444 2.662587,0 0,-16.3639926 c 0.100121,-0.00236 0.199442,-0.00754 0.300044,-0.00754 l 1.537543,0 0,16.3712006 2.662426,0 0,-16.3712006 35.485728,0 c 7.171888,0 12.985657,5.8137661 12.985657,12.9856576 z m -5.93536,-5.473033 c 0,-1.150354 -0.932646,-2.0828455 -2.082997,-2.0828455 l -7.019872,0 c -1.150672,0 -2.083006,0.9324915 -2.083006,2.0828455 l 0,7.174295 c 0,1.150354 0.932334,2.082844 2.083006,2.082844 l 7.019872,0 c 1.150351,0 2.082997,-0.93249 2.082997,-2.082844 l 0,-7.174295 z M 42.514342,37.299889 c 0,-3.874775 1.713756,-7.354352 4.420236,-9.728429 0.949311,-0.832529 2.020529,-1.528092 3.183859,-2.057213 1.629014,-0.740898 3.435684,-1.157243 5.33879,-1.157243 1.903266,0 3.709616,0.416345 5.33863,1.157243 1.16349,0.529121 2.234708,1.224684 3.184019,2.057213 2.706479,2.374077 4.420077,5.853815 4.420077,9.728429 0,7.13665 -5.805917,12.942726 -12.942726,12.942726 -7.136649,0 -12.942885,-5.806076 -12.942885,-12.942726 z m 3.419824,0 c 0,5.283043 4.282791,9.565512 9.565833,9.565512 5.283042,0 9.565673,-4.282469 9.565673,-9.565512 0,-5.283202 -4.28247,-9.565672 -9.565673,-9.565672 -5.283042,0 -9.565833,4.28247 -9.565833,9.565672 z"
+     style="fill:#668000"
+     inkscape:connector-curvature="0" /></svg>
