@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Lazygit
+Comment=Launch lazigit
+Exec=lazygit
+Icon=projects
+Terminal=true
+Categories=System;Utility;
