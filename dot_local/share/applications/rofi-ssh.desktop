@@ -4,6 +4,6 @@ Type=Application
 Name=Rofi SSH
 Comment=Launch SSH connections using Rofi
 Exec=rofi -show ssh
-Icon=network-server
+Icon=projects
 Terminal=false
 Categories=System;Utility;
