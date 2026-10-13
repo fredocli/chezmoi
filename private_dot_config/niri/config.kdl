@@ -165,11 +165,20 @@ window-rule { // ???
 // Example: enable rounded corners for all windows.
 // (This example rule is commented out with a "/-" in front.)
 window-rule {
-    geometry-corner-radius 4
+    geometry-corner-radius 0
     clip-to-geometry true
 }
 
 
+window-rule {
+    match app-id="^modal"
+    open-floating true
+    default-column-width { fixed 900; }
+    default-window-height { fixed 500; }
+    //default-floating-position x=20 y=20 relative-to="top-right"
+    //geometry-corner-radius 4
+    clip-to-geometry true
+}
 
 
 // ----------------------------------------------------------------------------

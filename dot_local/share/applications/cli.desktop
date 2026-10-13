@@ -2,14 +2,13 @@
 Version=1.0
 Type=Application
 Name=cli
-Comment=wiki cli  (.repo)
-Exec=fff cli
+Comment=wiki cli (.repo)
+Exec=bash -c ". \"\\$HOME/.fzfrc\"; exec fff cli"
 Icon=projects
 Terminal=true
-Categories=System;Utility;
-Actions=Network
+Categories=Utility;
+Actions=Network;
 
 [Desktop Action Network]
 Name=Network
-Exec=fff cli network
-
+Exec=bash -c ". \"\\$HOME/.fzfrc\"; exec fff cli network"

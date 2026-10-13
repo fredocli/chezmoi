@@ -4,7 +4,7 @@ packages:
     - bluetui
     - chromium
     - cliphist
-    - code
+    #- code
     - exa
     - fastfetch
     - fzf

@@ -3,12 +3,12 @@ Version=1.0
 Type=Application
 Name=Checkgit
 Comment=checkgit (.repo)
-Exec=checkgit --prompt ~/.extentions/ ~/.repo/
+Exec=alacritty --hold --class modal -e checkgit /home/fred/.extentions/ /home/fred/.repo/
 Icon=projects
-Terminal=true
-Categories=System;Utility;repo
+Terminal=false
+Categories=Utility;repo;
 Actions=Prompt
 
 [Desktop Action Prompt]
 Name=Prompt
-Exec=checkgit --prompt ~/.extentions/ ~/.repo/
+Exec=alacritty --hold --class modal -e checkgit --prompt /home/fred/.extentions/ /home/fred/.repo/
