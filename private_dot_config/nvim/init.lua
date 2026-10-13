@@ -3,8 +3,13 @@
 local opt = vim.opt
 local map = vim.keymap.set
 
-" Turn on the status line permanently
-print("Welcome! You are running Neovim " .. vim.version().major .. "." .. vim.version().minor)
+--print("Welcome! You are running Neovim " .. vim.version().major .. "." .. vim.version().minor)
+
+-- Turn on the status line permanently
+vim.opt.laststatus = 2
+
+-- Display [File Type] [File Format] [Line/Total Lines]
+vim.opt.statusline = "nvim: %F %y %R %m %=%l/%L (%p%%)"
 
 
 
