@@ -3,11 +3,12 @@ Version=1.0
 Type=Application
 Name=Checkgit
 Comment=checkgit (.repo)
-Exec=alacritty --hold --class modal -e checkgit /home/fred/.extentions/ /home/fred/.repo/
+Exec=alacritty --hold --class modal -e checkgit /home/fred/.extentions/ /home/fred/.repo/ /home/fred/.local/share/chezmoi
 Icon=projects
 Terminal=false
-Categories=Utility;repo;
+Categories=Utility;Repo;
 Actions=Prompt
+Keywords=repo;git;fredo
 
 [Desktop Action Prompt]
 Name=Prompt
