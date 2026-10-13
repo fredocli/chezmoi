@@ -1,0 +1,26 @@
+# Setup fzf
+if [ -d "$HOME/.fzf/bin" ] ; then
+   export  PAT="$HOME/.fzf/bin:$PATH"
+fi
+# COMMAND
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,.dotfiles,.comments}/*"'
+
+# OPTS
+export FZF_DEFAULT_OPTS='--height=100% --preview-window=right:40%:wrap '
+export FZF_CTRL_R_OPTS='--height=100%'
+export FZF_ALT_C_OPTS='--height=60%  --preview="tree -C {} | head -200"  '
+export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || bat {} || tree -C {}) 2> /dev/null | head -200'"
+export FZF_CTRL_T_COMMAND='rg --files --no-ignore --follow -g "!{snap,Dropbox}/*"'
+
+
+
+export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
+  --color=fg:#c8c8c8,bg:#121212,hl:#668800 \
+  --color=fg+:#ffffff,bg+:#262626,hl+:#99cc00 \
+  --color=info:#8a8a8a,prompt:#668800,pointer:#99cc00 \
+  --color=marker:#ffa8ee,spinner:#668800,header:#5d88e3 \
+  --color=border:#3a3a3a,gutter:#121212,separator:#3a3a3a \
+  --color=scrollbar:#668800,label:#668800,query:#ffffff \
+  --border=rounded --layout=reverse  \
+  --prompt='❯ ' --pointer='▶' --marker='✓' \
+  --info=inline-right"
