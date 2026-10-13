@@ -205,7 +205,9 @@ binds {
     Mod+S{ spawn "sni"; }
     Mod+Shift+S{ spawn "snip"; }
     
-    Mod+R  { spawn "fuzzel"; }
+    // Dette tvinger Niri til at indlæse dit fulde terminal-miljø før Fuzzel starter
+    Mod+R { spawn "bash" "-l" "-c" "fuzzel"; }
+    //Mod+R  { spawn "fuzzel"; }
     Mod+Shift+R { spawn "rofi" "-show" "drun"; }
 
     // HOTKEYS

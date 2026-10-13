@@ -3,16 +3,6 @@
 local opt = vim.opt
 local map = vim.keymap.set
 
---print("Welcome! You are running Neovim " .. vim.version().major .. "." .. vim.version().minor)
-
--- Turn on the status line permanently
-vim.opt.laststatus = 2
-
--- Display [File Type] [File Format] [Line/Total Lines]
-vim.opt.statusline = "nvim: %F %y %R %m %=%l/%L (%p%%)"
-
-
-
 vim.g.mapleader = ","
 
 -- Monokai palette, defined here so no colorscheme plugin is needed.
