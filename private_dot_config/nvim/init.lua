@@ -3,6 +3,11 @@
 local opt = vim.opt
 local map = vim.keymap.set
 
+" Turn on the status line permanently
+print("Welcome! You are running Neovim " .. vim.version().major .. "." .. vim.version().minor)
+
+
+
 vim.g.mapleader = ","
 
 -- Monokai palette, defined here so no colorscheme plugin is needed.
