@@ -1,29 +1,43 @@
 packages:
   pacman:
-    - git
-    - zsh
-    - exa
     - bat
-    - jq
     - bluetui
-    - pulsemixer
-    - cliphist 
-    - wl-clipboard 
-    - wtype
-    - zathura
+    - chromium
+    - cliphist
+    - code
+    - exa
+    - fastfetch
+    - fzf
+    - git
+    - glow
+    - gnome-keyring
+    - gparted
+    - grc # for pinentry-gnome3
+    - jq
+    - lazygit
     - libnotify
+    - mate-icon-theme
+    - mate-themes
+    - networkmanager
     - nodejs
     - npm
-    - qtpass
-    - grc # for pinentry-gnome3
-    - seahorse
-    - gnome-keyring
-    - qt6ct
-    - pcmanfm-qt
-    - mate-icon-theme 
-    - mate-themes
-    - zenity
     - nvim
+    - pcmanfm-qt
+    - pulsemixer
+    - qt6ct
+    - qtpass
+    - reflector
+    - rofi
+    - seahorse
+    - wl-clipboard
+    - wtype
+    - zathura
+    - zenity
+    - zoxide
+    - zsh
+    - zsh-autocomplete
+    - zsh-autosuggestions
+    - zsh-completions
 
 
   aur:
