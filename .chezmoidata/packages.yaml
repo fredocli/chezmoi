@@ -7,6 +7,7 @@ packages:
     #- code
     - exa
     - fastfetch
+    - fd # find in rust
     - fzf
     - git
     - glow
