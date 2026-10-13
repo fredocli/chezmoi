@@ -1,1 +1,12 @@
 notARepository: 'skip'
+customCommands:
+  - key: 'c'
+    context: 'files'
+    description: 'Commit (prefilled)'
+    prompts:
+      - type: 'input'
+        title: 'Message'
+        key: 'Msg'
+        initialValue: 'up: '
+    command: 'git commit -m "{{.Form.Msg}}"'
+    output: log
