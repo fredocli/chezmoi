@@ -6,4 +6,5 @@ Comment=fredo music player
 Exec=fm
 Icon=projects
 Terminal=true
-Categories=System;Utility;
+Categories=AudioVideo;ConsoleOnly;
+Keywords=music;mpd;

@@ -7,4 +7,4 @@ Exec=lazygit
 #/home/fred/.local/share/icons/projects.svg
 Icon=projects
 Terminal=true
-Categories=Utility;
+Categories=Utility;ConsoleOnly;
