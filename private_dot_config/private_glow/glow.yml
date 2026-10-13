@@ -1,7 +1,7 @@
-# style name or JSON path (default "auto")
+# style name or JSON path (default "auto") (path = full path)
 style: "/home/fred/.config/glow/styles/fredo.json"
 
-width: 80
+width: 120
 # show all files, including hidden and ignored.
 all: false
 

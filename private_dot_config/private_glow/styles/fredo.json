@@ -30,7 +30,7 @@
    "bold": true
  },
 
-  "h3": { "prefix": "###", "color": "#668800" },
+  "h3": { "prefix": "### ", "color": "#668800" },
   "h4": { "prefix": "", "color": "#557000" },
   "text": {},
   "emph": { "italic": true },
