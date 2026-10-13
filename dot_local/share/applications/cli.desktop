@@ -6,8 +6,8 @@ Comment=wiki cli (.repo)
 Exec=bash -c ". ~/.fzfrc; exec fff cli"
 Icon=projects
 Terminal=true
-Categories=Repo;
-Keyords:fredo;repo;doc;tuto
+Categories=Utility;
+Keywords=fredo;repo;doc;tuto;
 Actions=Network;
 
 [Desktop Action Network]

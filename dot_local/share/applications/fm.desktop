@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=fm
+Comment=fredo music player
+Exec=fm
+Icon=projects
+Terminal=true
+Categories=System;Utility;

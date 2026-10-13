@@ -6,7 +6,7 @@ Comment=checkgit (.repo)
 Exec=alacritty --hold --class modal -e checkgit /home/fred/.extentions/ /home/fred/.repo/ /home/fred/.local/share/chezmoi
 Icon=projects
 Terminal=false
-Categories=Utility;Repo;
+Categories=Utility;
 Actions=Prompt
 Keywords=repo;git;fredo
 

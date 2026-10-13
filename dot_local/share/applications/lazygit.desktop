@@ -4,6 +4,7 @@ Type=Application
 Name=Lazygit
 Comment=Launch lazigit
 Exec=lazygit
+#/home/fred/.local/share/icons/projects.svg
 Icon=projects
 Terminal=true
-Categories=System;Utility;
+Categories=Utility;
