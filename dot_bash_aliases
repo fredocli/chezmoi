@@ -12,11 +12,6 @@ alias vi='vim'
 alias vin='nvim'
 
 
-# glow
-# ~/.bashrc or ~/.zshrc
-alias glow='EDITOR=micro glow -s ~/.config/glow/styles/fredo.json'
-
-
 
 # case
 alias lowercase="tr '[A-ZÆØÅÉ]' '[a-zæøåé]'"
