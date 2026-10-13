@@ -18,6 +18,7 @@ packages:
     - libnotify
     - mate-icon-theme
     - mate-themes
+    - meld
     - networkmanager
     - nodejs
     - npm
@@ -27,10 +28,12 @@ packages:
     - qt6ct
     - qtpass
     - reflector
+    - ripgrep
     - rofi
     - seahorse
     - wl-clipboard
     - wtype
+    - yq
     - zathura
     - zenity
     - zoxide

@@ -1,0 +1,14 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Checkgit
+Comment=checkgit (.repo)
+Exec=checkgit --prompt ~/.extentions/ ~/.repo/
+Icon=projects
+Terminal=true
+Categories=System;Utility;repo
+Actions=Prompt
+
+[Desktop Action Prompt]
+Name=Prompt
+Exec=checkgit --prompt ~/.extentions/ ~/.repo/
