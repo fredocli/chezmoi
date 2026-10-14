@@ -5,7 +5,7 @@
 
 
 
-file_path=$(chezmoi managed --include=nodir--exclude=externals | fzf --reverse --preview="cat {} | head -n 200" --query=$1)
+file_path=$(chezmoi managed --include=nodirs --exclude=externals | fzf --reverse --preview="cat {} | head -n 200" --query=$1)
 
 if [ -z "$file_path" ]; then
   >&2 echo "No file selected"
