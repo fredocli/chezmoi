@@ -173,8 +173,8 @@ window-rule {
 window-rule {
     match app-id="^modal"
     open-floating true
-    default-column-width { fixed 900; }
-    default-window-height { fixed 500; }
+    default-column-width { fixed 1000; }
+    default-window-height { fixed 600; }
     //default-floating-position x=20 y=20 relative-to="top-right"
     //geometry-corner-radius 4
     clip-to-geometry true
