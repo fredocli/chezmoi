@@ -5,10 +5,15 @@
 
 
 
-file_path=$(chezmoi managed --include=nodirs --exclude=externals | fzf --reverse --preview="cat {} | head -n 200" --query=$1)
+mapfile -t file_paths < <(
+  chezmoi managed --include=nodirs --exclude=externals |
+    fzf --multi --reverse \
+      --preview='chezmoi cat -- $HOME/{} | head -n 200' \
+      --query="${1:-}"
+)
 
-if [ -z "$file_path" ]; then
+if [ "${#file_paths[@]}" -eq 0 ]; then
   >&2 echo "No file selected"
 else
-  chezmoi edit --apply "$HOME/$file_path"
+  chezmoi edit --apply "$HOME/${file_paths[@]}"
 fi
