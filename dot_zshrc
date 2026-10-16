@@ -69,6 +69,21 @@ command -v zoxide &>/dev/null && eval "$(zoxide init zsh)"
 if command -v pip &>/dev/null; then
   eval "$(pip completion --zsh 2>/dev/null)"
 fi
+# rofi
+# # ~/.zshrc (after compinit)
+_rofi() {
+  local -a flags
+  flags=( ${(f)"$(rofi -h 2>&1 | awk '
+    /^[ \t]+-[a-z]/ {
+      f=$1; $1=""; d=$0
+      gsub(/^[ \t]+/,"",d); gsub(/:/,"\\:",f)
+      print f ":" d
+    }')"} )
+  _describe -t options 'rofi flag' flags
+}
+compdef _rofi rofi
+
+
 # ============================================================================
 # AUTOSUGGESTIONS
 # ============================================================================
