@@ -2,13 +2,13 @@
 Version=1.0
 Type=Application
 Name=Checkgit
-Comment=checkgit (.repo)
+Comment=
 Exec=env LAUNCHED_FROM_DESKTOP=true alacritty --hold --class modal -e checkgit /home/fred/.extentions/ /home/fred/.repo/ /home/fred/.local/share/chezmoi
 Terminal=false
 Icon=projects
 Categories=Utility;ConsoleOnly;
 Actions=Prompt
-Keywords=#repo;#fredo,git
+Keywords=#checkgit,#repo,#git
 
 [Desktop Action Prompt]
 Name=Prompt

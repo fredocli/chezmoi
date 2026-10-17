@@ -1,13 +1,13 @@
 [Desktop Entry]
 Version=1.0
 Type=Application
-Name=chezmoi (cm)
+Name=chezmoi
 Comment=chezmoi + fzf
 Exec=bash -c ". ~/.fzfrc; exec cmf"
 Icon=home
 Terminal=true
 Categories=Utility;ConsoleOnly;
-Keywords=#fredo;#repo;#chezmoi;#fzf;#cm
+Keywords=#chezmoi;#repo;#fzf;#cm
 Actions=Desktop;
 
 [Desktop Action Desktop]
