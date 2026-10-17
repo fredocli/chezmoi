@@ -134,6 +134,11 @@ hotkey-overlay {
 prefer-no-csd //  omit client-side decorations if possible.
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png" // screenshot-path null
 
+switch-events {
+    lid-close { spawn "swaylock" "-f" "-c" "000000"; }
+}
+
+
 // ----------------------------------------------------------------------------
 // window-rule
 // ----------------------------------------------------------------------------
