@@ -77,17 +77,12 @@
   "workbench.editorAssociations": {
     "*.pdf": "default"
   },
-  "terminal.external.linuxExec": "st",
+  "terminal.external.linuxExec": "alacritty",
   "terminal.explorerKind": "external",
-  "geminicodeassist.project": "vscode-500216",
+
   "diffEditor.codeLens": true,
-  "geminicodeassist.codeGenerationPaneViewEnabled": true,
+
   "diffEditor.renderSideBySide": false,
-  "chat.commandCenter.enabled": false,
-  "geminicodeassist.customCommands": {
-    "zsh-completion": "create zsh completion for this script",
-    "test": "test"
-  },
   "mdb.mcp.server": "prompt",
   "editor.overtypeCursorStyle": "line",
   "php.validate.executablePath": "",
@@ -95,11 +90,23 @@
   "geminicodeassist.contextExclusionGitignore": false,
   "geminicodeassist.enableTelemetry": false,
   "geminicodeassist.chat.enableStreaming": false,
+  "geminicodeassist.project": "vscode-500216",
+  "geminicodeassist.codeGenerationPaneViewEnabled": true,
+  "geminicodeassist.customCommands": {
+    "zsh-completion": "create zsh completion for this script"
+     },
+
   "github.copilot.enable": {
-    "*": false,
+    "*": true,
     "plaintext": false,
     "markdown": false,
     "scminput": false
   },
-  "chat.viewSessions.orientation": "stacked"
+  // CHAT COPILOT SETTINGS
+  "chat.viewSessions.orientation": "stacked",
+  "inlineChat.defaultModel": "Gemini 3.6 Flash (gemini)",
+  "chat.commandCenter.enabled": false,
+
+  "open-in-vim.useNeovim": true,
+  "github.copilot.selectedCompletionModel": "Gemini 3.6 Flash (gemini)"
 }

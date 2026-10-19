@@ -6,9 +6,13 @@ configuration {
 show: "drun";
 
 
+// Enabled modes
 modi: "window,run,drun,filebrowser,ssh,keys";
+// Window width (percentage or character width)
 width: 40;
+// Number of visible lines
 lines: 20;
+// Cycle through list
 cycle: false;
 
 
@@ -74,6 +78,7 @@ kb-move-char-back: "Left";
 kb-move-char-forward: "Right";
 kb-move-word-back: "Alt+Left";
 kb-move-word-forward: "Alt+Right";
+
 
 // paste
 kb-primary-paste: "Control+v";
