@@ -1,7 +1,0 @@
-[
-	{
-		"name": "Google",
-		"vendor": "gemini",
-		"apiKey": "${input:chat.lm.secret.-2da4542f}"
-	}
-]
