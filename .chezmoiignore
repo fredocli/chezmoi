@@ -2,7 +2,7 @@
 
 
 
-{{- if eq .chezmoi.hostname "niri" }}
+{{- if ne .chezmoi.hostname "niri" }}
 
 
 README.md
