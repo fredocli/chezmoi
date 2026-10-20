@@ -2,12 +2,13 @@
 Version=1.0
 Type=Application
 Name=cli
-Comment=wiki cli (.repo)
+Comment=wiki cli
 Exec=bash -c ". ~/.fzfrc; exec fff cli"
 Icon=projects
 Terminal=true
 Categories=Utility;ConsoleOnly;
-Keywords=fredo;repo;doc;tuto;
+Keywords=#cli;#repo;#tuto;
+
 Actions=Network;
 
 [Desktop Action Network]

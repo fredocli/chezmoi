@@ -7,4 +7,4 @@ Exec=fm
 Icon=projects
 Terminal=true
 Categories=AudioVideo;ConsoleOnly;
-Keywords=music;mpd;
+Keywords=#fm;music;mpd;

@@ -7,3 +7,4 @@ Exec=rofi -show ssh
 Icon=projects
 Terminal=false
 Categories=Network;
+Keywords=#ssh,#rofi
