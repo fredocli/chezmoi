@@ -174,5 +174,57 @@
     "args": {
       "name": "master 2"
     }
+  },
+{
+    "key": "f1",
+    "command": "runCommands",
+    "when": "editorTextFocus && editorLangId == markdown",
+    "args": {
+      "commands": [
+        "cursorLineStart",
+        "cursorEndSelect",
+        { "command": "editor.action.insertSnippet",
+          "args": { "langId": "markdown", "name": "Heading 1 (upper)" } }
+      ]
+    }
+  },
+{
+    "key": "f2",
+    "command": "runCommands",
+    "when": "editorTextFocus && editorLangId == markdown",
+    "args": {
+      "commands": [
+        "cursorLineStart",
+        "cursorEndSelect",
+        { "command": "editor.action.insertSnippet",
+          "args": { "langId": "markdown", "name": "Heading 2 (upper)" } }
+      ]
+    }
+  },
+  {
+    "key": "f3",
+    "command": "runCommands",
+    "when": "editorTextFocus && editorLangId == markdown",
+    "args": {
+      "commands": [
+        "cursorLineStart",
+        "cursorEndSelect",
+        { "command": "editor.action.insertSnippet",
+          "args": { "langId": "markdown", "name": "Heading 3 (lower)" } }
+      ]
+    }
+  },
+  {
+    "key": "f4",
+    "command": "runCommands",
+    "when": "editorTextFocus && editorLangId == markdown",
+    "args": {
+      "commands": [
+        "cursorLineStart",
+        "cursorEndSelect",
+        { "command": "editor.action.insertSnippet",
+          "args": { "langId": "markdown", "name": "Heading 4 (lower)" } }
+      ]
+    }
   }
 ]

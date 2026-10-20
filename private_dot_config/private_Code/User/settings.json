@@ -105,5 +105,6 @@
   "chat.commandCenter.enabled": false,
 
   "open-in-vim.useNeovim": true,
-  "github.copilot.selectedCompletionModel": "Gemini 3.6 Flash (gemini)"
+  "github.copilot.selectedCompletionModel": "Gemini 3.6 Flash (gemini)",
+  "chat.viewSessions.orientation": "stacked"
 }
