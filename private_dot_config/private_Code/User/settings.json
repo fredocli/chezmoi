@@ -8,7 +8,6 @@
   "[vue]": {
     "editor.defaultFormatter": "octref.vetur"
   },
-  "workbench.iconTheme": "vscode-icons",
   "increment-selection.topToBottom": true,
   "files.autoSave": "onFocusChange",
 "workbench.startupEditor": "none",
@@ -102,8 +101,6 @@
     "markdown": false,
     "scminput": false
   },
-  // CHAT COPILOT SETTINGS
-  "chat.viewSessions.orientation": "stacked",
   "inlineChat.defaultModel": "Gemini 3.6 Flash (gemini)",
   "chat.commandCenter.enabled": false,
 

@@ -152,5 +152,27 @@
   {
     "key": "ctrl+i ctrl+s",
     "command": "github.copilot.chat.completions.toggle"
+  },
+  {
+    "key": "[Backquote] [Backquote]",
+    "command": "editor.action.insertSnippet",
+    "when": "!editorReadonly"
+  },
+  {
+    "key": "[Backquote] 1",
+    "command": "editor.action.insertSnippet",
+    "when": "editorTextFocus",
+    "args": {
+      "name": "master 1"
+    }
+  }
+,
+  {
+    "key": "[Backquote] 2",
+    "command": "editor.action.insertSnippet",
+    "when": "editorTextFocus",
+    "args": {
+      "name": "master 2"
+    }
   }
 ]
