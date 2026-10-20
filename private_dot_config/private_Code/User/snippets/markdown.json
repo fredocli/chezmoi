@@ -1,0 +1,29 @@
+{
+"master 1": {
+		"prefix": "h2",
+		"body": "## ${TM_SELECTED_TEXT:${1}}",
+		"description": "smart h1"
+	 },
+"master 2": {
+		"prefix": "h2",
+		"body": "## ${TM_SELECTED_TEXT:${1|INSTALL,REMOVE,DOCUMENTATION|}}",
+		"description": "smart h2"
+	 },
+
+    "fm": {
+    "prefix": "fm",
+    "description": "frontmatter template",
+    "body": [
+      "---",
+      "genre: ${1|cli,recette,note|}",
+      "title: ${TM_FILENAME_BASE/(-)|(\\w+)/${1:+ }${2:/lowercase}/g}",
+      "tags:",
+      "  - ${TM_FILENAME_BASE/(-)|(\\w+)/${1:+ }${2:/lowercase}/g}",
+      //"pubDate: ${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}T00:00:00-07:00",
+      //"category: ${2|coding,macOS,design,tech,automation|}",
+      // "draft: ${3|false,true|}",
+      "---"
+    ]
+  },
+
+}
