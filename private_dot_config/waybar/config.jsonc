@@ -88,7 +88,7 @@
     "format": "{:%A %d %B - %H:%M}",
    // "format-alt": "{:%I:%M %Z   : %a %b %d %Y}",
     "tooltip": true,
-    "tooltip-format": "<tt>{calendar}</tt>",
+    "tooltip-format": "<tt>{calendar}</tt>", // ! importanti did remove tooltip via css
    // "tooltip-format": "{:%A %d %B}\n\n<tt>{calendar}</tt>" ,
     // "timezones": [
     //   "",
@@ -96,7 +96,7 @@
     // ],
     // //"on-click-right": "xdg-open https://calendar.google.com",
      "actions": {
-        "on-click": "mode",
+        //"on-click": "mode",
         "on-click-middle": "shift_up",
        // "on-scroll-up": "shift_up",
         "on-click-right": "shift_down"
