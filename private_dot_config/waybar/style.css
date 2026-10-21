@@ -76,8 +76,13 @@ tooltip * {
   background-color: rgba(0, 0, 0, 0.75);
 }
 
+/* 1. Hide the tooltip completely during normal hover */
+#tooltip {
+    opacity: 0;
+}
 
+/* 2. Show the tooltip only when clicking and holding the clock module */
 #clock:active ~ #tooltip, 
 #clock:active #tooltip {
-    opacity: 0;
-} 
+    opacity: 1;
+}
