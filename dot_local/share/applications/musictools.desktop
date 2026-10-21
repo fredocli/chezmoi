@@ -2,7 +2,7 @@
 Name=MusicTools
 Comment=Tools collection for music
 Type=Application
-Icon=/home/fred/.local/share/icons/skype.svg
+Icon=projects
 Exec=alacritty --hold  --title musictools --class musictools -e musictools -vi %F
 Terminal=false
 Categories=AudioVideo;

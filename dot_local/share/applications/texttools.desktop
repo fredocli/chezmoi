@@ -1,0 +1,59 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=TextTools
+Comment=Transform clipboard text
+Exec=bash texttools -a menu
+Icon=edit-paste
+Terminal=false
+Categories=Utility;
+Keywords=#text;#tools;clipboard;transform;
+Actions=Upper;Lower;Capitalize;Title;Strip;H1;H2;H3;DanishToEnglish;EnglishToDanish;MarkdownToHTML;OpenURLs;
+
+[Desktop Action Upper]
+Name=Uppercase
+Exec=texttools -a upper -i clipboard -o type
+
+[Desktop Action Lower]
+Name=Lowercase
+Exec=texttools -a lower -i clipboard -o type
+
+[Desktop Action Capitalize]
+Name=Capitalize
+Exec=texttools -a capitalize -i clipboard -o type
+
+[Desktop Action Title]
+Name=Title Case
+Exec=texttools -a title -i clipboard -o type
+
+[Desktop Action Strip]
+Name=Strip Whitespace
+Exec=texttools -a strip -i clipboard -o type
+
+[Desktop Action H1]
+Name=Format as H1
+Exec=texttools -a h1 -i clipboard -o type
+
+[Desktop Action H2]
+Name=Format as H2
+Exec=texttools -a h2 -i clipboard -o type
+
+[Desktop Action H3]
+Name=Format as H3
+Exec=texttools -a h3 -i clipboard -o type
+
+[Desktop Action DanishToEnglish]
+Name=Danish to English
+Exec=texttools -a da2en -i clipboard -o type
+
+[Desktop Action EnglishToDanish]
+Name=English to Danish
+Exec=texttools -a en2da -i clipboard -o type
+
+[Desktop Action MarkdownToHTML]
+Name=Markdown to HTML
+Exec=texttools -a md2html -i clipboard -o type
+
+[Desktop Action OpenURLs]
+Name=Open URLs from Clipboard
+Exec=texttools -a openurls -i clipboard
