@@ -1,0 +1,63 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+        "type": "shell",
+        "label": "render pandoc #ft",
+        "command": "${command:pandoc.render}",
+        "problemMatcher": []
+
+        },
+            {
+      "label": "deploy to piw",
+      "type": "shell",
+      "command": "rsync",
+      "args": ["-avz", "--dry-run","--delete", "${workspaceFolder}/", "fred@piw:~/project/"],
+      "group": "none",
+      "presentation": { "reveal": "always" }
+    },{
+      "label": "find TODOs",
+      "type": "shell",
+      "command": "grep -rnE 'TODO|FIXME' --exclude-dir=.git --exclude-dir=node_modules .",
+      "problemMatcher": {
+        "owner": "todo",
+        "fileLocation": ["relative", "${workspaceFolder}"],
+        "severity": "info",
+        "pattern": {
+          "regexp": "^(.+?):(\\d+):(.*)$",
+          "file": 1, "line": 2, "message": 3
+        }
+      }
+    },{
+      "label": "shfmt current file",
+      "type": "shell",
+      "command": "shfmt -w -i 2 \"${file}\"",
+      "presentation": { "reveal": "always", "panel": "dedicated", "clear": true ,"close":true},
+      "problemMatcher": []
+    },
+
+
+
+
+
+
+     {
+      "label": "shellcheck current file",
+      "type": "shell",
+      "command": "shellcheck",
+      "args": ["${file}"],
+      "group": "build",
+      "presentation": { "reveal": "always", "panel": "shared" },
+      "problemMatcher": {
+        "owner": "shellcheck",
+        "fileLocation": ["absolute"],
+        "pattern": {
+          "regexp": "^(.+):(\\d+):(\\d+):\\s+(note|warning|error):\\s+(.*)$",
+          "file": 1, "line": 2, "column": 3, "severity": 4, "message": 5
+        }
+      }
+    },
+    ]
+}
