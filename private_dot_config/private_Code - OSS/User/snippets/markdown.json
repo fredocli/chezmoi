@@ -1,0 +1,51 @@
+{
+"master 1": {
+		"prefix": "h2",
+		//"body": "## ${TM_SELECTED_TEXT:${1}}",
+    "body": "# ${TM_SELECTED_TEXT/(.*)/${1:/upcase}/}",
+		"description": "smart h1"
+	 },
+"master 2": {
+		"prefix": "h2",
+		"body": "## ${TM_SELECTED_TEXT:${1|INSTALL,REMOVE,DOCUMENTATION|}}",
+		"description": "smart h2"
+	 },
+
+    "fm": {
+    "prefix": "fm",
+    "description": "frontmatter template",
+    "body": [
+      "---",
+      "genre: ${1|cli,recette,note|}",
+      "title: ${TM_FILENAME_BASE/(-)|(\\w+)/${1:+ }${2:/lowercase}/g}",
+      "tags:",
+      "  - ${TM_FILENAME_BASE/(-)|(\\w+)/${1:+ }${2:/lowercase}/g}",
+      "  - $0",
+      //"pubDate: ${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}T00:00:00-07:00",
+      //"category: ${2|coding,macOS,design,tech,automation|}",
+      // "draft: ${3|false,true|}",
+      "---"
+    ]
+  },
+
+  "Heading 1 (upper)": {
+    "prefix": "h1",
+    "body": "# ${TM_SELECTED_TEXT/^(?:#+\\s*)?(.*)$/${1:/upcase}/}",
+    "description": "H1, uppercase, replaces existing # prefix"
+  },
+  "Heading 2 (upper)": {
+    "prefix": "h2",
+    "body": "## ${TM_SELECTED_TEXT/^(?:#+\\s*)?(.*)$/${1:/upcase}/}",
+    "description": "H2, uppercase, replaces existing # prefix"
+  },
+  "Heading 3 (lower)": {
+    "prefix": "h3",
+    "body": "### ${TM_SELECTED_TEXT/^(?:#+\\s*)?(.*)$/${1:/downcase}/}",
+    "description": "H3, lowercase, replaces existing # prefix"
+  },
+  "Heading 4 (lower)": {
+    "prefix": "h4",
+    "body": "#### ${TM_SELECTED_TEXT/^(?:#+\\s*)?(.*)$/${1:/downcase}/}",
+    "description": "H4, lowercase, replaces existing # prefix"
+  }
+}
