@@ -75,3 +75,9 @@ tooltip * {
   padding: 2px;
   background-color: rgba(0, 0, 0, 0.75);
 }
+
+
+#clock:active ~ #tooltip, 
+#clock:active #tooltip {
+    opacity: 1;
+} 
