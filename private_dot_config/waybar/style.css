@@ -79,5 +79,5 @@ tooltip * {
 
 #clock:active ~ #tooltip, 
 #clock:active #tooltip {
-    opacity: 1;
+    opacity: 0;
 } 
