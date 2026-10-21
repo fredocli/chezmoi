@@ -5,15 +5,37 @@
 
 
 
+mode=edit
+query=${1:-}
+case "$query" in
+  -d|--destroy)
+    mode=destroy
+    query=${2:-}
+    ;;
+  -h|--help)
+    printf 'Usage: cmf [-d|--destroy] [fzf-query]\n'
+    exit 0
+    ;;
+esac
+
 mapfile -t file_paths < <(
   chezmoi managed --include=nodirs --exclude=externals |
     fzf --multi --reverse \
-      --preview='chezmoi cat -- $HOME/{} | head -n 200' \
-      --query="${1:-}"
+      --preview="chezmoi cat -- \$HOME/{} | head -n 200" \
+      --query="$query"
 )
 
 if [ "${#file_paths[@]}" -eq 0 ]; then
   >&2 echo "No file selected"
 else
-  chezmoi edit --apply "$HOME/${file_paths[@]}"
+  targets=()
+  for file_path in "${file_paths[@]}"; do
+    targets+=("$HOME/$file_path")
+  done
+
+  if [ "$mode" = destroy ]; then
+    chezmoi destroy "${targets[@]}"
+  else
+    chezmoi edit --apply "${targets[@]}"
+  fi
 fi
