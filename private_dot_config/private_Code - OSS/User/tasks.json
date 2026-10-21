@@ -59,5 +59,22 @@
         }
       }
     },
+    {
+            "label": "md2html",
+            "type": "shell",
+            "command": "md2pdf",
+            "args": [
+                "-v",
+                "-a",
+                "pdf2",
+                "${file}"
+            ],
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated",
+                "clear": true,
+                "close": false
+            }
+        }
     ]
 }
