@@ -96,6 +96,7 @@
     // ],
     // //"on-click-right": "xdg-open https://calendar.google.com",
      "actions": {
+        "on-click": "mode",
         "on-click-middle": "shift_up",
        // "on-scroll-up": "shift_up",
         "on-click-right": "shift_down"
