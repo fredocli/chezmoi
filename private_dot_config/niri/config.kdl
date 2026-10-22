@@ -182,16 +182,22 @@ window-rule {
     default-window-height { fixed 600; }
     //default-floating-position x=20 y=20 relative-to="top-right"
     //geometry-corner-radius 4
-    clip-to-geometry true
 }
 
 window-rule {
     match app-id="^cal$"
     open-floating true
-    default-column-width { fixed 680; }
-    default-window-height { fixed 240; }
-    default-floating-position x=10 y=40 relative-to="top-right"
-    clip-to-geometry true
+    default-column-width { fixed 640 }
+    default-window-height { fixed 120; }
+    default-floating-position x=0 y=0 relative-to="top-right"
+    
+    border {
+        off // or 'off' to disable
+        width 4
+        //active-color "#7fc8ff"
+        //inactive-color "#505050"
+    }
+
     
 }
 
