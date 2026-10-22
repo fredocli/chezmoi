@@ -191,6 +191,7 @@ window-rule {
     default-column-width { fixed 680; }
     default-window-height { fixed 240; }
     default-floating-position x=10 y=40 relative-to="top-right"
+    clip-to-geometry true
     
 }
 
