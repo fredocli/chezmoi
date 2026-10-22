@@ -187,15 +187,19 @@ window-rule {
 window-rule {
     match app-id="^cal$"
     open-floating true
-    default-column-width { fixed 640; }
-    default-window-height { fixed 120; }
+    default-column-width { fixed 680; }
+    default-window-height { fixed 180; }
     default-floating-position x=0 y=0 relative-to="top-right"
     
     border {
-        off // or 'off' to disable
-        width 4
-        //active-color "#7fc8ff"
-        //inactive-color "#505050"
+        on // or 'off' to disable
+        width 1
+        active-color "#668800"
+        inactive-color "#668800"
+    }
+
+    focus-ring {
+        width 0
     }
 
     
