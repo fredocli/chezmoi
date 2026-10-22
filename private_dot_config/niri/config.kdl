@@ -185,6 +185,15 @@ window-rule {
     clip-to-geometry true
 }
 
+window-rule {
+    match app-id="^cal$"
+    open-floating true
+    default-column-width { fixed 680; }
+    default-window-height { fixed 240; }
+    default-floating-position x=10 y=40 relative-to="top-right"
+    
+}
+
 
 // ----------------------------------------------------------------------------
 // Key binds
