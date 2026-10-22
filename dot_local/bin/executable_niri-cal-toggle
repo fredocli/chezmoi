@@ -1,0 +1,8 @@
+#!/bin/sh
+# ~/.local/bin/cal-toggle
+id=$(niri msg -j windows | jq -r '.[] | select(.app_id=="cal") | .id')
+if [ -n "$id" ]; then
+  niri msg action close-window --id "$id"
+else
+  exec alacritty --class cal -e sh -c 'cal -3; read -r _'
+fi
