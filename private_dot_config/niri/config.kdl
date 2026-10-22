@@ -187,7 +187,7 @@ window-rule {
 window-rule {
     match app-id="^cal$"
     open-floating true
-    default-column-width { fixed 640 }
+    default-column-width { fixed 640; }
     default-window-height { fixed 120; }
     default-floating-position x=0 y=0 relative-to="top-right"
     
