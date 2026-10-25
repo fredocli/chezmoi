@@ -14,3 +14,4 @@ file:///home/fred/.config .config(tests)
 file:///home/fred New bookmark
 sftp://ssh.terrible.dk/customers/a/5/b/ckumnmacx/users/ckumnmacx_ssh private (one)
 file:///home/fred/.local/share/applications applications
+file:///home/fred/.config/nsxiv/exec exec
