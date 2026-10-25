@@ -32,6 +32,7 @@ packages:
     - ripgrep
     - rofi
     - seahorse
+    - swayimg
     - wl-clipboard
     - wtype
     - yq
