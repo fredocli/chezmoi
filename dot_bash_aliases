@@ -39,13 +39,22 @@ alias lazydot='lazygit --git-dir=$HOME/.repo/dotfiles --work-tree=$HOME'
 alias lgit='lazygit'
 
 
+# yazi
+function y() {
+	local tmp cwd; tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+	command yazi "$@" --cwd-file="$tmp"
+	IFS= read -r -d '' cwd < "$tmp"
+	[ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd" || builtin true
+	command rm -f -- "$tmp"
+}
 
+# music download TODO
 mdl() {
     setopt LOCAL_OPTIONS NO_NOMATCH
     command yt-dlp -v --extract-audio --audio-format mp3 -o "%(title)s-%(id)s.%(ext)s" "$1" "${@:2}"
 }
-# music tools
 
+# music tools
 alias mt='musictools'
 
 
