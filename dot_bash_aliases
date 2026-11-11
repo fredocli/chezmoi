@@ -38,16 +38,6 @@ alias ldot='lazygit --git-dir=$HOME/.repo/dotfiles --work-tree=$HOME'
 alias lazydot='lazygit --git-dir=$HOME/.repo/dotfiles --work-tree=$HOME'
 alias lgit='lazygit'
 
-
-# yazi
-function y() {
-	local tmp cwd; tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
-	command yazi "$@" --cwd-file="$tmp"
-	IFS= read -r -d '' cwd < "$tmp"
-	[ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd" || builtin true
-	command rm -f -- "$tmp"
-}
-
 # music download TODO
 mdl() {
     setopt LOCAL_OPTIONS NO_NOMATCH
