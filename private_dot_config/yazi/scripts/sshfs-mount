@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+
+set -u
+
+fail() {
+	printf 'Error: %s\n' "$1" >&2
+	read -r -p 'Press Enter to close...' _
+	exit 1
+}
+
+source_file=${1:-}
+[[ -r "$source_file" ]] || fail "Cannot read selected file: $source_file"
+IFS= read -r remote < "$source_file" || true
+remote=${remote%$'\r'}
+[[ -n "$remote" && "$remote" != -* ]] || fail 'The first line must contain an SSHFS remote, such as user@host:/path.'
+
+command -v sshfs >/dev/null 2>&1 || fail 'sshfs is not installed or not in PATH.'
+
+default_mounq/mnt/sshfs"
+read -r -p "Absolute path to an empty mount directory [$default_mountpoint]: " mountpoint
+mountpoint=${mountpoint:-$default_mountpoint}
+mountpoint=${mountpoint/#\~/$HOME}
+[[ "$mountpoint" == /* ]] || fail 'The mount directory must use an absolute path.'
+mkdir -p -- "$mountpoint" || fail 'Could not create the mount directory.'
+[[ -d "$mountpoint" && -w "$mountpoint" ]] || fail 'The mount directory must be writable.'
+
+if command -v mountpoint >/dev/null 2>&1 && mountpoint -q -- "$mountpoint"; then
+	fail 'That directory is already a mount point.'
+fi
+
+contents=$(find "$mountpoint" -mindepth 1 -maxdepth 1 -print -quit) || fail 'Could not inspect the mount directory.'
+[[ -z "$contents" ]] || fail 'The mount directory must be empty.'
+
+if sshfs "$remote" "$mountpoint"; then
+	printf 'Mounted %s at %s.\n' "$remote" "$mountpoint"
+	ya emit cd "$mountpoint" || fail 'Mounted successfully, but Yazi could not enter the mount directory.'
+	read -r -p 'Press Enter to close...' _
+else
+	fail 'sshfs could not mount the remote. Check the SSHFS output above.'
+fi

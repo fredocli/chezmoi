@@ -1,0 +1,359 @@
+#:schema https://yazi-rs.github.io/schemas/yazi.json
+
+# Configurations for the file manager
+[mgr]
+
+# Ratio for the panes in the file manager
+# This follows the lf configuration
+ratio = [1, 2, 3]
+
+# Sort naturally
+sort_by = "natural"
+
+# Show directories first
+sort_dir_first = true
+
+# Show hidden files
+show_hidden = false
+
+# Set the scroll offset to 8 from the bottom and top
+scrolloff = 8
+
+
+# Configuration for the file previewer
+[preview]
+
+# Wrap long lines for text previews
+wrap = "yes"
+
+# Make the maximum size of the images larger
+max_width = 800
+max_height = 800
+
+# [plugin]
+# prepend_previewers = [
+# 	{ url = "*.mp3", run = "audio-cover" },
+# ]
+
+
+[[plugin.prepend_previewers]]
+mime = "{audio,video,image}/*"
+run  = "center-media"
+
+[[plugin.prepend_preloaders]]
+mime = "{audio,video,image}/*"
+run  = "center-media"
+
+# ---------- openers ----------
+
+[[opener.sshfs-mount]]
+run = 'bash ~/.config/yazi/scripts/sshfs-mount %s'
+block = true
+desc = "Mount with SSHFS"
+for = "unix"
+
+# The satty opener
+[[opener.satty]]
+run = 'file=%s1; satty -f "$file" -o "${file%.*}.png"'
+block = false
+desc = "Open in Satty"
+for     = "unix"
+
+# The nsxiv opener
+[[opener.nsxiv]]
+run = 'dir=%d; nsxiv -t "$dir"'
+block = false
+desc = "Open in nsxiv"
+for     = "unix"
+
+# dirs / generic
+[[opener.code]]
+run     = 'code %s1'
+orphan  = true
+desc    = "VS Code"
+for     = "unix"
+
+# terminal
+[[opener.terminal]]
+run     = 'cd %s1 ;alacritty'
+orphan  = true
+desc    = "Terminal here %s"
+for     = "unix"
+
+[[opener.sxivfolder]]
+run     = 'sxivfolder %d'
+orphan  = true
+desc    = "sxivfolder"
+for     = "unix"
+
+# vim
+[[opener.vim]]
+run     = 'nvim -p %s'
+block   = true
+desc    = "Edit with nvim"
+for     = "unix"
+
+# vimdiff
+[[opener.vimdiff]]
+run     = 'vim -d %s'
+block   = true
+desc    = "vimdiff"
+for     = "unix"
+
+# meld
+[[opener.meld]]
+run     = 'meld %s'
+orphan  = true
+desc    = "meld"
+for     = "unix"
+
+
+#### PDF ####
+
+# md2pdf
+[[opener.md2pdf]]
+run     = 'md2pdf %s'
+block   = true
+desc    = "md2pdf"
+for     = "unix"
+
+# glow
+[[opener.glow]]
+run     = 'export EDITOR="nvim"; glow --tui %s'
+block   = true
+orphan  = true
+desc    = "Read with Glow"
+for     = "unix"
+
+# zathura
+[[opener.zathura]]
+run     = 'zathura %s'
+orphan  = true
+desc    = "zathura"
+for     = "unix"
+
+
+#### DOCS ####
+
+
+[[opener.office]]
+run     = 'libreoffice %s'
+orphan  = true
+desc    = "LibreOffice"
+for     = "unix"
+
+#### AUDIO ####
+
+# audio
+[[opener.mpv-audio]]
+run     = 'mpv --no-video --quiet %s'
+block   = true
+desc    = "Play with mpv"
+for     = "unix"
+
+[[opener.mpd]]
+run     = 'mpc status | grep -q playing && mpc pause || { mpc clear; mpc add "$(realpath %s1)"; mpc play; }'
+desc    = "Play/pause mpd"
+for     = "unix"
+
+[[opener.mp3tager]]
+run     = 'mp3tager %s'
+block   = true
+desc    = "Change tags"
+for     = "unix"
+
+[[opener.songrec]]
+run     = 'musictools -v -a songrec -i %s1'
+block   = true
+desc    = "Shazam"
+for     = "unix"
+
+[[opener.mp3info]]
+run     = 'musictools -v -a mp3info -i %s'
+block   = true
+desc    = "mp3info"
+for     = "unix"
+
+#### VIDEO ####
+
+# video
+[[opener.mpv]]
+run     = 'mpv %s'
+orphan  = true
+desc    = "Play with mpv"
+for     = "unix"
+
+[[opener.ffplay]]
+run     = 'ffplay -fs -autoexit %s1'
+orphan  = true
+desc    = "ffplay"
+for     = "unix"
+
+
+#### HTML ####
+
+
+# lynx
+[[opener.lynx]]
+run     = 'lynx %s1'
+block   = true
+desc    = "lynx"
+for     = "unix"
+
+# firefox
+[[opener.firefox]]
+run     = 'firefox %s'
+orphan  = true
+desc    = "firefox"
+for     = "unix"
+
+
+#### IMAGES ####
+
+
+# sxiv-thumb
+[[opener.sxiv-thumb]]
+run     = 'sxiv -t %s'
+orphan  = true
+desc    = "sxiv thumbs"
+for     = "unix"
+
+# sxiv-show
+[[opener.sxiv-show]]
+run     = 'nsxiv -b -S 2 -s f %s'
+orphan  = true
+desc    = "sxiv slideshow"
+for     = "unix"
+
+[[opener.wallpaper]]
+run     = 'echo "feh --bg-scale --fullscreen -Z \"$(realpath %s1)\" &" > ~/.wallpaper.sh; bash ~/.wallpaper.sh'
+desc    = "Set wallpaper"
+for     = "unix"
+
+
+#### ARCHIVES ####
+
+# archives (multiple tables with the same name = one array, in order)
+[[opener.extract]]
+run     = 'ya pub augmented-extract --list %s'
+block   = true
+desc    = "Extract here (augmented)"
+for     = "unix"
+
+[[opener.extract]]
+run     = 'tar -xf %s1'
+block   = true
+desc    = "tar -xf here"
+for     = "unix"
+
+[[opener.extract]]
+run     = '7z x %s1'
+block   = true
+desc    = "7z x here"
+for     = "unix"
+
+# unzip
+[[opener.unzip]]
+run     = 'unzip %s1'
+block   = true
+desc    = "unzip here"
+for     = "unix"
+
+[[opener.extract]]
+run     = 'unrar x %s1'
+block   = true
+desc    = "unrar x here"
+for     = "unix"
+
+[[opener.zip-list]]
+run     = 'zip -sf %s1 | less'
+block   = true
+desc    = "View zip contents"
+for     = "unix"
+
+#### TEST ####
+
+
+[[opener.notify]]
+run     = 'notify-send %s1'
+desc    = "notify-send test"
+for     = "unix"
+
+# ---------- rules ----------
+
+[[open.prepend_rules]]
+url = "*.ssh"
+use = ["sshfs-mount"]
+
+# folders
+[[open.prepend_rules]]
+url = "*/"
+use = ["terminal","code", "sxivfolder"]
+
+# pdf
+[[open.prepend_rules]]
+url = "*.pdf"
+use = ["zathura"]
+
+# md
+[[open.prepend_rules]]
+url = "*.md"
+use = ["glow", "vim", "code", "md2pdf"]
+
+[[open.prepend_rules]]
+url = "*.{txt,sh,py,js,css}"
+use = ["vim", "vimdiff", "meld"]
+
+
+# html
+[[open.prepend_rules]]
+url = "*.{html,htm}"
+use = [ "firefox","lynx", "vim"]
+
+
+
+[[open.prepend_rules]]
+url = "*.{odt,doc,docx,xls,xlsx,odp,pptx}"
+use = ["office"]
+
+
+
+# zip
+[[open.prepend_rules]]
+url = "*.{zip}"
+use = ["unzip", "zip-list"]
+
+# tar
+[[open.prepend_rules]]
+url = "*.{tar,tar.bz2,tbz2,tgz,tar.gz,tar.xz,txz,rar,7z}"
+use = ["extract"]
+
+
+
+
+
+# Configuration for the opener rules
+
+# TEXT
+[[open.prepend_rules]]
+url = "*.{el,org,tex}"
+use = ["vim", "code", "reveal"]
+
+[[open.prepend_rules]]
+mime = "text/*"
+use = ["vim", "code", "reveal"]
+
+# AUDIO
+[[open.prepend_rules]]
+mime = "{audio}/*"
+use = ["mpv-audio", "mpd", "mp3tager", "songrec", "mp3info", "notify","reveal"]
+
+# VIDEO
+[[open.prepend_rules]]
+mime = "{video}/*"
+use = ["mpv", "ffplay"]
+
+# IMAGE
+[[open.prepend_rules]]
+mime = "image/*"
+use = ["open", "nsxiv","sxiv-thumb", "wallpaper", "sxiv-show", "satty","reveal"]

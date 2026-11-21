@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+set -u
+
+fail() {
+	printf 'Error: %s\n' "$1" >&2
+	read -r -p 'Press Enter to close...' _
+	exit 1
+}
+
+default_mountpoint="$HOME/mnt/sshfs"
+read -r -p "Absolute path to the SSHFS mount [$default_mountpoint]: " mountpoint
+mountpoint=${mountpoint:-$default_mountpoint}
+mountpoint=${mountpoint/#\~/$HOME}
+[[ "$mountpoint" == /* && -d "$mountpoint" ]] || fail 'The mount directory must exist and use an absolute path.'
+
+command -v mountpoint >/dev/null 2>&1 || fail 'The mountpoint utility is required to verify the mount.'
+mountpoint -q -- "$mountpoint" || fail 'That directory is not a mount point.'
+
+if command -v fusermount3 >/dev/null 2>&1; then
+	fusermount3 -u -- "$mountpoint" || fail 'Unmount failed. If the mount is busy, leave the mounted directory and try again.'
+elif command -v fusermount >/dev/null 2>&1; then
+	fusermount -u -- "$mountpoint" || fail 'Unmount failed. If the mount is busy, leave the mounted directory and try again.'
+elif command -v umount >/dev/null 2>&1; then
+	umount -- "$mountpoint" || fail 'Unmount failed. If the mount is busy, leave the mounted directory and try again.'
+else
+	fail 'Neither fusermount nor umount is installed or available in PATH.'
+fi
+
+printf 'Unmounted %s.\n' "$mountpoint"
+read -r -p 'Press Enter to close...' _
