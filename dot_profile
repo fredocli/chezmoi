@@ -53,11 +53,17 @@ fi
 
 # TERMINAL
 
-export TERM="alacritty"
-export TERM_CLASS="alacritty"
+#export TERM="alacritty"
+#export TERM_CLASS="alacritty"
 
-export TERMINAL="alacritty"
-export TERMINAL_CLASS="alacritty"
+#export TERMINAL="alacritty"
+#export TERMINAL_CLASS="alacritty"
+
+export TERM="ghostty"
+export TERM_CLASS="ghostty"
+
+export TERMINAL="ghostty"
+export TERMINAL_CLASS="ghostty"
 
 if [ -f "/usr/local/bin/st" ] 
 then

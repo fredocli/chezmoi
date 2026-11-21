@@ -224,7 +224,8 @@ binds {
     
 
     // FILE MANAGER
-    Super+N { spawn "niri-launch-or-focus" "$FILEMANAGER_CLASS" "$FILEMANAGER"; }
+    Super+N { spawn-sh "ghostty --command=y";}
+    Super+Shift+N { spawn "niri-launch-or-focus" "$FILEMANAGER_CLASS" "$FILEMANAGER"; }
 
     // browser
     Super+W  { spawn "niri-launch-or-focus" "$BROWSER_CLASS" "$BROWSER"; }

@@ -1,4 +1,4 @@
-q#!/bin/sh
+#!/bin/sh
 # ~/.local/bin/cal-toggle
 id=$(niri msg -j windows | jq -r '.[] | select(.app_id=="cal") | .id')
 if [ -n "$id" ]; then
