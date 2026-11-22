@@ -11,7 +11,8 @@ packages:
     - fzf
     - git
     - glow
-    - gnome-keyring
+    - gnome-keyringghostty
+    - ghostty
     - gparted
     - grc # for pinentry-gnome3
     - jq
@@ -33,8 +34,10 @@ packages:
     - rofi
     - seahorse
     - swayimg
+    - ttf-jetbrains-mono-nerd
     - wl-clipboard
     - wtype
+    - yazi
     - yq
     - zathura
     - zenity
